@@ -1,0 +1,21 @@
+.title-head {
+    font-size: 26px;
+    line-height: 28px;
+    margin: 0;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2.4px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.required {
+    font-size: 13px;
+    color: red;
+}
+.btn-link-style {
+    text-decoration: none !important;
+    margin-top: 15px;
+    color: #dc4e3f;
+    display: block;
+    font-weight: 500;
+}

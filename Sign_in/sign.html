@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng kí</title>
+    <link rel="stylesheet" href="./style.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container margin-bottom-20 margin-top-30">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="page-login">
+                    <div id="login">
+                        <h1 class="title-head text-center">Đăng ký tài khoản</h1>
+                        <div class="title-foot text-center">Nếu chưa có tài khoản vui lòng đăng ký tại đây</div>
+                        <div class="text-center margin-bottom-10">
+                            <a href="" class="social-login--facebook"><img width="129px" height="37px"
+                                    alt="facebook-login-button" src="../img/icon_signin/fb-btn.svg"></a>
+                            <a href="" class="social-login--google"><img width="129px" height="37px"
+                                    alt="google-login-button" src="../img/icon_signin/gp-btn.svg"></a>
+                        </div>
+                        <form action="" id="customer_register" class="has-validation-callback">
+                            <div class="form-signup clearfix">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <fieldset class="form-group">
+                                            <label>Họ<span class="required">*</span></label>
+                                            <input placeholder="Nhập Họ" type="text"
+                                                class="form-control form-control-lg" value="" name="lastName"
+                                                id="lastName" required>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <fieldset class="form-group">
+                                            <label>Tên<span class="required">*</span></label>
+                                            <input placeholder="Nhập Tên" type="text"
+                                                class="form-control form-control-lg" value="" name="firstName"
+                                                id="firstName">
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <fieldset class="form-group">
+                                            <label>Số điện thoại<span class="required">*</span></label>
+                                            <input placeholder="Nhập Số điện thoại" type="tel"
+                                                class="form-control form-control-lg" value="" name="phone" id="phone">
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <fieldset class="form-group">
+                                            <label>Email<span class="required">*</span></label>
+                                            <input placeholder="Nhập Địa chỉ Email" type="email"
+                                                class="form-control form-control-lg" value="" name="email" id="email">
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <fieldset class="form-group">
+                                            <label>Mật khẩu<span class="required">*</span></label>
+                                            <input placeholder="Nhập Mật khẩu" type="password"
+                                                class="form-control form-control-lg" value="" name="password"
+                                                id="password">
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-12 text-center" style="margin-top:15px;">
+                                        <button type="submit" value="Đăng ký" class="btn btn-style btn-blues">Tạo tài
+                                            khoản</button>
+                                        <a href="../Sign_up/sign.html" title="Đăng nhập" class="btn btn-register btn-register-login">Đăng
+                                            nhập</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>

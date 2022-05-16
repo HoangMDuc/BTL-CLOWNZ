@@ -1,0 +1,20 @@
+.title-head {
+    font-size: 26px;
+    line-height: 28px;
+    margin: 0;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2.4px;
+}
+.title-foot {
+    font-size: 14px;
+    line-height: 24px;
+    color: #333;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.required {
+    font-size: 13px;
+    color: red;
+}
