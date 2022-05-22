@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-12 col-lg-3 col-left-ac">
+                <div class="block-account">
+                    <h5 class="title-account margin-top-10">Trang tài khoản</h5>
+                    <p>Xin chào, <span>dawd wefw</span>&nbsp;!</p>
+                    <ul>
+                        <li>
+                            <a disabled="disabled" class="title-info active" href="./account.html"
+                                title="Thông tin tài khoản">Thông tin tài khoản</a>
+                        </li>
+                        <li>
+                            <a class="title-info" href="./cart.html" title="Đơn hàng của bạn">Đơn hàng của bạn</a>
+                        </li>
+                        <li>
+                            <a class="title-info" href="./changepass.html" title="Đổi mật khẩu">Đổi mật khẩu</a>
+                        </li>
+                        <li>
+                            <a class="title-info" href="./address.html" title="Sổ địa chỉ">Sổ địa chỉ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-lg-9 col-right-ac">
+                <h1 class="title-head margin-top-0">Địa chỉ của bạn</h1>
+                <div id="add-address">
+                    <form accept-charset="utf-8" action="/account/addresses" id="customer_address" method="post"
+                        class="has-validation-callback">
+                        <input name="FormType" type="hidden" value="customer_address">
+                        <input name="utf8" type="hidden" value="true">
+                        <div class="pop_bottom">
+                            <div class="form_address">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="field">
+                                            <fieldset class="form-group">
+                                                <label>Họ tên</label>
+                                                <input type="text" placeholder="Họ tên" name="FullName"
+                                                    class="form-control" data-validation-error-msg="Không được để trống"
+                                                    data-validation="required" value="" autocapitalize="words">
+                                            </fieldset>
+                                            <p class="error-msg"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="field">
+                                            <fieldset class="form-group">
+                                                <label>Số điện thoại</label>
+                                                <input type="number" placeholder="Số điện thoại" class="form-control"
+                                                    id="Phone" pattern="\d+" name="Phone" maxlength="12" value="">
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="field">
+                                            <fieldset class="form-group">
+                                                <label>Công ty</label>
+                                                <input type="text" placeholder="Công ty" class="form-control"
+                                                    name="Company" value="">
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="field">
+                                            <fieldset class="form-group">
+                                                <label>Địa chỉ</label>
+                                                <input type="text" placeholder="Địa chỉ" class="form-control"
+                                                    name="Address1" value="">
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <fieldset class="form-group select-field">
+                                        <label>Quốc gia</label>
+                                        <select name="Country" class="form-control vn-fix add has-content"
+                                            id="mySelect1" data-default="Việt Nam">
+                                            <option value="Armenia">Armenia</option>                                            
+                                            <option value="Vietnam">Vietnam</option>
+                                        </select>
+                                    </fieldset>
+                                </div>
+                                <div class="group-country">
+                                    <fieldset class="form-group select-field not-vn">
+                                        <label>Tỉnh thành</label>
+                                        <select name="Province" value="" class="form-control add" id="mySelect2"
+                                            data-address-type="province" data-address-zone="billing"
+                                            data-select2-id="select2-data-billingProvince">
+                                            <option value="" hidden="">---</option>
+                                            <option value="Hà Nội">Hà Nội</option>
+                                            <option value="Bình Định">Bình Định</option>
+                                            <option value="Nam Định">Nam Định</option>
+                                        </select>
+                                    </fieldset>
+                                    <fieldset class="form-group select-field not-vn">
+                                        <label>Quận huyện</label>
+                                        <input type="text" placeholder="Địa chỉ" class="form-control"
+                                                    name="Address1" value="">
+                                    </fieldset>
+                                    <fieldset class="form-group select-field not-vn">
+                                        <label>Phường xã</label>
+                                        <input type="text" placeholder="Địa chỉ" class="form-control"
+                                                    name="Address1" value="">
+                                    </fieldset>
+                                </div>
+                                <div class="field">
+                                    <fieldset class="form-group">
+                                        <label>Mã Zip</label>
+                                        <input type="text" placeholder="Mã Zip" class="form-control" name="Zip"
+                                            value="">
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="checkbox margin-bottom-10">
+                                <label class="c-input c-checkbox">
+                                    <input type="checkbox" id="address_default_address_0" name="IsDefault" value="true">
+                                    <span class="c-indicator">Đặt là địa chỉ mặc định?</span>
+                                </label>
+                            </div>
+                            <div class="btn-row">
+                                <button class="btn btn-lg btn-see-more" id="addnew" type=""><span>Thêm địa
+                                        chỉ</span></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
