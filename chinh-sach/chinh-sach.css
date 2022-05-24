@@ -1,0 +1,100 @@
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+    
+}
+
+body {
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    box-sizing: border-box;
+}
+
+#header{
+    position: fixed;
+    width: 100%;
+    height: 134px;
+    z-index: 1;
+    background-color: #fff;
+}
+
+.top-header {
+    height: 90px;
+}
+
+.slider {
+    padding-top: 135px;
+}
+
+.header-dropdown-menu {
+    width: 200px;
+    margin: 0;
+    padding: 0;
+    top: 100% !important;
+    border-radius: 0;
+    left: -20px !important; 
+    box-shadow: 0 0 10px 0 rgb(0 0 0 / 15%);
+    position: relative;
+}
+
+.dropdown-item {
+    font-size: 1.4rem;
+    padding: 6px 10px;
+}
+.header-dropdown-menu li:last-child {
+    padding-bottom: 5px;
+}
+
+.dropdown:hover .header-dropdown-menu {
+    display: block;
+}
+ .hover-text:hover {
+     color: #dc4e3f !important; 
+ }
+ h4{
+    color: #bfbfbf;
+}
+.form-control {
+    height: 40px;
+    padding: 0 20px 0 20px;
+}
+input{
+    width: 85%;
+    height: 40px;
+    padding: 15px;
+    border: none;
+    outline: none;
+    background-color: #f0f0f0;
+}
+.btn-see-more{
+    height: 42px;
+    width: 252px;
+    background: black;
+    margin: 20px;
+    /* float: left; */
+    border:0px;
+    color:#fff;
+    box-shadow: 0 0 1px #1c1c1c;
+    -webkit-transition-duration: 0.45s;
+    -webkit-transition-timing-function: ease-in;
+    box-shadow:0px 0 0 #fff  inset;
+}
+.btn-see-more:hover{
+    -webkit-box-shadow: -252px 0 0 #fff inset;
+    color: #1c1c1c;
+    border:1px solid #1c1c1c;
+
+}
+.payment-method {
+    display: flex;
+    justify-content: space-between;
+}
+.background-top {
+    padding-top: 135px;
+}
+.card {
+    background-image: url("/img/magazine/evo-blog-banner.jpg");
+    background-repeat: no-repeat;
+    height: 250px;
+}

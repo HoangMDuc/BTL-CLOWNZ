@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link rel="stylesheet" href="./magazine.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <header id="header">
+        <div class="container">
+            <div class="row py-4 border-bottom align-items-center top-header">
+                <div class="hotline col-4">
+                    <span class="hotline-text">
+                        HOTLINE ĐẶT HÀNG:
+
+                    </span>
+                    <a href="tel:058660 8660" class="text-decoration-none text-dark fw-bolder hover-text">058660
+                        8660</a>
+                </div>
+                <div class="logo col-4">
+                    <a href="../index.html"><img src="../img/image-main/logo (1).png" alt=""></a>
+                </div>
+                <div class="header-control col-2 d-flex justify-content-end gap-5">
+                    <div class="cart-shopping hover-text">
+                        <span class="">GIỎ HÀNG</span>
+                        <i class="fa-solid fa-cart-arrow-down"></i>
+                    </div>
+                    <div class="search-btn hover-text">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                </div>
+                <div class="col-2 d-flex justify-content-end gap-4 align-items-center">
+                    <a href="" class="text-decoration-none">ĐĂNG NHẬP</a>
+                    <i class="fa-solid fa-user"></i>
+                    <a href="" style="display:none;">ĐĂNG XUẤT</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="offcanvas offcanvas-end nav-mobile" tabindex="-1" id="offcanvasNavbar"
+                        aria-labelledby="offcanvasNavbarLabel">
+                        <div class="offcanvas-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <ul class="navbar-nav justify-content-between gap-4 flex-grow-1 pe-3 ">
+                                <li class="nav-item p-3">
+                                    <a class="nav-link hover-text p-0 text-dark" aria-current="page" href="#">Z-BOT
+                                        CAPSULE</a>
+                                </li>
+                                <li class="nav-item p-3">
+                                    <a class="nav-link hover-text p-0 text-dark" href="#">YOUNG/WILD N' TRIPPY</a>
+                                </li>
+
+                                <li class="nav-item p-3 dropdown">
+                                    <a class="nav-link hover-text p-0 dropdown-toggle text-dark" href="#"
+                                        id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        TOP
+                                    </a>
+                                    <ul class="dropdown-menu border-0 header-dropdown-menu"
+                                        aria-labelledby="offcanvasNavbarDropdown">
+                                        <li><a class="dropdown-item hover-text" href="#">T-Shirt</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item hover-text" href="#">Shirt</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item hover-text" href="#">Hoodie</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item hover-text" href="#">Jacket</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item hover-text" href="#">Sweatshirt</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item p-3 dropdown">
+                                    <a class="nav-link hover-text p-0 dropdown-toggle text-dark" href="#"
+                                        id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        BOTTOM
+                                    </a>
+                                    <ul class="dropdown-menu border-0 header-dropdown-menu"
+                                        aria-labelledby="offcanvasNavbarDropdown">
+                                        <li><a class="dropdown-item hover-text" href="#">Pants</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item hover-text" href="#">Jeans & Denim</a></li>
+
+                                    </ul>
+                                </li>
+
+                                <li class="nav-item p-3 dropdown">
+                                    <a class="nav-link hover-text p-0 dropdown-toggle text-dark" href="#"
+                                        id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        ACCESSORY
+                                    </a>
+                                    <ul class="dropdown-menu border-0 header-dropdown-menu"
+                                        aria-labelledby="offcanvasNavbarDropdown">
+                                        <li><a class="dropdown-item hover-text" href="#">Bag</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item hover-text" href="#">Hat</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item hover-text" href="#">Backpack</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item hover-text" href="#">Others</a></li>
+
+
+                                    </ul>
+                                </li>
+                                <li class="nav-item p-3 dropdown"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="container-fluid img-fluid background-top">
+        <div class="row card card-background justify-content-center align-items-center">
+                <h3 class="card-title text-light text-center  h1">MAGAZINE</h3>
+        </div>
+    </div>
+    <div class="container pt-5">
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-12 news-items">
+                <a href="./bai-viet-1.html" class="text-decoration-none text-dark">
+                    <div class="card border-0">
+                        <img class="img-blog mx-auto"
+                            src="../img/magazine/123145878-3511820475520595-6460043910944103303-o.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title hover-text text-dark text-center text-uppercase">ClownZ Streetwear và
+                                Saigon Swagger</h5>
+                            <p class="hidden-xs"> Sau những ngày tháng ủ ê vì giãn cách, ClownZ Streetwear và Saigon
+                                Swagger đã quay trở lại đường đua c...</p>
+                        </div>
+                    </div>
+    
+    
+                </a>
+            </div>
+    
+            <div class="col-md-4 col-sm-4 col-xs-12 news-items">
+                <a href="" class="text-decoration-none text-dark">
+                    <div class="card border-0">
+                        <img class=" img-blog mx-auto"
+                            src="../img/magazine/123605399-3520769507959025-5750752661906101041-o.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title hover-text text-dark text-center text-uppercase">ClownZ x Rap Nhà Làm
+                                | Homemade Rapper Collection</h5>
+                            <p class="hidden-xs"> Mang trong mình tình cảm đặc biệt với văn hóa đường phố, tinh thần
+                                support-local-artist cùng mong muốn góp...</p>
+                        </div>
+                    </div>
+    
+    
+                </a>
+            </div>
+    
+            <div class="col-md-4 col-sm-4 col-xs-12 news-items">
+                <a href="" class="text-decoration-none text-dark">
+                    <div class="card border-0">
+                        <img class=" img-blog mx-auto"
+                            src="../img/magazine/137025954-3710919275610713-2221709931038671392-o.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title hover-text text-dark text-center">WOWY x CLOWNZ</h5>
+                            <p class="hidden-xs"> Rapper Wowy Nguyễn trong collection mới nhất của ClownZ Streetwear.
+                                Đây cũng là vinh dự khi ClownZ trở thà...</p>
+                        </div>
+                    </div>
+    
+                </a>
+            </div>
+    
+        </div>
+        <!-- dòng 2 -->
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-12 news-items">
+                <a href="" class="text-decoration-none text-dark">
+                    <div class="card border-0">
+                        <img class="img-blog mx-auto"
+                            src="../img/magazine/16143680-1270573972978601-982335708478266790-o.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title hover-text text-dark text-center text-uppercase">ClownZ Streetwear và
+                                Saigon Swagger</h5>
+                            <p class="hidden-xs"> Sau những ngày tháng ủ ê vì giãn cách, ClownZ Streetwear và Saigon
+                                Swagger đã quay trở lại đường đua c...</p>
+                        </div>
+                    </div>
+    
+    
+                </a>
+            </div>
+    
+            <div class="col-md-4 col-sm-4 col-xs-12 news-items">
+                <a href="" class="text-decoration-none text-dark">
+                    <div class="card border-0">
+                        <img class=" img-blog mx-auto"
+                            src="../img/magazine/182621288-4026388387397132-8967378679853572507-n.jpeg">
+                        <div class="card-body">
+                            <h5 class="card-title hover-text text-dark text-center text-uppercase">CLOWNZTOON | FALL WINTER 21</h5>
+                            <p class="hidden-xs">𝐂𝐋𝐎𝐖𝐍𝐙𝐓𝐎𝐎𝐍 𝐂𝐎𝐋𝐋𝐄𝐂𝐓𝐈𝐎𝐍 /𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋 𝐋𝐎𝐎𝐊𝐁𝐎𝐎𝐊  <br>
+                                CLOWNZTOON là BST bao gồm các thiết kế được lấy cảm hứng từ đam mê Ani...</p>
+                        </div>
+                    </div>
+    
+    
+                </a>
+            </div>
+    
+            <div class="col-md-4 col-sm-4 col-xs-12 news-items">
+                <a href="" class="text-decoration-none text-dark">
+                    <div class="card border-0">
+                        <img class=" img-blog mx-auto"
+                            src="../img/magazine/18517943-1388150234554307-6815637403322294175-o.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title hover-text text-dark text-center">THE COLLECTORS x CLOWNZ  &quot;Money Maker</h5>
+                            <p class="hidden-xs">16 Typh on the mic  
+                                This Collection is on fire 
+                                Tiếp nối Collection "Money Maker" được thực hiện cuối năm 2019, ClownZ x THE COLLECTORS tiếp tục bắt ...</p>
+                        </div>
+                    </div>
+    
+                </a>
+            </div>  
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <nav aria-label="Page navigation example" >
+                <ul class="pagination justify-content-center gap-2">
+                  <li class="page-item disabled">
+                    <a class="page-link bg-dark text-light rounded" href="#" tabindex="-1"><i class="fa-solid fa-angles-left"></i></a>
+                  </li>
+                  <li class="page-item"><a class="page-link text-light bg-danger rounded" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link text-light bg-dark rounded " href="#">2</a></li>
+                  <li class="page-item"><a class="page-link text-light bg-dark rounded" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link text-light bg-dark rounded"  href="#">4</a></li>
+                  <li class="page-item">
+                    <a class="page-link bg-dark text-light rounded" href="#"><i class="fa-solid fa-angles-right "></i></a>
+                  </li>
+                </ul>
+              </nav>
+        </div>
+    </div>
+    <!--  -->
+    <footer class="bg-light">
+        <div class="container pt-5">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <h3 class="my-3">
+                        <a href="">
+                            <img src="../img/image-main/logo (1).png" alt="" style="max-width: 100%">
+                        </a>
+                    </h3>
+                    <ul style="list-style-type: none;">
+                        <li class="fw-bolder mt-4 mb-2"><i class="fa fa-map-marker " aria-hidden="true"></i> CÔNG TY
+                            TNHH 2 THÀNH VIÊN CLOWNZ</li>
+                        <li><i class="fa fa-phone my-2" aria-hidden="true"></i> <a
+                                class="text-decoration-none hover-text text-dark fw-bolder" href="tel:0586608660"
+                                title="0586608660">058660 8660</a></li>
+                        <li><i class="fa fa-envelope my-2" aria-hidden="true"></i> <a
+                                class="text-decoration-none hover-text text-dark fw-bolder"
+                                href="mailto:duong@clownz.vn" title="duong@clownz.vn">duong@clownz.vn</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 ">
+                    <h3>LIÊN HỆ</h3>
+                    <div class="h5">
+                        <p class="my-4">
+                            <i class="fa fa-map-marker mx-2 text-success"></i>
+                            <b>CLOWNZ STORE</b>
+                        </p>
+                        <p class="my-4">
+                            <i class="fa fa-map-marker mx-2 text-success"></i>45 Núi Trúc, Ba Đình, HN
+                        </p>
+                        <p class="my-4">
+                            <i class="fa fa-map-marker mx-2 text-success"></i>19 Hồ Đắc Di, Đống Đa, HN
+                        </p>
+                        <p class="my-4">
+                            <i class="fa fa-map-marker mx-2 text-success"></i>The New Play Ground Vincom Bà Triệu
+                        </p>
+                        <p class="my-4">
+                            <i class="fa fa-truck mx-2 text-success"></i>Ship COD toàn quốc
+                        </p>
+                        <p class="my-4">
+                            <i class="fa fa-gift mx-2 text-success"></i>FREESHIP đơn hàng từ 399.000đ
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <h5>CHÍNH SÁCH</h5>
+                    <ul style="list-style-type: none;" class="p-0">
+
+                        <li class="my-3"><a
+                                class="hover-text text-decoration-none text-dark fw-bolder text-uppercase h5" href="./chinh-sach-thanh-vien.html"
+                                title="Chính sách thành viên" rel="nofollow">Chính sách thành viên</a></li>
+
+                        <li class="my-3"><a
+                                class="hover-text text-decoration-none text-dark fw-bolder text-uppercase h5" href="./chinh-sach-doi-tra.html"
+                                title="Chính sách đổi trả" rel="nofollow">Chính sách đổi trả</a></li>
+
+                        <li class="my-3"><a
+                                class="hover-text text-decoration-none text-dark fw-bolder text-uppercase h5" href="./chinh-sach-van-chuyen.html"
+                                title="Chính sách vận chuyển" rel="nofollow">Chính sách vận chuyển</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div>
+                        <h3>ĐĂNG KÝ NHẬN TIN</h3>
+                        <p>Nhận thông tin sản phẩm mới nhất, tin khuyến mãi và nhiều hơn nữa.</p>
+                        <form >
+                            <input class="form-style" type="email" class="form-control" value="" placeholder="Email của bạn" name="EMAIL"
+                                id="mail">
+                                <div class="">
+                                    <button class="btn-see-more btn-main">ĐĂNG KÝ</button> 
+                                </div>
+                        </form>
+                        <div>
+                            <ul class="payment-method" style="list-style-type: none;">
+                                <li class="item">
+                                    <img src="../img/image-main/payment_1.svg" />
+                                </li>
+                                <li class="item">
+                                    <img src="../img/image-main/payment_2.svg" />
+                                </li>
+                                <li class="item">
+                                    <img src="../img/image-main/payment_3.svg" />
+                                </li>
+                                <li class="item">
+                                    <img src="../img/image-main/payment_4.svg" />
+                                </li>
+                              <li class="item">
+                                    <img src="../img/image-main/payment_5.svg" />
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    </footer>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

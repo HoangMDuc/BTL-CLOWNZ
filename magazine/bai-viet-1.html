@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link rel="stylesheet" href="./magazine.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <header id="header">
+        <div class="container">
+            <div class="row py-4 border-bottom align-items-center top-header">
+                <div class="hotline col-4">
+                    <span class="hotline-text">
+                        HOTLINE ĐẶT HÀNG:
+
+                    </span>
+                    <a href="tel:058660 8660" class="text-decoration-none text-dark fw-bolder hover-text">058660
+                        8660</a>
+                </div>
+                <div class="logo col-4">
+                    <a href="../index.html"><img src="../img/image-main/logo (1).png" alt=""></a>
+                </div>
+                <div class="header-control col-2 d-flex justify-content-end gap-5">
+                    <div class="cart-shopping hover-text">
+                        <span class="">GIỎ HÀNG</span>
+                        <i class="fa-solid fa-cart-arrow-down"></i>
+                    </div>
+                    <div class="search-btn hover-text"> 
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                </div>
+                <div class="col-2 d-flex justify-content-end gap-4 align-items-center">
+                    <a href="" class="text-decoration-none">ĐĂNG NHẬP</a>
+                    <i class="fa-solid fa-user"></i>
+                    <a href="" style="display:none;">ĐĂNG XUẤT</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="container border-bottom">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="offcanvas offcanvas-end nav-mobile" tabindex="-1" id="offcanvasNavbar"
+                        aria-labelledby="offcanvasNavbarLabel">
+                        <div class="offcanvas-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <ul class="navbar-nav justify-content-between gap-4 flex-grow-1 pe-3 ">
+                                <li class="nav-item p-3">
+                                    <a class="nav-link hover-text p-0 text-dark" aria-current="page" href="#">Z-BOT
+                                        CAPSULE</a>
+                                </li>
+                                <li class="nav-item p-3">
+                                    <a class="nav-link hover-text p-0 text-dark" href="#">YOUNG/WILD N' TRIPPY</a>
+                                </li>
+
+                                <li class="nav-item p-3 dropdown">
+                                    <a class="nav-link hover-text p-0 dropdown-toggle text-dark" href="#"
+                                        id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        TOP
+                                    </a>
+                                    <ul class="dropdown-menu border-0 header-dropdown-menu"
+                                        aria-labelledby="offcanvasNavbarDropdown">
+                                        <li><a class="dropdown-item hover-text" href="#">T-Shirt</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item hover-text" href="#">Shirt</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item hover-text" href="#">Hoodie</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item hover-text" href="#">Jacket</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item hover-text" href="#">Sweatshirt</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item p-3 dropdown">
+                                    <a class="nav-link hover-text p-0 dropdown-toggle text-dark" href="#"
+                                        id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        BOTTOM
+                                    </a>
+                                    <ul class="dropdown-menu border-0 header-dropdown-menu"
+                                        aria-labelledby="offcanvasNavbarDropdown">
+                                        <li><a class="dropdown-item hover-text" href="#">Pants</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item hover-text" href="#">Jeans & Denim</a></li>
+
+                                    </ul>
+                                </li>
+
+                                <li class="nav-item p-3 dropdown">
+                                    <a class="nav-link hover-text p-0 dropdown-toggle text-dark" href="#"
+                                        id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        ACCESSORY
+                                    </a>
+                                    <ul class="dropdown-menu border-0 header-dropdown-menu"
+                                        aria-labelledby="offcanvasNavbarDropdown">
+                                        <li><a class="dropdown-item hover-text" href="#">Bag</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item hover-text" href="#">Hat</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item hover-text" href="#">Backpack</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item hover-text" href="#">Others</a></li>
+
+
+                                    </ul>
+                                </li>
+                                <li class="nav-item p-3 dropdown"></li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+   <div class="container-fluid border-bottom" style="padding-top: 150px;">
+    
+    <div class="row">
+        <ol class="breadcrumb bread-padding">
+            <li class="breadcrumb-item "><a href="#" class="text-dark text-decoration-none hover-text ">Trang chủ</a>
+            </li>
+            <li class="breadcrumb-item "><a href="#" class="text-dark text-decoration-none hover-text ">Magazine</a>
+            </li>
+            <li class="breadcrumb-item active text-dark text-decoration-none " aria-current="page">
+                𝐂𝐥𝐨𝐰𝐧𝐙 𝐱 𝐒𝐚𝐢𝐠𝐨𝐧 𝐒𝐰𝐚𝐠𝐠𝐞𝐫 𝐂𝐨𝐥𝐥𝐚𝐛𝐨𝐫𝐚𝐭𝐢𝐨𝐧 </li>
+        </ol>
+    </div>
+   </div>
+   <div class="container">
+    <div class="row p-5">
+        <div class="col-md-12 evo-article ">
+            <h1 class="text-center">𝐂𝐥𝐨𝐰𝐧𝐙 𝐱 𝐒𝐚𝐢𝐠𝐨𝐧 𝐒𝐰𝐚𝐠𝐠𝐞𝐫 𝐂𝐨𝐥𝐥𝐚𝐛𝐨𝐫𝐚𝐭𝐢𝐨𝐧</h1>
+            
+            <div class="text-center">Đăng bởi <b>clownz</b> vào lúc 14/12/2021</div>
+            <div class="p-5">						
+                <p>Sau những ngày tháng ủ ê vì giãn cách,&nbsp;<strong>ClownZ Streetwear&nbsp;</strong>và<strong>&nbsp;Saigon Swagger</strong>&nbsp;đã quay trở lại đường đua cực kì nhanh chóng. Những ngày “bình thường mới” đến chưa được bao lâu thì hai tên tuổi trong làng streetwear Việt này đã cùng nhau cho ra mắt BST “ClownZ x Saigon Swagger”, mở màn cho mùa thời trang Thu/Đông 2021.</p>
+                <p class="text-center"><img src="../img/magazine/30073521-1720155411353786-5756895315341233595-o.jpg" class="p-5" alt=""></p>
+                <p><strong>ClownZ x Saigon Swagger: Có gì trong BST?</strong></p>
+                <p>Những items xuất hiện trong collection này là sự kết hợp giữa những giá trị cốt lõi riêng biệt của hai thương hiệu, được thể hiện qua danh sách sản phẩm đa dạng, bao gồm Shirt, Pants, túi Satchel và Backpack.&nbsp;</p>
+                <p class="text-center"><img src="../img/magazine/46091615-1992202700815721-6537949172459372544-o.jpg" class="p-5" alt=""></p>
+                <p><strong>Tập trung vào details thay vì màu sắc</strong></p>
+                <p>Ban đầu, cảm hứng thiết kế nguyên thủy đến từ những chuyến đi chơi tràn ngập màu sắc tươi vui, gắn liền với mùa hè. Thế nhưng, với diễn biến phức tạp của dịch và thời gian dài giãn cách ở nhà, ClownZ và Saigon Swagger đã có pha “quay xe” định hướng collaboration lại, quyết định tập trung vào tính ứng dụng cao và những chi tiết nhỏ đắt giá cho các item trong BST.</p>
+
+                <p>Họa tiết checkerboard cổ điển, quen thuộc được làm mới bằng cách kết hợp hài hòa các tone màu khác nhau trong grayscale, mang đến cái nhìn vừa lạ vừa quen cho phần họa tiết này.</p>
+                <p class="text-center"><img src="../img/magazine/37931475-1839245812778078-6287980417974796288-o.jpg" class="p-5" alt=""></p>
+                <p><strong>Logo signature ClownZ x Saigon Swagger – Chi tiết đắt giá nhất không thể bỏ qua.</strong></p>
+                <p>Biến tấu cách điệu lấy cảm hứng từ họa tiết monogram, những yếu tố độc quyền chứa đựng DNA nhận dạng của hai thương hiệu được kết hợp, sử dụng xuyên suốt trong mọi items thuộc collection như một bước hoàn thiện cho tính cân bằng, tiêu chí tinh tế, sang trọng.</p>
+                <p><strong>Sự tỉ mỉ, và cẩn thận trong quá trình sản xuất.&nbsp;</strong></p>
+                <p class="text-center"><img src="../img/magazine/82632576-2757417520960898-4488949292060377088-o.jpg" class="p-5" alt=""></p>
+                <p>Tính cầu toàn, chỉn chu được thể hiện ngay trong cách gia công sản phẩm.&nbsp;Công nghệ in chuyển nhiệt trên nền vải kate mịn đã giúp các chi tiết, màu sắc ở bản thiết kế được thể hiện lên các dòng sản phẩm quần, áo với độ tinh xảo, chính xác cao nhất.&nbsp;</p>
+                <p>Đặc biệt, đối với hai dòng sản phẩm backpack và túi satchel, ClownZ và Saigon Swagger sử dụng kỹ thuật thêu vi tính nhằm đảm bảo tính thẩm mỹ, đồng thời chất lượng gia công cũng được đầu tư hơn một bậc.&nbsp;</p>
+
+                <p>Nhằm đạt được mục đích tăng tuổi thọ sử dụng, cũng như nâng khả năng chịu được sức nặng của nhiều đồ vật bên trong, vải Parachute Fabric được lựa chọn làm chất liệu chủ đạo. Đây cũng là chất liệu được các xưởng sản xuất dù cho phi công và vận động viên trên thế giới lựa chọn với độ bền kéo cực cao.</p>
+                <p>Hướng tới việc phục vụ nhu cầu mua sắm, “lên đồ” cho những cuộc gặp gỡ bạn bè, bắt nhịp với cuộc sống bình thường mới sau giãn cách – toàn bộ collection là sự tối ưu trong mix-and-match, khi có thể ton-sur-ton tất cả sản phẩm với nhau hoặc kết hợp riêng biệt, linh hoạt với mọi items có sẵn trong tủ đồ.&nbsp;</p>
+                <p>&nbsp;</p>
+            </div>
+        </div>
+        
+   </div>
+    <!--  -->
+    <footer class="bg-light">
+        <div class="container pt-5">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <h3 class="my-3">
+                        <a href="">
+                            <img src="../img/image-main/logo (1).png" alt="" style="max-width: 100%">
+                        </a>
+                    </h3>
+                    <ul style="list-style-type: none;">
+                        <li class="fw-bolder mt-4 mb-2"><i class="fa fa-map-marker " aria-hidden="true"></i> CÔNG TY
+                            TNHH 2 THÀNH VIÊN CLOWNZ</li>
+                        <li><i class="fa fa-phone my-2" aria-hidden="true"></i> <a
+                                class="text-decoration-none hover-text text-dark fw-bolder" href="tel:0586608660"
+                                title="0586608660">058660 8660</a></li>
+                        <li><i class="fa fa-envelope my-2" aria-hidden="true"></i> <a
+                                class="text-decoration-none hover-text text-dark fw-bolder"
+                                href="mailto:duong@clownz.vn" title="duong@clownz.vn">duong@clownz.vn</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 ">
+                    <h3>LIÊN HỆ</h3>
+                    <div class="h5">
+                        <p class="my-4">
+                            <i class="fa fa-map-marker mx-2 text-success"></i>
+                            <b>CLOWNZ STORE</b>
+                        </p>
+                        <p class="my-4">
+                            <i class="fa fa-map-marker mx-2 text-success"></i>45 Núi Trúc, Ba Đình, HN
+                        </p>
+                        <p class="my-4">
+                            <i class="fa fa-map-marker mx-2 text-success"></i>19 Hồ Đắc Di, Đống Đa, HN
+                        </p>
+                        <p class="my-4">
+                            <i class="fa fa-map-marker mx-2 text-success"></i>The New Play Ground Vincom Bà Triệu
+                        </p>
+                        <p class="my-4">
+                            <i class="fa fa-truck mx-2 text-success"></i>Ship COD toàn quốc
+                        </p>
+                        <p class="my-4">
+                            <i class="fa fa-gift mx-2 text-success"></i>FREESHIP đơn hàng từ 399.000đ
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <h5>CHÍNH SÁCH</h5>
+                    <ul style="list-style-type: none;" class="p-0">
+
+                        <li class="my-3"><a
+                                class="hover-text text-decoration-none text-dark fw-bolder text-uppercase h5" href="./chinh-sach-thanh-vien.html"
+                                title="Chính sách thành viên" rel="nofollow">Chính sách thành viên</a></li>
+
+                        <li class="my-3"><a
+                                class="hover-text text-decoration-none text-dark fw-bolder text-uppercase h5" href="./chinh-sach-doi-tra.html"
+                                title="Chính sách đổi trả" rel="nofollow">Chính sách đổi trả</a></li>
+
+                        <li class="my-3"><a
+                                class="hover-text text-decoration-none text-dark fw-bolder text-uppercase h5" href="./chinh-sach-van-chuyen.html"
+                                title="Chính sách vận chuyển" rel="nofollow">Chính sách vận chuyển</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div>
+                        <h3>ĐĂNG KÝ NHẬN TIN</h3>
+                        <p>Nhận thông tin sản phẩm mới nhất, tin khuyến mãi và nhiều hơn nữa.</p>
+                        <form >
+                            <input class="form-style" type="email" class="form-control" value="" placeholder="Email của bạn" name="EMAIL"
+                                id="mail">
+                                <div class="">
+                                    <button class="btn-see-more btn-main">ĐĂNG KÝ</button> 
+                                </div>
+                        </form>
+                        <div>
+                            <ul class="payment-method" style="list-style-type: none;">
+                                <li class="item">
+                                    <img src="../img/image-main/payment_1.svg" />
+                                </li>
+                                <li class="item">
+                                    <img src="../img/image-main/payment_2.svg" />
+                                </li>
+                                <li class="item">
+                                    <img src="../img/image-main/payment_3.svg" />
+                                </li>
+                                <li class="item">
+                                    <img src="../img/image-main/payment_4.svg" />
+                                </li>
+                              <li class="item">
+                                    <img src="../img/image-main/payment_5.svg" />
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    </footer>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
