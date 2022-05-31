@@ -127,3 +127,19 @@ input{
 .bread-padding {
     padding-left: 7%;
 }
+.color-element{
+    height: 35px;
+    width: auto;
+}
+.img-select-color{
+    height: 30px;
+    width: 30px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.active {
+    color: #1c1c1c !important;
+}
