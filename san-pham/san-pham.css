@@ -143,3 +143,26 @@ input::-webkit-inner-spin-button {
 .active {
     color: #1c1c1c !important;
 }
+.cart-quantity {
+    top: -87%;
+    left: 58%;
+    font-size: 9px;
+    background-color: #1c1c1c;
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    text-indent: 2px;
+    font-weight: 500;
+    min-width: 20px;
+    height: 20px;
+    line-height: 19px;
+    
+ }
+
+ .card-sticker {
+     top: 5%;
+     width: 100px;
+     font-size: 12px;
+     background-color: #410099;
+     color: #fff;
+ }
