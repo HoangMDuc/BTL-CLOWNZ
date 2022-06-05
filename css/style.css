@@ -22,6 +22,9 @@ body {
 .top-header {
     height: 90px;
 }
+.log-out {
+    display: none;
+}
 
 .slider {
     padding-top: 135px;

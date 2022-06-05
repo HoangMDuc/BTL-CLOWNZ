@@ -167,7 +167,7 @@
                 </li>
                 
                 <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-                    <strong itemprop="name">Đăng ký tài khoản</strong>
+                    <strong itemprop="name">Đăng nhập tài khoản</strong>
                     <meta itemprop="position" content="2">
                 </li>
                 
@@ -177,63 +177,48 @@
     <main>
         <div class="container margin-bottom-20 margin-top-30">
             <div class="row center">
-                <div class="col-md-6 block__center">
-                    <div class="page-login">
+                <div class="col-md-8 col-md-offset-2 block__center">
+                    <div class="page-login account-box-shadow">
                         <div id="login">
-                            <h1 class="title-head text-center">Đăng ký tài khoản</h1>
-                            <div class="title-foot text-center">Nếu chưa có tài khoản vui lòng đăng ký tại đây</div>
+                            <div class="text-center margin-bottom-30">
+                                <h1 class="title-head" style="margin-top: 20px; margin-bottom: 30px">Đăng nhập tài khoản
+                                </h1>
+                            </div>
                             <div class="text-center margin-bottom-10">
                                 <a href="" class="social-login--facebook"><img width="129px" height="37px"
                                         alt="facebook-login-button" src="../img/icon_signin/fb-btn.svg"></a>
                                 <a href="" class="social-login--google"><img width="129px" height="37px"
                                         alt="google-login-button" src="../img/icon_signin/gp-btn.svg"></a>
                             </div>
-                            <form action="" id="customer_register" class="has-validation-callback">
+                            <form action="" id="customer_login" method="post" class="has-validation-callback">
                                 <div class="form-signup clearfix">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <fieldset class="form-group">
-                                                <label>Họ<span class="required">*</span></label>
-                                                <input placeholder="Nhập Họ" type="text"
-                                                    class="form-control form-control-lg" value="" name="lastName"
-                                                    id="lastName" required>
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <fieldset class="form-group">
-                                                <label>Tên<span class="required">*</span></label>
-                                                <input placeholder="Nhập Tên" type="text"
-                                                    class="form-control form-control-lg" value="" name="firstName"
-                                                    id="firstName">
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <fieldset class="form-group">
-                                                <label>Số điện thoại<span class="required">*</span></label>
-                                                <input placeholder="Nhập Số điện thoại" type="tel"
-                                                    class="form-control form-control-lg" value="" name="phone" id="phone">
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <fieldset class="form-group">
-                                                <label>Email<span class="required">*</span></label>
-                                                <input placeholder="Nhập Địa chỉ Email" type="email"
-                                                    class="form-control form-control-lg" value="" name="email" id="email">
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <fieldset class="form-group">
-                                                <label>Mật khẩu<span class="required">*</span></label>
-                                                <input placeholder="Nhập Mật khẩu" type="password"
-                                                    class="form-control form-control-lg" value="" name="password"
-                                                    id="password">
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-md-12 text-center" style="margin-top:15px;">
-                                            <button type="submit" value="Đăng ký" class="btn-see-more btn-main">TẠO TÀI KHOẢN</button>
-                                            <a href="../Sign_up/sign.html" title="Đăng nhập" class="btn btn-register btn-register-login">Đăng
-                                                nhập</a>
-                                        </div>
+                                    <fieldset class="form-group mb-4">
+                                        <label>Email<span class="required">*</span></label>
+                                        <input placeholder="Nhập Địa chỉ Email" type="email"
+                                            class="form-control form-control-lg error" value="" name="email"
+                                            id="customer_email">
+                                    </fieldset>
+                                    <fieldset class="form-group">
+                                        <label>Mật khẩu<span class="required">*</span></label>
+                                        <input autocomplete="off" placeholder="Nhập Mật khẩu" type="password"
+                                            class="form-control form-control-lg error" value="" name="password"
+                                            id="customer_password">
+                                    </fieldset>
+                                    <div class="pull-xs-left text-center" style="margin-top: 15px;">
+                                        <a href="../Sign_up/sign.html" title="Đăng nhập" class="btn btn-register btn-register-login btn-see-more btn-main">Đăng
+                                            nhập</a>  
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <p class="text-center">
+                                        <a href="./forgot.html" class="btn-link-style" title="Quên mật khẩu?"
+                                            style="text-decoration: none; color: red;">Quên mật khẩu?</a>
+                                    </p>
+                                    <div class="text-login text-center">
+                                        <p>
+                                            Bạn chưa có tài khoản. Đăng ký <a href="../sign-up/sign.html"
+                                                title="Đăng ký" style="text-decoration: none;color: red;">tại
+                                                đây.</a>
+                                        </p>
                                     </div>
                                 </div>
                             </form>
@@ -241,7 +226,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </main>
     <footer class="bg-light">
         <div class="container pt-5">

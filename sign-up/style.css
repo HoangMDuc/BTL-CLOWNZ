@@ -1,3 +1,17 @@
+input.invalid {
+            
+    border: 1px solid red !important;
+    box-shadow: none !important;
+}
+.warning-message {
+    color: red;
+    display: none;
+}
+.invalid ~ .warning-message {
+    display: block;
+}
+
+
 .center{
     display: block;
     margin-left: auto;
