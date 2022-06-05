@@ -11,6 +11,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="./admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -109,8 +112,7 @@
                     </div>
                 </nav>
             </div>
-            <div class="col-1"></div>
-            <div class="col-9">
+            <div class="col-10">
                 <div class="header border-bottom">
                     <div class="block__logo">
                         <a href="">
@@ -225,94 +227,104 @@
                         </ul>
                     </div>
                 </div>
-                <main class="row mt-5 mr-5">
-                    <div class="header">
-                        <a href="./admin.html" class="text-dark"><i class="fa-solid fa-angle-left"></i><span>Chỉnh sửa sản phẩm</span></a>
+                <main class="mt-5 mr-5">
+                    <div class="main__header d-flex">
+                        <div class="header">
+                            <a href="./adminkh.html" class="text-dark"><i class="fa-solid fa-angle-left"></i><span>Quay
+                                    lại danh sách khách hàng</span></a>
+                        </div>
+                        <div class="header--main">
+                            <div class="help">
+                                <a href="./adminkh.html"
+                                    class="btn border-primary rounded text-decoration-center"><span>Thoát</span></a>
+                            </div>
+
+                            <div class="help">
+                                <a href="./adminkh.html" class="btn btn-primary rounded text-decoration-center"><span>Lưu</span></a>
+                            </div>
+                        </div>
                     </div>
-                    <section class="product-section">
-                        <div class="container p-5">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="header-section text-center">
-                                        <h2>
-                                            <a href="#" class="text-dark text-decoration-none hover-text">
-                                                <strong>Danh sách sản phẩm</strong>
-                                            </a>
-                                        </h2>
+                    <div class="main__body mt-5">
+                        <div class="item--1">
+                            <div class="main__cotent border border-dark rounded">
+                                <div class="main__header border border-end-0 border-bottom-1">
+                                    <h3>Thông tin chung
+                                    </h3>
+                                </div>
+                                <div class="main__funtion mt-2 form__name">
+                                    <div>
+                                        <div class="mb-3 ml-3 mr-3">
+                                            <label for="" class="form-label">Tên khách hàng <span
+                                                    style="color: red;">*</span></label>
+                                            <input type="text" class="form-control" name="" id=""
+                                                aria-describedby="helpId" placeholder="Nhập tên khách hàng">
+                                        </div>
+                                    </div>
+                                    <div class="row form__kh">
+                                        <div class="mb-3 col-5">
+                                            <label for="" class="form-label">Mã khách hàng<span
+                                                    style="color: red;">*</span></label>
+                                            <input type="text" class="form-control" name="" id=""
+                                                aria-describedby="helpId" placeholder="Nhập mã khách hàng">
+                                        </div>
+                                        <div class="mb-3 col-5">
+                                            <label for="" class="form-label">Số điện thoại</label>
+                                            <input type="text" class="form-control" name="" id=""
+                                                aria-describedby="helpId" placeholder="Nhập số điện thoại">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">Email <span style="color: red;">*</span>
+
+                                            </label>
+                                            <input type="email" class="form-control" name="" id=""
+                                                aria-describedby="emailHelpId" placeholder="Nhập Email">
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-4">
-
-                                    <div class="card text-center">
-                                        <div>
-                                            <h4>Sản phẩm 1</h4>
+                        <div class="item--2 mt-5">
+                            <div class="main__cotent border border-dark rounded">
+                                <div class="main__header">
+                                    <h3>Thông tin bổ sung
+                                    </h3>
+                                </div>
+                                <div class="main__funtion form__name">
+                                    <div class="row form__kh">
+                                        <div class="mb-3 col-5">
+                                            <label for="startDate">Ngày sinh</label>
+                                            <input id="startDate" class="form-control" type="date" />
+                                            <span id="startDateSelected"></span>
                                         </div>
-                                        <img class="card-img-top" src="../img/admin/2f0e7401-08f1-4720-b0ec-d64cbe9db5e1.jpg"
-                                            alt="Backbag">
-                                        <div class="card-body">
-                                            <div>
-                                                <a href="./admincs.html" class="btn btn-success text-center">Chỉnh sửa</a>
-                                            </div>
+                                        <div class="mb-3 col-5">
+                                          <label for="" class="form-label">Giới tính</label>
+                                          <select class="form-control" name="" id="">
+                                            <option>Nam</option>
+                                            <option>nữ</option>
+                                          </select>
                                         </div>
                                     </div>
-                                    </a>
-                                </div>
-                                <div class="col-4">
-                                    <div class="card text-center">
-                                        <div>
-                                            <h4>Sản phẩm 2</h4>
-                                        </div>
-                                        <img class="card-img-top" src="../img/admin/2f0e7401-08f1-4720-b0ec-d64cbe9db5e1.jpg"
-                                            alt="Backbag">
-                                        <div class="card-body">
-                                            <div>
-                                                <a href="./admincs.html" class="btn btn-success text-center">Chỉnh sửa</a>
-                                            </div>
-                                        </div>
+                                    <div class="form__kh">
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">Trạng thái giao dịch</label>
+                                            <select class="form-control" name="" id="">
+                                              <option>Đang giao dịch</option>
+                                              <option>Ngừng giao dịch</option>
+                                            </select>
+                                          </div>
                                     </div>
                                 </div>
-                                <div class="col-4">
-                                    <div class="card text-center">
-                                        <div>
-                                            <h4>Sản phẩm 3</h4>
-                                        </div>
-                                        <img class="card-img-top" src="../img/admin/2f0e7401-08f1-4720-b0ec-d64cbe9db5e1.jpg"
-                                            alt="Backbag">
-                                        <div class="card-body">
-                                            <div>
-                                                <a href="./admincs.html" class="btn btn-success text-center">Chỉnh sửa</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-4 mt-3">
-                                    <div class="card text-center">
-                                        <div>
-                                            <h4>Sản phẩm 4</h4>
-                                        </div>
-                                        <img class="card-img-top" src="../img/admin/2f0e7401-08f1-4720-b0ec-d64cbe9db5e1.jpg"
-                                            alt="Backbag">
-                                        <div class="card-body">
-                                            <div>
-                                                <a href="./admincs.html" class="btn btn-success text-center">Chỉnh sửa</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
                             </div>
-
-
                         </div>
-                    </section>
-                </main>
+                    </div>
             </div>
+            </main>
         </div>
-        <!-- <footer class="end">
+    </div>
+    <!-- <footer class="end">
             <div style="width: 50%;">
             </div>
             <div class="contact" style="width: 50%;">
@@ -338,10 +350,16 @@
     </div>
     </div>
     </footer> -->
-        <!-- JavaScript Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-            crossorigin="anonymous"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <script>let startDate = document.getElementById('startDate')
+        
+        startDate.addEventListener('change',(e)=>{
+          let startDateVal = e.target.value
+          document.getElementById('startDateSelected').innerText = startDateVal
+        })</script>
 </body>
 
 </html>

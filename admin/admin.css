@@ -163,6 +163,9 @@ a{
     margin-left: 20px;
     margin-right: 20px;
 }
+.form__kh{
+    justify-content:space-between;
+}
 .help{
     margin-left: 50px;
     margin-right: 50px;
@@ -176,7 +179,7 @@ a{
 .card-body{
     margin: 8px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 .MuiGrid-container {
     width: 100%;
@@ -192,10 +195,20 @@ a{
     border-bottom: 1px solid #E8EAEB;
     justify-content: space-between;
 }
+.form__name{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.input-group-append {
+    cursor: pointer;
+  }
 .jss1918 {
     width: 100%;
     height: calc(100% - 63px);
     display: flex;
     padding: 0 24px 16px 24px;
     flex-direction: column;
+}
+.list{
+    text-align: start !important;
 }
