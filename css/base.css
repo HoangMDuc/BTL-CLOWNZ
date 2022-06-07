@@ -12,7 +12,7 @@
 }
 
 
-/* .btn-detail {
+ /* .btn-detail {
     width: 100%;
     letter-spacing: 1px;
     font-weight: 500;
@@ -38,11 +38,11 @@
 }
 
 .product-card__actions {
-    /* top: 80%; */
-    /* width: 100%;
+    top: 80%;
+     width: 100%;
     will-change: transform;
     transform: translate3d(0, 100%, 0);
     transition: .3s ease-in-out;
     position: absolute;
-} */ 
+} */
 
