@@ -32,7 +32,7 @@
                         8660</a>
                 </div>
                 <div class="logo col-4">
-                    <a href="#"><img src="./img/image-main/logo (1).png" alt=""></a>
+                    <a href="../index.html"><img src="../img/image-main/logo (1).png" alt=""></a>
 
                 </div>
                 <div class="header-control col-2 d-flex justify-content-end gap-5">
@@ -47,9 +47,9 @@
                     </div>
                 </div>
                 <div class="col-2 d-flex justify-content-end gap-4 align-items-center">
-                    <a href="" class="text-decoration-none">ĐĂNG NHẬP</a>
+                    <a href="../sign-in/sign.html" class="text-decoration-none log-in">ĐĂNG NHẬP</a>
                     <i class="fa-solid fa-user"></i>
-                    <a href="" style="display:none;">ĐĂNG XUẤT</a>
+                    <a href="../sign-in/sign.html" style="display:none;" class="log-out">ĐĂNG XUẤT</a>
                 </div>
             </div>
 
@@ -177,11 +177,11 @@
     <main class="p-2">
         <div class="container">
             <div class="row">
-    
+
                 <div class="col-xs-12 col-sm-12 col-lg-3 col-left-ac">
                     <div class="block-account">
                         <h5 class="title-account margin-top-10">Trang tài khoản</h5>
-                        <p>Xin chào, <span>dawd wefw</span>&nbsp;!</p>
+                        <p>Xin chào, <span class="user_name"></span>!</p>
                         <ul>
                             <li>
                                 <a disabled="disabled" class="title-info active" href="./account.html"
@@ -207,25 +207,28 @@
                             <input name="FormType" type="hidden" value="change_customer_password">
                             <input name="utf8" type="hidden" value="true">
                             <p>
-                                Để đảm bảo tính bảo mật vui lòng đặt mật khẩu với ít nhất 8 kí tự
+                                Để đảm bảo tính bảo mật vui lòng đặt mật khẩu với ít nhất 6 kí tự
                             </p>
                             <div class="form-signup clearfix">
                                 <fieldset class="form-group">
                                     <label for="oldPass">Mật khẩu cũ <span class="error">*</span></label>
                                     <input type="password" placeholder="Mật khẩu cũ" name="OldPassword" id="OldPass"
-                                        required="" class="form-control form-control-lg">
+                                        class="form-control form-control-lg">
+                                    <span class="warning-message"></span>
                                 </fieldset>
                                 <fieldset class="form-group">
                                     <label for="changePass">Mật khẩu mới <span class="error">*</span></label>
                                     <input type="password" placeholder="Mật khẩu mới" name="Password" id="changePass"
-                                        required="" class="form-control form-control-lg">
+                                         class="form-control form-control-lg">
+                                    <span class="warning-message"></span>
                                 </fieldset>
                                 <fieldset class="form-group">
                                     <label for="confirmPass">Xác nhận lại mật khẩu <span class="error">*</span></label>
                                     <input type="password" placeholder="Xác nhận lại mật khẩu" name="ConfirmPassword"
-                                        id="confirmPass" required="" class="form-control form-control-lg">
+                                        id="confirmPass"  class="form-control form-control-lg">
+                                    <span class="warning-message"></span>
                                 </fieldset>
-                                <button class="btn-see-more btn-main"><i class="hoverButton"></i>Đặt
+                                <button class="btn-see-more btn-main reset-pw"><i class="hoverButton"></i>Đặt
                                     lại mật khẩu</button>
                             </div>
                         </form>
@@ -282,22 +285,18 @@
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <h5>CHÍNH SÁCH</h5>
                     <ul style="list-style-type: none;">
-
                         <li class="my-3"><a
                                 class="hover-text text-decoration-none text-dark fw-bolder text-uppercase h5"
                                 href="../chinh-sach/chinh-sach-thanh-vien.html" title="Chính sách thành viên"
                                 rel="nofollow">Chính sách thành viên</a></li>
-
                         <li class="my-3"><a
                                 class="hover-text text-decoration-none text-dark fw-bolder text-uppercase h5"
                                 href="../chinh-sach/chinh-sach-doi-tra.html" title="Chính sách đổi trả"
                                 rel="nofollow">Chính sách đổi trả</a></li>
-
                         <li class="my-3"><a
                                 class="hover-text text-decoration-none text-dark fw-bolder text-uppercase h5"
                                 href="../chinh-sach/chinh-sach-van-chuyen.html" title="Chính sách vận chuyển"
                                 rel="nofollow">Chính sách vận chuyển</a></li>
-
                     </ul>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-3">
@@ -333,4 +332,5 @@
                     </div>
                 </div>
     </footer>
+    <script src="./changepass.js" type="module"></script>
 </body>

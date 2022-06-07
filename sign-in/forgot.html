@@ -10,12 +10,12 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
     <title>Document</title>
 </head>
 
@@ -26,13 +26,12 @@
                 <div class="hotline col-4">
                     <span class="hotline-text">
                         HOTLINE ĐẶT HÀNG:
-
                     </span>
                     <a href="tel:058660 8660" class="text-decoration-none text-dark fw-bolder hover-text">058660
                         8660</a>
                 </div>
                 <div class="logo col-4">
-                    <a href="#"><img src="./img/image-main/logo (1).png" alt=""></a>
+                    <a href="#"><img src="../img/image-main/logo (1).png" alt=""></a>
 
                 </div>
                 <div class="header-control col-2 d-flex justify-content-end gap-5">
@@ -47,9 +46,9 @@
                     </div>
                 </div>
                 <div class="col-2 d-flex justify-content-end gap-4 align-items-center">
-                    <a href="" class="text-decoration-none">ĐĂNG NHẬP</a>
+                    <a href="./sign.html" class="text-decoration-none">ĐĂNG NHẬP</a>
                     <i class="fa-solid fa-user"></i>
-                    <a href="" style="display:none;">ĐĂNG XUẤT</a>
+                    <a href="./sign.html" style="display:none;">ĐĂNG XUẤT</a>
                 </div>
             </div>
 
@@ -157,7 +156,7 @@
     </header>
     <section class="bread-crumb margin-bottom-10">
         <div class="container">
-            <ul class="breadcrumb" itemscope="" itemtype="https://schema.org/BreadcrumbList">						
+            <ul class="breadcrumb" itemscope="" itemtype="https://schema.org/BreadcrumbList">
                 <li class="home" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
                     <a itemprop="item" href="/" title="Trang chủ">
                         <span itemprop="name">Trang chủ</span>
@@ -165,12 +164,12 @@
                     </a>
                     <span><i class="fa fa-angle-right"></i></span>
                 </li>
-                
+
                 <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
                     <strong itemprop="name">Đăng nhập tài khoản</strong>
                     <meta itemprop="position" content="2">
                 </li>
-                
+
             </ul>
         </div>
     </section>
@@ -178,41 +177,37 @@
         <div class="container margin-bottom-20 margin-top-30">
             <div class="row center">
                 <div class="col-md-8 col-md-offset-2 block__center"">
-                    <div class="page-login account-box-shadow">
-                        <div id="recover-password" class="form-signup">
-                            <div class="text-center">
-                                <h2 class="title-head"><span>Đặt lại mật khẩu</span></h2>
-                            </div>
-                            <div class="fix-sblock text-center">
-                                Bạn quên mật khẩu? Nhập địa chỉ email để lấy lại mật khẩu qua email.
-                            </div>
-                            <form action="" id="recover_customer_password" method="post" class="has-validation-callback">
-                                <input name="FormType" type="hidden" value="recover_customer_password">
-                                <input name="utf8" type="hidden" value="true">
-                                <div class="form-signup aaaaaaaa">
-    
-                                </div>
-    
-                                <div class="form-signup clearfix">
-                                    <fieldset class="form-group">
-                                        <label>Email<span class="required">*</span></label>
-                                        <input type="email" class="form-control form-control-lg" value="" name="Email"
-                                            id="recover-email" placeholder="Nhập địa chỉ Email">
-                                    </fieldset>
-                                </div>
-                                <div class="action_bottom text-center">
-                                    <button class="btn-see-more btn-main" style="margin-top: 15px;" type="submit"
-                                        value="Lấy lại mật khẩu">LẤY LẠI MẬT KHẨU</button>
-                                </div>
-                                <div class="text-login text-center">
-                                    <p>Quay lại <a href="../Sign_up/sign.html" class="btn-link-style btn-register"
-                                            title="Quay lại" style="text-decoration: none; color: red">tại đây.</a></p>
-                                </div>
-                            </form>
+                    <div class=" page-login account-box-shadow">
+                    <div id="recover-password" class="form-signup">
+                        <div class="text-center">
+                            <h2 class="title-head"><span>Đặt lại mật khẩu</span></h2>
                         </div>
+                        <div class="fix-sblock text-center">
+                            Bạn quên mật khẩu? Nhập địa chỉ email để lấy lại mật khẩu qua email.
+                        </div>
+                        <form action="" id="recover_customer_password" method="post" class="has-validation-callback">
+                            <input name="FormType" type="hidden" value="recover_customer_password">
+                            <input name="utf8" type="hidden" value="true">
+                            <div class="form-signup clearfix">
+                                <fieldset class="form-group">
+                                    <label>Email<span class="required">*</span></label>
+                                    <input type="email" class="form-control form-control-lg" value="" name="Email"
+                                        id="recover-email" placeholder="Nhập địa chỉ Email">
+                                    <span class="warning-message"></span>
+                                </fieldset>
+                            </div>
+                            <div class="action_bottom  text-center">
+                                <button class="btn-see-more btn-main pw-retrieval mt-3">LẤY LẠI MẬT KHẨU</button>
+                            </div>
+                            <div class="text-login text-center">
+                                <p>Quay lại <a href="../sign-in/sign.html" class="btn-link-style btn-register"
+                                        title="Quay lại" style="text-decoration: none; color: red">tại đây.</a></p>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </main>
     <footer class="bg-light">
@@ -314,5 +309,5 @@
                     </div>
                 </div>
     </footer>
-
+    <script src="./forgot.js" type="module"></script>
 </body>

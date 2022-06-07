@@ -243,3 +243,16 @@
      justify-content: space-between;
  }
  
+
+input.invalid {
+            
+    border: 1px solid red !important;
+    box-shadow: none !important;
+}
+.warning-message {
+    color: red;
+    display: none;
+}
+.invalid ~ .warning-message {
+    display: block;
+}

@@ -21,6 +21,26 @@
     font-size: 13px;
     color: red;
 }
+.bread-crumb {
+    padding-top: 144px;
+    
+}
+
+input.invalid {
+            
+    border: 1px solid red !important;
+    box-shadow: none !important;
+}
+.warning-message {
+    color: red;
+    display: none;
+}
+.invalid ~ .warning-message {
+    display: block;
+}
+
+
+
 .bread-crumb .breadcrumb a {
     color: #707e89;
     text-decoration: none;
