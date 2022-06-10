@@ -15,7 +15,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./sign_in.css">
     <title>Document</title>
 </head>
 
@@ -26,7 +26,6 @@
                 <div class="hotline col-4">
                     <span class="hotline-text">
                         HOTLINE ĐẶT HÀNG:
-
                     </span>
                     <a href="tel:058660 8660" class="text-decoration-none text-dark fw-bolder hover-text">058660
                         8660</a>
@@ -47,9 +46,9 @@
                     </div>
                 </div>
                 <div class="col-2 d-flex justify-content-end gap-4 align-items-center">
-                    <a href="#" class="text-decoration-none">ĐĂNG NHẬP</a>
+                    <a href="./sign_in.html" class="text-decoration-none">ĐĂNG NHẬP</a>
                     <i class="fa-solid fa-user"></i>
-                    <a href="" style="display:none;">ĐĂNG XUẤT</a>
+                    <a href="./sign_in.html" style="display:none;">ĐĂNG XUẤT</a>
                 </div>
             </div>
 
@@ -177,57 +176,39 @@
     <main>
         <div class="container margin-bottom-20 margin-top-30">
             <div class="row center">
-                <div class="col-md-8 col-md-offset-2 block__center">
-                    <div class="page-login account-box-shadow">
-                        <div id="login">
-                            <div class="text-center margin-bottom-30">
-                                <h1 class="title-head" style="margin-top: 20px; margin-bottom: 30px">Đăng nhập tài khoản
-                                </h1>
-                            </div>
-                            <div class="text-center margin-bottom-10">
-                                <a href="" class="social-login--facebook"><img width="129px" height="37px"
-                                        alt="facebook-login-button" src="../img/icon_signin/fb-btn.svg"></a>
-                                <a href="" class="social-login--google"><img width="129px" height="37px"
-                                        alt="google-login-button" src="../img/icon_signin/gp-btn.svg"></a>
-                            </div>
-                            <form action="" id="customer_login" method="post" class="has-validation-callback">
-                                <div class="form-signup clearfix">
-                                    <fieldset class="form-group mb-4">
-                                        <label>Email<span class="required">*</span></label>
-                                        <input placeholder="Nhập Địa chỉ Email" type="email"
-                                            class="form-control form-control-lg error" value="" name="email"
-                                            id="customer_email">
-                                        <span class="warning-message"></span>
-                                    </fieldset>
-                                    <fieldset class="form-group">
-                                        <label>Mật khẩu<span class="required">*</span></label>
-                                        <input autocomplete="off" placeholder="Nhập Mật khẩu" type="password"
-                                            class="form-control form-control-lg error" value="" name="password"
-                                            id="customer_password">
-                                        <span class="warning-message"></span>
-                                    </fieldset>
-                                    <div class="text-center">
-                                        <button type="submit" value="Đăng ký"
-                                        class="btn-see-more btn-main btn-create-acc">ĐĂNG NHẬP</button>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <p class="text-center">
-                                        <a href="./forgot.html" class="btn-link-style" title="Quên mật khẩu?"
-                                            style="text-decoration: none; color: red;">Quên mật khẩu?</a>
-                                    </p>
-                                    <div class="text-login text-center">
-                                        <p>
-                                            Bạn chưa có tài khoản. Đăng ký <a href="../sign-up/sign.html"
-                                                title="Đăng ký" style="text-decoration: none;color: red;">tại
-                                                đây.</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </form>
+                <div class="col-md-8 col-md-offset-2 block__center"">
+                    <div class=" page-login account-box-shadow">
+                    <div id="recover-password" class="form-signup">
+                        <div class="text-center">
+                            <h2 class="title-head"><span>Đặt lại mật khẩu</span></h2>
                         </div>
+                        <div class="fix-sblock text-center">
+                            Bạn quên mật khẩu? Nhập địa chỉ email để lấy lại mật khẩu qua email.
+                        </div>
+                        <form action="" id="recover_customer_password" method="post" class="has-validation-callback">
+                            <input name="FormType" type="hidden" value="recover_customer_password">
+                            <input name="utf8" type="hidden" value="true">
+                            <div class="form-signup clearfix">
+                                <fieldset class="form-group">
+                                    <label>Email<span class="required">*</span></label>
+                                    <input type="email" class="form-control form-control-lg" value="" name="Email"
+                                        id="recover-email" placeholder="Nhập địa chỉ Email">
+                                    <span class="warning-message"></span>
+                                </fieldset>
+                            </div>
+                            <div class="action_bottom  text-center">
+                                <button class="btn-see-more btn-main pw-retrieval mt-3">LẤY LẠI MẬT KHẨU</button>
+                            </div>
+                            <div class="text-login text-center">
+                                <p>Quay lại <a href="./sign_in.html" class="btn-link-style btn-register"
+                                        title="Quay lại" style="text-decoration: none; color: red">tại đây.</a></p>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
+        </div>
+        </div>
     </main>
     <footer class="bg-light">
         <div class="container pt-5">
@@ -328,5 +309,5 @@
                     </div>
                 </div>
     </footer>
-    <script src="./sign_in.js" type="module"></script>
+    <script src="./forgot.js" type="module"></script>
 </body>

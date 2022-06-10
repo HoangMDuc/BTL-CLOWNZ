@@ -1,16 +1,13 @@
-import validates from "../sign-up/validates.js";
+import validates from "../sign_up/validates.js";
 var inputEmail = document.querySelector('#customer_email')
 var inputPw = document.querySelector('#customer_password')
 var btnLogin = document.querySelector('.btn-login')
-
-
 
 
 btnLogin.onclick = function (e) {
     
     e.preventDefault();
     if(validates.isEmail(inputEmail) && validates.isPassword(inputPw)) {
-        
         fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/users")
             .then(res => res.json())
             .then(users => {
@@ -20,14 +17,9 @@ btnLogin.onclick = function (e) {
                 if(!userAcc) {
                     alert("Sai tài khoản")
                 }else if(userAcc.password === inputPw.value) {
-                    if(userAcc.isAdmin) {
-                        window.location.href = '../admin/admin.html'
-                    }else {
-                        window.location.href = '../index.html'
-                    }
                     
-                    localStorage.setItem('login', JSON.stringify({ 'islogin': 'true' }))
-                    localStorage.setItem('usersAccount', JSON.stringify(
+                    sessionStorage.setItem('login', JSON.stringify('true'))
+                    sessionStorage.setItem('usersAccount', JSON.stringify(
                         {
                             'name': `${userAcc.name}`,
                             'email': `${userAcc.email}`,
@@ -36,6 +28,13 @@ btnLogin.onclick = function (e) {
                             'isAdmin': userAcc.isAdmin
                         }
                     ))
+                    if(userAcc.isAdmin) {
+                        window.location.href = '../admin/home.html'
+                    }else {
+                        window.location.href = '../index.html'
+                    }
+                    
+                    
                 }
             })
     }

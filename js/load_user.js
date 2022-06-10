@@ -3,19 +3,20 @@ var logoutBtn = document.querySelector('.log-out')
 
 const Load = {
     start() {
-        if(JSON.parse(localStorage.getItem('login'))["islogin"] == 'true') {
+        if (JSON.parse(sessionStorage.getItem('login')) == 'true') {
             loginBtn.style.display = "none";
             logoutBtn.style.display = "block";
         }
         this.handleEvents()
+
     },
     handleEvents() {
-        logoutBtn.onclick  = function () {
-            localStorage.setItem('login',{'islogin': false})
+        logoutBtn.onclick = function () {
+            sessionStorage.setItem('login', { 'islogin': false })
         }
     }
 }
 
 
 
-export {Load}
+export { Load }

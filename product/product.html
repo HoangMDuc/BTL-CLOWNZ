@@ -10,13 +10,14 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="./san-pham.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" href="//bizweb.dktcdn.net/100/414/728/themes/803486/assets/favicon.png?1654316792671" type="image/x-icon">
+    <link rel="icon" href="//bizweb.dktcdn.net/100/414/728/themes/803486/assets/favicon.png?1654316792671"
+        type="image/x-icon">
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="./product.css">
     <title>Document</title>
 </head>
 
@@ -41,15 +42,76 @@
                         <i class="fa-solid fa-cart-arrow-down position-relative">
                             <span class="cart-quantity position-absolute">0</span>
                         </i>
+
+                        <div class="shopping-container position-absolute ">
+                            <div class="shopping-body h-100 px-3 py-4">
+                                <ul class="shopping-list ">
+                                    <li class="d-flex shopping-item gap-5 mb-2">
+                                        <img src="./img/top/hoodie/sp1.1.jpg" alt="" class="shopping-item-img">
+                                        <div class="shopping-item-info">
+                                            <h4 class="shopping-item-name mb-2">Clone Good Vibe...</h4>
+                                            <span class="shopping-item-price">379000</span>
+                                            <div class="quantity-select d-flex w-50 mt-3">
+                                                <span class="reduce-quantity border px-3">-</span>
+                                                <span class="shopping-item-quantity border px-4">2</span>
+                                                <span class="raise-quantity border px-3">+</span>
+                                                <i class="fa-solid fa-xmark cart-close px-1 ms-5"></i>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="d-flex shopping-item gap-5 mb-2">
+                                        <img src="./img/top/hoodie/sp1.1.jpg" alt="" class="shopping-item-img">
+                                        <div class="shopping-item-info">
+                                            <h4 class="shopping-item-name mb-2">Clone Good Vibe...</h4>
+                                            <span class="shopping-item-price">379000</span>
+                                            <div class="quantity-select d-flex w-50 mt-3">
+                                                <span class="reduce-quantity border px-3">-</span>
+                                                <span class="shopping-item-quantity border px-4">2</span>
+                                                <span class="raise-quantity border px-3">+</span>
+                                                <i class="fa-solid fa-xmark cart-close px-1 ms-5"></i>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="d-flex shopping-item gap-5 mb-2">
+                                        <img src="./img/top/hoodie/sp1.1.jpg" alt="" class="shopping-item-img">
+                                        <div class="shopping-item-info">
+                                            <h4 class="shopping-item-name mb-2">Clone Good Vibe...</h4>
+                                            <span class="shopping-item-price">379000</span>
+                                            <div class="quantity-select d-flex w-50 mt-3">
+                                                <span class="reduce-quantity border px-3">-</span>
+                                                <span class="shopping-item-quantity border px-4">2</span>
+                                                <span class="raise-quantity border px-3">+</span>
+                                                <i class="fa-solid fa-xmark cart-close px-1 ms-5"></i>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="d-flex justify-content-between ps-3 pe-4 mt-2 fs-4">
+                                    <p class="total-price-text fw-light text-dark">
+                                        Tổng tiền:
+                                    </p>
+                                    <div class="total-price text-danger">2000000đ</div>
+                                </div>
+                                <div class="row pb-2">
+                                    <div class="col-6">
+                                        <button class="btn-pay btn-see-more w-100 m-0">Thanh toán</button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn-pay btn-see-more w-100 m-0">Giỏ hàng</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                     <div class="search-btn hover-text">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                 </div>
                 <div class="col-2 d-flex justify-content-end gap-4 align-items-center">
-                    <a href="" class="text-decoration-none">ĐĂNG NHẬP</a>
+                    <a href="../sign-in/sign.html" class="text-decoration-none log-in">ĐĂNG NHẬP</a>
                     <i class="fa-solid fa-user"></i>
-                    <a href="" style="display:none;">ĐĂNG XUẤT</a>
+                    <a href="../sign-in/sign.html" style="display:none;" class="log-out">ĐĂNG XUẤT</a>
                 </div>
             </div>
 
@@ -71,78 +133,91 @@
                         <div class="offcanvas-body">
                             <ul class="navbar-nav justify-content-between gap-4 flex-grow-1 pe-3 ">
                                 <li class="nav-item p-3">
-                                    <a class="nav-link hover-text p-0 text-dark" aria-current="page" href="#">Z-BOT
+                                    <a class="nav-link hover-text p-0 text-dark category-item" data-index="1"
+                                        aria-current="page" href="#">Z-BOT
                                         CAPSULE</a>
                                 </li>
                                 <li class="nav-item p-3">
-                                    <a class="nav-link hover-text p-0 text-dark" href="#">YOUNG/WILD N' TRIPPY</a>
+                                    <a class="nav-link hover-text p-0 text-dark category-item" data-index="2"
+                                        href="#">YOUNG/WILD N' TRIPPY</a>
                                 </li>
 
                                 <li class="nav-item p-3 dropdown">
-                                    <a class="nav-link hover-text p-0 dropdown-toggle text-dark" href="#"
+                                    <a class="nav-link hover-text p-0 dropdown-toggle text-dark category-item" href="#"
                                         id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
                                         aria-expanded="false">
                                         TOP
                                     </a>
                                     <ul class="dropdown-menu border-0 header-dropdown-menu"
                                         aria-labelledby="offcanvasNavbarDropdown">
-                                        <li><a class="dropdown-item hover-text" href="#">T-Shirt</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#"
+                                                data-index="1">T-Shirt</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text" href="#">Shirt</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#"
+                                                data-index="2">Shirt</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text" href="#">Hoodie</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#"
+                                                data-index="3">Hoodie</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text" href="#">Jacket</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#"
+                                                data-index="4">Jacket</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text" href="#">Sweatshirt</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#"
+                                                data-index="5">Sweatshirt</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item p-3 dropdown">
-                                    <a class="nav-link hover-text p-0 dropdown-toggle text-dark" href="#"
+                                    <a class="nav-link hover-text p-0 dropdown-toggle text-dark category-item" href="#"
                                         id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
+                                        aria-expanded="false" data-index="4">
                                         BOTTOM
                                     </a>
                                     <ul class="dropdown-menu border-0 header-dropdown-menu"
                                         aria-labelledby="offcanvasNavbarDropdown">
-                                        <li><a class="dropdown-item hover-text" href="#">Pants</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#"
+                                                data-index="6">Pants</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text" href="#">Jeans & Denim</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#" data-index="7">Jeans
+                                                & Denim</a></li>
 
                                     </ul>
                                 </li>
 
                                 <li class="nav-item p-3 dropdown">
-                                    <a class="nav-link hover-text p-0 dropdown-toggle text-dark" href="#"
+                                    <a class="nav-link hover-text p-0 dropdown-toggle text-dark category-item" href="#"
                                         id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
+                                        aria-expanded="false" data-index="5">
                                         ACCESSORY
                                     </a>
                                     <ul class="dropdown-menu border-0 header-dropdown-menu"
                                         aria-labelledby="offcanvasNavbarDropdown">
-                                        <li><a class="dropdown-item hover-text" href="#">Bag</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#"
+                                                data-index="8">Bag</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text" href="#">Hat</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#"
+                                                data-index="9">Hat</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text" href="#">Backpack</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#"
+                                                data-index="10">Backpack</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text" href="#">Others</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#"
+                                                data-index="11">Others</a></li>
 
 
                                     </ul>
@@ -156,7 +231,7 @@
             </nav>
         </div>
     </header>
-    <div class="container-fluid border-bottom" style="padding-top: 150px;">
+    <!-- <div class="container-fluid border-bottom" style="padding-top: 150px;">
 
         <div class="row">
             <ol class="breadcrumb bread-padding">
@@ -170,59 +245,63 @@
                     Diamond Z-bot T-shirt </li>
             </ol>
         </div>
-    </div>
-    <div class="container">
+    </div> -->
+    <div class="container" style="padding-top: 200px;">
         <div class="row p-5">
             <div class="col-xs-12 col-sm-6 col-lg-6 col-md-6">
                 <div class="row">
                     <div class="col-12 mb-3">
-                        <img src="../img/top/tshirts/sp1.1.jpg" alt="" class=" w-100">
+                        <img src="" alt="" class="w-100 product-img">
                     </div>
                     <div class="col-12">
-                        <div class="row">
-                            <div class="col-2_4"><img class="w-100" src="../img/top/tshirts/sp1.1.jpg" alt=""></div>
-                            <div class="col-2_4"><img class="w-100" src="../img/top/tshirts/sp1.1.jpg" alt=""></div>
-                            <div class="col-2_4"><img class="w-100" src="../img/top/tshirts/sp1.1.jpg" alt=""></div>
-                            <div class="col-2_4"><img class="w-100" src="../img/top/tshirts/sp1.1.jpg" alt=""></div>
-                            <div class="col-2_4"><img class="w-100" src="../img/top/tshirts/sp1.1.jpg" alt=""></div>
+                        <div class="row product-img-list">
+
                         </div>
 
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-lg-6 col-md-6">
+            <div class="col-xs-12 col-sm-6 col-lg-6 col-md-6 product-info">
                 <h1 class="pb-3">DIAMOND Z- BOT T-SHIRT</h1>
                 <span class="h2">349.000₫</span>
                 <p>Tình trạng: <span class="text-danger">Còn hàng</span></p>
                 <!-- Chọn màu -->
-                
+
                 <!-- Chọn size -->
-                <div class="row gap-4 py-4">
-                    <span class="col-1">Size: </span>
-                    <span class="border color-element justify-content-center">M</span>
-                    <span class="border color-element justify-content-center">L</span>
-                    <span class="border color-element justify-content-center">XL</span>
-                    <span class="border color-element justify-content-center">XXL</span>
+                <div class="row gap-4 py-4 align-items-center">
+                    <span class="col-auto">Size: </span>
+                    <span class="border color-element col-auto">M</span>
+                    <span class="border color-element col-auto">L</span>
+                    <span class="border color-element col-auto">XL</span>
+                    <span class="border color-element col-auto">XXL</span>
+                    <div class="col-auto"></div>
                 </div>
                 <!-- số lượng -->
                 <div class="row py-4">
                     <span class="col-2">Số lượng: </span>
                     <div class="border" style="width: auto;">
-                    <button class="bg-white border-0" ><h1>-</h1></button>
-                    <input type="number" class="color-element bg-white text-dark fw-bolder" value="1" style="width: 45px;">
-                    <button class="bg-white border-0" ><h1>+</h1></button>    
+                        <button class="bg-white border-0 minus-quantity">
+                            <h1>-</h1>
+                        </button>
+                        <input type="number" class="color-element bg-white text-dark fw-bolder product-quantity"
+                            value="1" style="width: 45px;">
+                        <button class="bg-white border-0 add-quantity">
+                            <h1>+</h1>
+                        </button>
                     </div>
                 </div>
                 <div class="row px-5">
                     <button class="my-5 bg-danger border-0" style="height: 38px; width:310px;">
                         <span class="text-white text-center fw-bolder">MUA NGAY</span>
-                    </button>    
+                    </button>
                 </div>
                 <div class="row py-5">
                     <img src="../img/top/tshirts/bang-size-t-shirt-a9a35638-f098-43c9-a5e1-5ebd4959af11.webp" alt="">
                 </div>
                 <div>
-                    <h4 class="text-dark p-2">Gọi đặt mua: <a class="hover-text text-primary text-decoration-none">058660 8660</a> (miễn phí 8:30 - 18:00).</h4>
+                    <h4 class="text-dark p-2">Gọi đặt mua: <a
+                            class="hover-text text-primary text-decoration-none">058660 8660</a> (miễn phí 8:30 -
+                        18:00).</h4>
                     <h5 class="text-dark p-2">
                         <i class='fas fa-shipping-fast' style='font-size:30px'></i>
                         MIỄN PHÍ VẬN CHUYỂN VỚI ĐƠN HÀNG TỪ 500.000Đ
@@ -243,54 +322,72 @@
     <div class="container">
         <ul class="nav nav-tabs mb-3 gap-5 p-4" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
-              <button class="nav-link active border-0 text-danger" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="" role="tab" aria-controls="pills-home" aria-selected="true">MÔ TẢ</button>
+                <button class="nav-link active border-0 text-danger" id="pills-home-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-home" type="" role="tab" aria-controls="pills-home" aria-selected="true">MÔ
+                    TẢ</button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link border-0 text-danger" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="" role="tab" aria-controls="pills-profile" aria-selected="false">CHÍNH SÁCH ĐỔI TRẢ</button>
+                <button class="nav-link border-0 text-danger" id="pills-profile-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-profile" type="" role="tab" aria-controls="pills-profile"
+                    aria-selected="false">CHÍNH SÁCH ĐỔI TRẢ</button>
             </li>
-          </ul>
-          <div class="tab-content" id="pills-tabContent">
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active p-3" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                 <p><span style="font-size:14px;"><span>Mô tả sản phẩm:</span></span></p>
-                <p><span style="font-size:14px;"><span>• Chất liệu: cotton 2 chiều</span></span></p>
+                <ul class="desc" style="font-size: 14px;">
+
+                </ul>
+                <!-- <p><span style="font-size:14px;"><span>• Chất liệu: cotton 2 chiều</span></span></p>
                 <p><span style="font-size:14px;"><span>• Dáng suông, form rộng</span></span></p>
                 <p><span style="font-size:14px;"><span>• Tag cao su chính hãng ở mép áo phải và tag phụ ở tay và mép áo trái</span></span></p>
                 <p><span style="font-size:14px;"><span>• Logo chú hề thương hiệu thêu ở chính giữa mặt trước</span></span></p>
                 <p><span style="font-size:14px;"><span>• Chữ CLOWNZ in lưới ở mặt sau</span></span></p>
                 <p><span style="font-size:14px;"><span>• Chất vải thoáng mát, thấm hút mồ hôi</span></span></p>
-                <p><span style="font-size:14px;"><span>• Dễ dàng phối với mọi kiểu quần, phong cách trẻ trung, khỏe khoắn</span></span></p>
-                                
+                <p><span style="font-size:14px;"><span>• Dễ dàng phối với mọi kiểu quần, phong cách trẻ trung, khỏe khoắn</span></span></p> -->
+
             </div>
             <div class="tab-pane fade p-4" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                 <p><strong>1.&nbsp;Tất cả các sản phẩm đã mua sẽ không được hoàn trả bằng tiền mặt.</strong></p>
                 <p><strong>2. Yêu cầu sản phẩm:</strong></p>
-                <p>- Sản phẩm còn mới, nguyên tag, chưa sử dụng, sửa chữa hay giặt, là trong vòng 7 ngày kể từ ngày nhận hàng.</p>
-                <p>- Sản phẩm được mua nguyên giá, không áp dụng hình thức khuyến mại, giảm giá. Các sản phẩm được mua trong chương trình khuyến mãi giảm giá sẽ không được đổi trả.&nbsp;</p>
-                <p><strong>3. Khách hàng được chấp nhận đổi sang bất kỳ món hàng nào có bán trong cửa hàng bằng hoặc hơn giá trị:</strong></p>
+                <p>- Sản phẩm còn mới, nguyên tag, chưa sử dụng, sửa chữa hay giặt, là trong vòng 7 ngày kể từ ngày nhận
+                    hàng.</p>
+                <p>- Sản phẩm được mua nguyên giá, không áp dụng hình thức khuyến mại, giảm giá. Các sản phẩm được mua
+                    trong chương trình khuyến mãi giảm giá sẽ không được đổi trả.&nbsp;</p>
+                <p><strong>3. Khách hàng được chấp nhận đổi sang bất kỳ món hàng nào có bán trong cửa hàng bằng hoặc hơn
+                        giá trị:</strong></p>
                 <p>- Cửa hàng không trả lại tiền thừa nếu khách muốn đổi sang sản phẩm có giá trị thấp hơn.</p>
                 <p>- Hàng chỉ đổi một lần duy nhất.</p>
                 <p>- Kiểm tra kỹ chất lượng sản phẩm đổi.</p>
                 <p><strong>4. Cách thức đổi hàng:</strong></p>
-                <p>-&nbsp;<em><strong>Trường hợp đến trực tiếp cửa hàng:</strong></em>&nbsp;khách hàng sản phẩm, mang theo hoá đơn và sản phẩm nguyên tag tới cửa hàng để được hỗ trợ đổi hàng</p>
+                <p>-&nbsp;<em><strong>Trường hợp đến trực tiếp cửa hàng:</strong></em>&nbsp;khách hàng sản phẩm, mang
+                    theo hoá đơn và sản phẩm nguyên tag tới cửa hàng để được hỗ trợ đổi hàng</p>
                 <p>-&nbsp;<em><strong>Trường hợp đổi hàng qua hình thức chuyển hàng:</strong></em></p>
-                <p>+<b>&nbsp;</b>Khách hàng chụp đầy đủ hóa đơn, tình trạng hàng, mác hàng và gửi hình ảnh kèm thông tin cá nhân đến fanpage ClownZ để được tư vấn đổi hàng.</p>
-                <p>+ Khi được sự đồng ý của nhân viên, khách bọc sản phẩm muốn đổi chuyển về địa chỉ như nhân viên chăm sóc khách hàng hướng dẫn và&nbsp;lựa chọn sản phẩm muốn đổi.</p>
+                <p>+<b>&nbsp;</b>Khách hàng chụp đầy đủ hóa đơn, tình trạng hàng, mác hàng và gửi hình ảnh kèm thông tin
+                    cá nhân đến fanpage ClownZ để được tư vấn đổi hàng.</p>
+                <p>+ Khi được sự đồng ý của nhân viên, khách bọc sản phẩm muốn đổi chuyển về địa chỉ như nhân viên chăm
+                    sóc khách hàng hướng dẫn và&nbsp;lựa chọn sản phẩm muốn đổi.</p>
                 <p>+ Khách hàng thanh toán phần chênh lệch (nếu có) giữa sản phẩm mới và sản phẩm cũ.</p>
-                <p>+ Khi nhận được sản phẩm cần đổi và chuyển khoản chênh lệch (nếu có), nhân viên bọc hàng và gửi sản phẩm khách chọn đổi.</p>
+                <p>+ Khi nhận được sản phẩm cần đổi và chuyển khoản chênh lệch (nếu có), nhân viên bọc hàng và gửi sản
+                    phẩm khách chọn đổi.</p>
                 <p><strong>Lưu ý:&nbsp;</strong></p>
-                <p>+ Với trường hợp sản phẩm bị lỗi do nhà sản xuất&nbsp;(sản phẩm rách, bung chỉ,&nbsp;sờn vải),&nbsp;lỗi gửi nhầm và thiếu&nbsp;hàng,&nbsp;bên phía ClownZ sẽ chịu phí ship đổi trả sản phẩm.</p>
-                <p>+ Với trường hợp khách hàng muốn đổi sản phẩm do lệch size hoặc muốn đổi sản phẩm khác, bên phía khách hàng sẽ chịu phí đổi trả sản phẩm.&nbsp;</p>
+                <p>+ Với trường hợp sản phẩm bị lỗi do nhà sản xuất&nbsp;(sản phẩm rách, bung chỉ,&nbsp;sờn
+                    vải),&nbsp;lỗi gửi nhầm và thiếu&nbsp;hàng,&nbsp;bên phía ClownZ sẽ chịu phí ship đổi trả sản phẩm.
+                </p>
+                <p>+ Với trường hợp khách hàng muốn đổi sản phẩm do lệch size hoặc muốn đổi sản phẩm khác, bên phía
+                    khách hàng sẽ chịu phí đổi trả sản phẩm.&nbsp;</p>
             </div>
-          </div>
+        </div>
     </div>
     <!-- sản phẩm liên quan -->
     <div class="container">
         <div class="row text-center">
-          <h1>
-            <a class=" hover-text text-decoration-none text-dark"> SẢN PHẨM <span class="fw-bolder">LIÊN QUAN</span></a>
-        </h1>
+            <h1>
+                <a class=" hover-text text-decoration-none text-dark"> SẢN PHẨM <span class="fw-bolder">LIÊN
+                        QUAN</span></a>
+            </h1>
         </div>
-      
+
     </div>
 
 
@@ -350,17 +447,20 @@
 
                         <li class="my-3"><a
                                 class="hover-text text-decoration-none text-dark fw-bolder text-uppercase h5"
-                                href="./chinh-sach-thanh-vien.html" title="Chính sách thành viên" rel="nofollow">Chính
+                                href="../polices/membership_policy.html" title="Chính sách thành viên"
+                                rel="nofollow">Chính
                                 sách thành viên</a></li>
 
                         <li class="my-3"><a
                                 class="hover-text text-decoration-none text-dark fw-bolder text-uppercase h5"
-                                href="./chinh-sach-doi-tra.html" title="Chính sách đổi trả" rel="nofollow">Chính sách
+                                href="../polices/return_policy.html" title="Chính sách đổi trả" rel="nofollow">Chính
+                                sách
                                 đổi trả</a></li>
 
                         <li class="my-3"><a
                                 class="hover-text text-decoration-none text-dark fw-bolder text-uppercase h5"
-                                href="./chinh-sach-van-chuyen.html" title="Chính sách vận chuyển" rel="nofollow">Chính
+                                href="../polices/shipping_policy.html" title="Chính sách vận chuyển"
+                                rel="nofollow">Chính
                                 sách vận chuyển</a></li>
 
                     </ul>
@@ -404,5 +504,6 @@
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
 </body>
+<script src="./product.js" type="module"></script>
 
 </html>

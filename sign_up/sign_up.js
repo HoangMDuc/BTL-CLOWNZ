@@ -1,6 +1,4 @@
-localStorage.setItem('login', JSON.stringify({ 'islogin': false }))
-
-
+sessionStorage.setItem('login', JSON.stringify({ 'islogin': false }))
 var btnCreateAcc = document.querySelector('.btn-create-acc');
 var formRegister = document.querySelector('#customer_register');
 var formInputs = formRegister.querySelectorAll('input')
@@ -39,7 +37,7 @@ btnCreateAcc.onclick = function (e) {
                     emailInput.classList.add("invalid")
                     email.focus()
                 } else {
-                    var date = new Date()
+                    
                     var formData = {
 
                         name: lastNameInput.value + " " + firstNameInput.value,
@@ -50,8 +48,8 @@ btnCreateAcc.onclick = function (e) {
                     }
                     createUsers(formData);
                     formRegister.reset();
-                    localStorage.setItem('login', JSON.stringify({ 'islogin': 'true' }))
-                    localStorage.setItem('usersAccount', JSON.stringify(
+                    sessionStorage.setItem('login', JSON.stringify('true'))
+                    sessionStorage.setItem('usersAccount', JSON.stringify(
                         {
                             'name': `${formData.name}`,
                             'email': `${formData.email}`,

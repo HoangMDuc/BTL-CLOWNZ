@@ -127,9 +127,16 @@ input{
 .bread-padding {
     padding-left: 7%;
 }
-.color-element{
-    height: 35px;
-    width: auto;
+.size-element:hover {
+    opacity: 0.5;
+}
+.size-element.active {
+    border: 1px solid #000 !important;
+}
+
+.size-element{
+    cursor: pointer;
+    /* width: auto; */
 }
 .img-select-color{
     height: 30px;
@@ -166,3 +173,11 @@ input::-webkit-inner-spin-button {
      background-color: #410099;
      color: #fff;
  }
+
+.product-img-list img {
+    cursor: pointer;
+}
+
+.product-img-list img:hover {
+    opacity: 0.5;
+}

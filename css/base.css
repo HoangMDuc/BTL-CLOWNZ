@@ -1,4 +1,8 @@
 
+.hover-text:hover {
+    color: #dc4e3f !important; 
+}
+
 .product-card h4 {
     font-size: 12px;
 }
@@ -10,39 +14,101 @@
 .btn-detail {
     width: 100%;
 }
+.cart-shopping:hover > .cart-icon,
+.cart-shopping:hover > .cart-link {
+    color: #dc4e3f !important;
+}
 
+.cart-shopping:hover > .shopping-container {
+    display: block;
+}
 
- /* .btn-detail {
-    width: 100%;
-    letter-spacing: 1px;
-    font-weight: 500;
+.shopping-container::before {
+    position:absolute;
+    height: 45px;
+    width: 300px;
+    top: -45px;
+    content: "";
+}
+
+.shopping-container {
+    display: none;
+    height: 340px;
+    background-color: #fff;
+    width: 300px;
+    top: 55px;
+    z-index: 2;
+    box-shadow: 0 1px 1px 1px #ccc;
+}
+
+.shopping-body {
+    padding: 20px 10px; 
+    
+}
+
+.shopping-list {
+    max-height: 220px;
+    overflow-y: scroll;
+    border-bottom: 1px dashed #ccc;
+}
+
+.shopping-item-img {
+    width: 80px;
+    height: 80px;
+}
+
+.shopping-item-name,
+.shopping-item-price,
+.shopping-item-quantity {
+    font-size: 14px;
+    color: #000;
+}
+
+.shopping-item-price {
+    color: rgb(63, 62, 62);
+    font-weight: 300;
+}
+
+.shopping-item-quantity {
     padding: 0 10px;
-    border: 1px solid #1c1c1c;
-    line-height: 44px;
 }
 
-.product-card {
-    position: relative;
+.cart-close {
+    padding: 4px 0;
+   
 }
 
-
-
-
-
-.product-card:hover .card-body {
-   opacity: 0;
+.btn-see-more{
+    height: 42px;
+    width: 252px;
+    background: black;
+    margin: 20px;
+    /* float: left; */
+    border:0px;
+    color:#fff;
+    box-shadow: 0 0 1px #1c1c1c;
+    -webkit-transition-duration: 0.45s;
+    -webkit-transition-timing-function: ease-in;
+    box-shadow:0px 0 0 #fff  inset;
 }
 
-.product-card:hover .product-card__actions {
-    transform: translate3d(0, 0, 0);
+.btn-see-more a {
+    width: 100%;
+    display: inline-block;
+    padding: 9px 0;
 }
 
-.product-card__actions {
-    top: 80%;
-     width: 100%;
-    will-change: transform;
-    transform: translate3d(0, 100%, 0);
-    transition: .3s ease-in-out;
-    position: absolute;
-} */
+.btn-see-more:hover{
+    -webkit-box-shadow: -252px 0 0 #fff inset;
+    color: #1c1c1c;
+    border:1px solid #1c1c1c;
 
+}
+
+.btn-see-more:hover a {
+    color: #1c1c1c !important;
+}
+
+.btn-pay {
+    
+}

@@ -10,14 +10,13 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="giohang.css">
+    <link rel="stylesheet" href="./sign_up.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="icon" href="//bizweb.dktcdn.net/100/414/728/themes/803486/assets/favicon.png?1654316792671" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
-    <title>Giỏ hàng</title>
+    <title>Document</title>
 </head>
 
 <body>
@@ -33,11 +32,12 @@
                         8660</a>
                 </div>
                 <div class="logo col-4">
-                    <a href="../index.html"><img src="../img/image-main/logo (1).png" alt=""></a>
+                    <a href="#"><img src="../img/image-main/logo (1).png" alt=""></a>
+
                 </div>
                 <div class="header-control col-2 d-flex justify-content-end gap-5">
                     <div class="cart-shopping hover-text">
-                        <a href="../giohang/giohang.html" class="text-decoration-none text-dark">GIỎ HÀNG</a>
+                        <span class="">GIỎ HÀNG</span>
                         <i class="fa-solid fa-cart-arrow-down position-relative">
                             <span class="cart-quantity position-absolute">0</span>
                         </i>
@@ -47,7 +47,7 @@
                     </div>
                 </div>
                 <div class="col-2 d-flex justify-content-end gap-4 align-items-center">
-                    <a href="" class="text-decoration-none">ĐĂNG NHẬP</a>
+                    <a href="#" class="text-decoration-none">ĐĂNG NHẬP</a>
                     <i class="fa-solid fa-user"></i>
                     <a href="" style="display:none;">ĐĂNG XUẤT</a>
                 </div>
@@ -149,114 +149,116 @@
                                 </li>
                                 <li class="nav-item p-3 dropdown"></li>
                             </ul>
-
                         </div>
                     </div>
                 </div>
             </nav>
         </div>
     </header>
-    <div class="container-fluid border-bottom" style="padding-top: 150px;">
-
-        <div class="row">
-            <ol class="breadcrumb bread-padding border-top pt-3">
-                <li class="breadcrumb-item "><a href="#" class="text-dark text-decoration-none hover-text ">Trang
-                        chủ</a>
+    <section class="bread-crumb margin-bottom-10">
+        <div class="container">
+            <ul class="breadcrumb" itemscope="" itemtype="https://schema.org/BreadcrumbList">
+                <li class="home" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="/" title="Trang chủ">
+                        <span itemprop="name">Trang chủ</span>
+                        <meta itemprop="position" content="1">
+                    </a>
+                    <span><i class="fa fa-angle-right"></i></span>
                 </li>
-                <li class="breadcrumb-item active text-danger text-decoration-none fw-bolder" aria-current="page">
-                    Giỏ hàng </li>
-            </ol>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <h1 class="text-dark mt-5 text-decoration-none">
-                GIỎ HÀNG <span class="h4"> (100 sản phẩm) </span>
-            </h1>
-        </div>
-        <div class="row py-5">
-            <div class="col-lg-9 col-sm-12 col-xs-9">
 
-                <div class="row">
-                    <div class="col-12 d-flex align-items-center mb-3">
-                        <img class="img-product-cart" src="../img/top/jacket/cz-0022.jpg" alt="">
-                        <div>
-                            <div class="p-5">
-                                <p class="hover-text">C Letter T-shirt - Brown / XL</p>
-                                <a href="" class="text-danger btn-delete">Xoá</a>
+                <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+                    <strong itemprop="name">Đăng ký tài khoản</strong>
+                    <meta itemprop="position" content="2">
+                </li>
+
+            </ul>
+        </div>
+    </section>
+    <main>
+        <div class="container margin-bottom-20 margin-top-30">
+            <div class="row center">
+                <div class="col-md-6 block__center">
+                    <div class="page-login">
+                        <div id="login">
+                            <h1 class="title-head text-center">Đăng ký tài khoản</h1>
+                            <div class="title-foot text-center">Nếu chưa có tài khoản vui lòng đăng ký tại đây</div>
+                            <div class="text-center margin-bottom-10">
+                                <a href="" class="social-login--facebook"><img width="129px" height="37px"
+                                        alt="facebook-login-button" src="../img/icon_signin/fb-btn.svg"></a>
+                                <a href="" class="social-login--google"><img width="129px" height="37px"
+                                        alt="google-login-button" src="../img/icon_signin/gp-btn.svg"></a>
                             </div>
-                        </div>
-                        <div class="p-5">
-                            <p class="text-danger">379.000₫</p>
-                        </div>
-                        <div class="p-5">
-                            <div class="border d-flex" style="width: auto;">
-                                <button class="bg-white border-0">
-                                    <h1>-</h1>
-                                </button>
-                                <input type="number" class="color-element bg-white text-dark fw-bolder" value="1"
-                                    style="width: 45px;">
-                                <button class="bg-white border-0">
-                                    <h1>+</h1>
-                                </button>
-                            </div>
+                            <form action="" id="customer_register" class="has-validation-callback">
+                                <div class="form-signup clearfix">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <fieldset class="form-group">
+                                                <label>Họ<span class="required">*</span></label>
+                                                <input placeholder="Nhập Họ" type="text"
+                                                    class="form-control form-control-lg" value="" name="lastName"
+                                                    id="lastName" required>
+                                                <span class="warning-message"></span>
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <fieldset class="form-group">
+                                                <label>Tên<span class="required">*</span></label>
+                                                <input placeholder="Nhập Tên" type="text"
+                                                    class="form-control form-control-lg" value="" name="firstName"
+                                                    id="firstName">
+                                                <span class="warning-message"></span>
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <fieldset class="form-group">
+                                                <label>Số điện thoại<span class="required">*</span></label>
+                                                <input placeholder="Nhập Số điện thoại" type="tel"
+                                                    class="form-control form-control-lg" value="" name="phone"
+                                                    id="phone">
+                                                <span class="warning-message"></span>
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <fieldset class="form-group">
+                                                <label>Email<span class="required">*</span></label>
+                                                <input placeholder="Nhập Địa chỉ Email" type="email"
+                                                    class="form-control form-control-lg" value="" name="email"
+                                                    id="email">
+                                                <span class="warning-message"></span>
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <fieldset class="form-group">
+                                                <label>Mật khẩu<span class="required">*</span></label>
+                                                <input placeholder="Nhập Mật khẩu" type="password"
+                                                    class="form-control form-control-lg" value="" name="password"
+                                                    id="password">
+                                                <span class="warning-message"></span>
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-md-12 text-center" style="margin-top:15px;">
+                                            <div>
+                                                <button type="submit" value="Đăng ký"
+                                                    class="btn-see-more btn-main btn-create-acc">TẠO TÀI KHOẢN</button>
+                                            </div>
+                                            <div class="mb-2">
+                                                <a href="../sign_in/sign_in.html" title="Đăng nhập"
+                                                class="btn-register btn-register-login text-decoration-none" style="color:red;">Đăng
+                                                nhập</a>
+                                                
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
-
-                    <div class="col-12 d-flex align-items-center mb-3">
-                        <div>
-                            <img class="img-product-cart" src="../img/top/jacket/cz-0022.jpg" alt="">
-                        </div>
-                        <div>
-                            <div class="p-5">
-                                <p class="hover-text">C Letter T-shirt - Brown / XL</p>
-                                <a href="" class="text-danger btn-delete">Xoá</a>
-                            </div>
-                        </div>
-                        <div class="p-5">
-                            <p class="text-danger">379.000₫</p>
-                        </div>
-                        <div class="p-5">
-                            <div class="border d-flex" style="width: auto;">
-                                <button class="bg-white border-0">
-                                    <h1>-</h1>
-                                </button>
-                                <input type="number" class="color-element bg-white text-dark fw-bolder" value="1"
-                                    style="width: 45px;">
-                                <button class="bg-white border-0">
-                                    <h1>+</h1>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-
-
-            </div>
-            <div class="col-lg-3 col-sm-12 col-xs-3">
-                <span>Tạm tính: </span>
-                <strong class="text-danger">61.041.000₫</strong>
-                <form action="../Payment/index.html">
-                    <button class="btn-see-more btn-main">THANH TOÁN NGAY</button>
-                </form>
-                <div>
-                    <button class="btn-continue">TIẾP TỤC MUA HÀNG</button>
                 </div>
             </div>
-
         </div>
-
-    </div>
-    </div>
-
+    </main>
     
-
-
-
-
-
     <footer class="bg-light">
         <div class="container pt-5">
             <div class="row">
@@ -304,22 +306,22 @@
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <h5>CHÍNH SÁCH</h5>
-                    <ul style="list-style-type: none;" class="p-0">
+                    <ul style="list-style-type: none;">
 
                         <li class="my-3"><a
                                 class="hover-text text-decoration-none text-dark fw-bolder text-uppercase h5"
-                                href="./chinh-sach-thanh-vien.html" title="Chính sách thành viên" rel="nofollow">Chính
-                                sách thành viên</a></li>
+                                href="../chinh-sach/chinh-sach-thanh-vien.html" title="Chính sách thành viên"
+                                rel="nofollow">Chính sách thành viên</a></li>
 
                         <li class="my-3"><a
                                 class="hover-text text-decoration-none text-dark fw-bolder text-uppercase h5"
-                                href="./chinh-sach-doi-tra.html" title="Chính sách đổi trả" rel="nofollow">Chính sách
-                                đổi trả</a></li>
+                                href="../chinh-sach/chinh-sach-doi-tra.html" title="Chính sách đổi trả"
+                                rel="nofollow">Chính sách đổi trả</a></li>
 
                         <li class="my-3"><a
                                 class="hover-text text-decoration-none text-dark fw-bolder text-uppercase h5"
-                                href="./chinh-sach-van-chuyen.html" title="Chính sách vận chuyển" rel="nofollow">Chính
-                                sách vận chuyển</a></li>
+                                href="../chinh-sach/chinh-sach-van-chuyen.html" title="Chính sách vận chuyển"
+                                rel="nofollow">Chính sách vận chuyển</a></li>
 
                     </ul>
                 </div>
@@ -356,11 +358,5 @@
                     </div>
                 </div>
     </footer>
-
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-        crossorigin="anonymous"></script>
+    <script src="./sign_up.js" type="module"></script>
 </body>
-
-</html>

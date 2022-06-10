@@ -2,7 +2,7 @@
 var usersApi = "https://62890e4b10e93797c162141e.mockapi.io/clownz/users";
 var retrievalBtn = document.querySelector('.pw-retrieval')
 var inputEmail = document.querySelector('input[name="Email"]')
-import validates from "../sign-up/validates.js";
+import validates from "../sign_up/validates.js";
 
 retrievalBtn.onclick = function (e) {
     e.preventDefault();

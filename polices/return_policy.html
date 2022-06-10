@@ -10,13 +10,17 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./polices.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" href="//bizweb.dktcdn.net/100/414/728/themes/803486/assets/favicon.png?1654316792671"
+        type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
-    <title>Document</title>
+    <link rel="stylesheet" href="../css/base.css">
+
+    <title>Chính sách đổi trả</title>
 </head>
 
 <body>
@@ -32,22 +36,82 @@
                         8660</a>
                 </div>
                 <div class="logo col-4">
-                    <a href="#"><img src="../img/image-main/logo (1).png" alt=""></a>
-
+                    <a href="../index.html"><img src="../img/image-main/logo (1).png" alt=""></a>
                 </div>
                 <div class="header-control col-2 d-flex justify-content-end gap-5">
                     <div class="cart-shopping hover-text">
-                        <span class="">GIỎ HÀNG</span>
+                        <a href="../giohang/giohang.html" class="text-decoration-none text-dark">GIỎ HÀNG</a>
                         <i class="fa-solid fa-cart-arrow-down position-relative">
                             <span class="cart-quantity position-absolute">0</span>
                         </i>
+                        
+                        <div class="shopping-container position-absolute ">
+                            <div class="shopping-body h-100 px-3 py-4">
+                                <ul class="shopping-list ">
+                                    <li class="d-flex shopping-item gap-5 mb-2">
+                                        <img src="./img/top/hoodie/sp1.1.jpg" alt="" class="shopping-item-img">
+                                        <div class="shopping-item-info">
+                                            <h4 class="shopping-item-name mb-2">Clone Good Vibe...</h4>
+                                            <span class="shopping-item-price">379000</span>
+                                            <div class="quantity-select d-flex w-50 mt-3">
+                                                <span class="reduce-quantity border px-3">-</span>
+                                                <span class="shopping-item-quantity border px-4">2</span>
+                                                <span class="raise-quantity border px-3">+</span>
+                                                <i class="fa-solid fa-xmark cart-close px-1 ms-5"></i>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="d-flex shopping-item gap-5 mb-2">
+                                        <img src="./img/top/hoodie/sp1.1.jpg" alt="" class="shopping-item-img">
+                                        <div class="shopping-item-info">
+                                            <h4 class="shopping-item-name mb-2">Clone Good Vibe...</h4>
+                                            <span class="shopping-item-price">379000</span>
+                                            <div class="quantity-select d-flex w-50 mt-3">
+                                                <span class="reduce-quantity border px-3">-</span>
+                                                <span class="shopping-item-quantity border px-4">2</span>
+                                                <span class="raise-quantity border px-3">+</span>
+                                                <i class="fa-solid fa-xmark cart-close px-1 ms-5"></i>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="d-flex shopping-item gap-5 mb-2">
+                                        <img src="./img/top/hoodie/sp1.1.jpg" alt="" class="shopping-item-img">
+                                        <div class="shopping-item-info">
+                                            <h4 class="shopping-item-name mb-2">Clone Good Vibe...</h4>
+                                            <span class="shopping-item-price">379000</span>
+                                            <div class="quantity-select d-flex w-50 mt-3">
+                                                <span class="reduce-quantity border px-3">-</span>
+                                                <span class="shopping-item-quantity border px-4">2</span>
+                                                <span class="raise-quantity border px-3">+</span>
+                                                <i class="fa-solid fa-xmark cart-close px-1 ms-5"></i>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="d-flex justify-content-between ps-3 pe-4 mt-2 fs-4">
+                                    <p class="total-price-text fw-light text-dark">
+                                        Tổng tiền:
+                                    </p>
+                                    <div class="total-price text-danger">2000000đ</div>
+                                </div>
+                                <div class="row pb-2">
+                                    <div class="col-6">
+                                        <button class="btn-pay btn-see-more w-100 m-0">Thanh toán</button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn-pay btn-see-more w-100 m-0">Giỏ hàng</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
                     </div>
                     <div class="search-btn hover-text">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                 </div>
                 <div class="col-2 d-flex justify-content-end gap-4 align-items-center">
-                    <a href="#" class="text-decoration-none">ĐĂNG NHẬP</a>
+                    <a href="" class="text-decoration-none">ĐĂNG NHẬP</a>
                     <i class="fa-solid fa-user"></i>
                     <a href="" style="display:none;">ĐĂNG XUẤT</a>
                 </div>
@@ -155,115 +219,56 @@
             </nav>
         </div>
     </header>
-    <section class="bread-crumb margin-bottom-10">
-        <div class="container">
-            <ul class="breadcrumb" itemscope="" itemtype="https://schema.org/BreadcrumbList">
-                <li class="home" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-                    <a itemprop="item" href="/" title="Trang chủ">
-                        <span itemprop="name">Trang chủ</span>
-                        <meta itemprop="position" content="1">
-                    </a>
-                    <span><i class="fa fa-angle-right"></i></span>
-                </li>
-
-                <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-                    <strong itemprop="name">Đăng ký tài khoản</strong>
-                    <meta itemprop="position" content="2">
-                </li>
-
-            </ul>
+    <div class="container-fluid img-fluid background-top">
+        <div class="row card justify-content-center align-items-center">
+            <h3 class="card-title text-light text-center">CHÍNH SÁCH ĐỔI TRẢ</h3>
         </div>
-    </section>
-    <main>
-        <div class="container margin-bottom-20 margin-top-30">
-            <div class="row center">
-                <div class="col-md-6 block__center">
-                    <div class="page-login">
-                        <div id="login">
-                            <h1 class="title-head text-center">Đăng ký tài khoản</h1>
-                            <div class="title-foot text-center">Nếu chưa có tài khoản vui lòng đăng ký tại đây</div>
-                            <div class="text-center margin-bottom-10">
-                                <a href="" class="social-login--facebook"><img width="129px" height="37px"
-                                        alt="facebook-login-button" src="../img/icon_signin/fb-btn.svg"></a>
-                                <a href="" class="social-login--google"><img width="129px" height="37px"
-                                        alt="google-login-button" src="../img/icon_signin/gp-btn.svg"></a>
-                            </div>
-                            <form action="" id="customer_register" class="has-validation-callback">
-                                <div class="form-signup clearfix">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <fieldset class="form-group">
-                                                <label>Họ<span class="required">*</span></label>
-                                                <input placeholder="Nhập Họ" type="text"
-                                                    class="form-control form-control-lg" value="" name="lastName"
-                                                    id="lastName" required>
-                                                <span class="warning-message"></span>
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <fieldset class="form-group">
-                                                <label>Tên<span class="required">*</span></label>
-                                                <input placeholder="Nhập Tên" type="text"
-                                                    class="form-control form-control-lg" value="" name="firstName"
-                                                    id="firstName">
-                                                <span class="warning-message"></span>
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <fieldset class="form-group">
-                                                <label>Số điện thoại<span class="required">*</span></label>
-                                                <input placeholder="Nhập Số điện thoại" type="tel"
-                                                    class="form-control form-control-lg" value="" name="phone"
-                                                    id="phone">
-                                                <span class="warning-message"></span>
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <fieldset class="form-group">
-                                                <label>Email<span class="required">*</span></label>
-                                                <input placeholder="Nhập Địa chỉ Email" type="email"
-                                                    class="form-control form-control-lg" value="" name="email"
-                                                    id="email">
-                                                <span class="warning-message"></span>
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <fieldset class="form-group">
-                                                <label>Mật khẩu<span class="required">*</span></label>
-                                                <input placeholder="Nhập Mật khẩu" type="password"
-                                                    class="form-control form-control-lg" value="" name="password"
-                                                    id="password">
-                                                <span class="warning-message"></span>
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-md-12 text-center" style="margin-top:15px;">
-                                            <div>
-                                                <button type="submit" value="Đăng ký"
-                                                class="btn-see-more btn-main btn-create-acc">TẠO TÀI KHOẢN</button>
-                                            </div>
-                                            <div class="mb-2">
-                                                <a href="../sign-in/sign.html" title="Đăng nhập"
-                                                class="btn btn-register btn-register-login">Đăng
-                                                nhập</a>
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+    </div>
+    <div class="container page mt-5 mb-5">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+
+                <div class="content-page rte">
+                    <p><strong>1.&nbsp;Tất cả các sản phẩm đã mua sẽ không được hoàn trả bằng tiền mặt.</strong></p>
+                    <p><strong>2. Yêu cầu sản phẩm:</strong></p>
+                    <p>- Sản phẩm còn mới, nguyên tag, chưa sử dụng, sửa chữa hay giặt, là trong vòng 7 ngày kể từ ngày
+                        nhận hàng.</p>
+                    <p>- Sản phẩm được mua nguyên giá, không áp dụng hình thức khuyến mại, giảm giá. Các sản phẩm được
+                        mua trong chương trình khuyến mãi giảm giá sẽ không được đổi trả.&nbsp;</p>
+                    <p><strong>3. Khách hàng được chấp nhận đổi sang bất kỳ món hàng nào có bán trong cửa hàng bằng hoặc
+                            hơn giá trị:</strong></p>
+                    <p>- Cửa hàng không trả lại tiền thừa nếu khách muốn đổi sang sản phẩm có giá trị thấp hơn.</p>
+                    <p>- Hàng chỉ đổi một lần duy nhất.</p>
+                    <p>- Kiểm tra kỹ chất lượng sản phẩm đổi.</p>
+                    <p><strong>4. Cách thức đổi hàng:</strong></p>
+                    <p>-&nbsp;<em><strong>Trường hợp đến trực tiếp cửa hàng:</strong></em>&nbsp;khách hàng sản phẩm,
+                        mang theo hoá đơn và sản phẩm nguyên tag tới cửa hàng để được hỗ trợ đổi hàng</p>
+                    <p>-&nbsp;<em><strong>Trường hợp đổi hàng qua hình thức chuyển hàng:</strong></em></p>
+                    <p>+<b>&nbsp;</b>Khách hàng chụp đầy đủ hóa đơn, tình trạng hàng, mác hàng và gửi hình ảnh kèm thông
+                        tin cá nhân đến fanpage ClownZ để được tư vấn đổi hàng.</p>
+                    <p>+ Khi được sự đồng ý của nhân viên, khách bọc sản phẩm muốn đổi chuyển về địa chỉ như nhân viên
+                        chăm sóc khách hàng hướng dẫn và&nbsp;lựa chọn sản phẩm muốn đổi.</p>
+                    <p>+ Khách hàng thanh toán phần chênh lệch (nếu có) giữa sản phẩm mới và sản phẩm cũ.</p>
+                    <p>+ Khi nhận được sản phẩm cần đổi và chuyển khoản chênh lệch (nếu có), nhân viên bọc hàng và gửi
+                        sản phẩm khách chọn đổi.</p>
+                    <p><strong>Lưu ý:&nbsp;</strong></p>
+                    <p>+ Với trường hợp sản phẩm bị lỗi do nhà sản xuất&nbsp;(sản phẩm rách, bung chỉ,&nbsp;sờn
+                        vải),&nbsp;lỗi gửi nhầm và thiếu&nbsp;hàng,&nbsp;bên phía ClownZ sẽ chịu phí ship đổi trả sản
+                        phẩm.</p>
+                    <p>+ Với trường hợp khách hàng muốn đổi sản phẩm do lệch size hoặc muốn đổi sản phẩm khác, bên phía
+                        khách hàng sẽ chịu phí đổi trả sản phẩm.&nbsp;</p>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
+    <!--  -->
     <footer class="bg-light">
         <div class="container pt-5">
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <h3 class="my-3">
                         <a href="">
-                            <img src="img/image-main/logo (1).png" alt="" style="max-width: 100%">
+                            <img src="../img/image-main/logo (1).png" alt="" style="max-width: 100%">
                         </a>
                     </h3>
                     <ul style="list-style-type: none;">
@@ -304,22 +309,22 @@
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <h5>CHÍNH SÁCH</h5>
-                    <ul style="list-style-type: none;">
+                    <ul style="list-style-type: none;" class="p-0">
 
                         <li class="my-3"><a
                                 class="hover-text text-decoration-none text-dark fw-bolder text-uppercase h5"
-                                href="../chinh-sach/chinh-sach-thanh-vien.html" title="Chính sách thành viên"
-                                rel="nofollow">Chính sách thành viên</a></li>
+                                href="./membership_policy.html" title="Chính sách thành viên" rel="nofollow">Chính sách
+                                thành viên</a></li>
 
                         <li class="my-3"><a
                                 class="hover-text text-decoration-none text-dark fw-bolder text-uppercase h5"
-                                href="../chinh-sach/chinh-sach-doi-tra.html" title="Chính sách đổi trả"
-                                rel="nofollow">Chính sách đổi trả</a></li>
+                                href="./return_policy.html" title="Chính sách đổi trả" rel="nofollow">Chính sách đổi
+                                trả</a></li>
 
                         <li class="my-3"><a
                                 class="hover-text text-decoration-none text-dark fw-bolder text-uppercase h5"
-                                href="../chinh-sach/chinh-sach-van-chuyen.html" title="Chính sách vận chuyển"
-                                rel="nofollow">Chính sách vận chuyển</a></li>
+                                href="./shipping_policy.html" title="Chính sách vận chuyển" rel="nofollow">Chính sách
+                                vận chuyển</a></li>
 
                     </ul>
                 </div>
@@ -356,5 +361,11 @@
                     </div>
                 </div>
     </footer>
-    <script src="./sign_up.js" type="module"></script>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
 </body>
+
+</html>

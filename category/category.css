@@ -94,9 +94,10 @@ input{
     padding-top: 135px;
 }
 .card-background {
-    background-image: url("/img/magazine/evo-blog-banner.jpg");
+    /* background-image: url("/img/magazine/evo-blog-banner.jpg"); */
     background-repeat: no-repeat;
-    height: 360px;
+    height: 500px;
+    background-size: cover;
 }
 .card-body {
     margin-top: 1rem;
