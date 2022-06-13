@@ -1,5 +1,5 @@
 
-function handleClickProducts () {
+export default function handleClickProducts () {
     var products = document.querySelectorAll('.product-card')
     Array.from(products).forEach(product => {
         product.onclick = function(e) {
@@ -9,4 +9,3 @@ function handleClickProducts () {
         }
     })
 }
-export default handleClickProducts

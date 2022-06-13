@@ -2,7 +2,12 @@ import { Load } from "../js/load_user.js";
 import handleClickCategory from "../js/clickCategory.js"
 import handleClickType from "../js/clickType.js"
 import handleClickProducts from "../js/clickProduct.js"
+import renderCart from "../js/renderCart.js";
+
 Load.start()
+renderCart()
+
+
 function renderCategory() {
     var category_id = JSON.parse(sessionStorage.getItem('category_id'))
     var api;
@@ -26,7 +31,6 @@ function renderCategory() {
                     })
 
                 var htmls = products.map(product => {
-                    console.log(product)
                     return `
                 <div class="col-4">
                     <a href="#" class="product-card text-decoration-none text-dark" data-index = ${product.id}>

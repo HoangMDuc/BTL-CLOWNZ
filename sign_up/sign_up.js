@@ -49,15 +49,7 @@ btnCreateAcc.onclick = function (e) {
                     createUsers(formData);
                     formRegister.reset();
                     sessionStorage.setItem('login', JSON.stringify('true'))
-                    sessionStorage.setItem('usersAccount', JSON.stringify(
-                        {
-                            'name': `${formData.name}`,
-                            'email': `${formData.email}`,
-                            'phoneNumber': `${formData.phoneNumber}`,
-                            'password': `${formData.password}`,
-                            'isAdmin': false
-                        }
-                    ))
+                   
                     window.location.href = "../index.html"
                 }
 
@@ -99,8 +91,19 @@ function createUsers(user) {
         },
         body: JSON.stringify(user),
     })
-        .then(res => res.json())
-        .then(user => console.log(`Da tao thanh cong user ${user.name}`))
+    .then(res => res.json())
+    .then(user => {
+        sessionStorage.setItem('usersAccount', JSON.stringify(
+            {
+                'id': `${user.id}`,
+                'name': `${user.name}`,
+                'email': `${user.email}`,
+                'phoneNumber': `${user.phoneNumber}`,
+                'password': `${user.password}`,
+                'isAdmin': false
+            }
+        ))
+    })
 
 }
 

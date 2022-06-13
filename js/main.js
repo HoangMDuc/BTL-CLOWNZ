@@ -1,31 +1,40 @@
+import handleClickCategory from "./clickCategory.js"
+import handleClickProducts from "./clickProduct.js"
+import handleClickType from "./clickType.js"
+import { Load } from "./load_user.js"
+import renderCart from "./renderCart.js"
+
 if (sessionStorage.getItem('login') === null) {
     sessionStorage.setItem('login', false)
 }
-if(sessionStorage.getItem('product_id') === null) {
+if (sessionStorage.getItem('product_id') === null) {
     sessionStorage.setItem('product_id', '')
 
 }
-if(sessionStorage.getItem('category_id') === null) {
+if (sessionStorage.getItem('category_id') === null) {
     sessionStorage.setItem('category_id', '')
 }
-if(sessionStorage.getItem('type_id') === null) {
-    sessionStorage.setItem('type_id', '') 
+if (sessionStorage.getItem('type_id') === null) {
+    sessionStorage.setItem('type_id', '')
 }
 
-if(localStorage.getItem('category_id') == undefined) {
-    localStorage.getItem('category_id') == undefined
+// if(localStorage.getItem('category_id') == undefined) {
+//     localStorage.setItem('category_id','') 
+// }
+
+if (sessionStorage.getItem('cart-items') == null) {
+    sessionStorage.setItem('cart-items', JSON.stringify({
+        // 'user_id': JSON.parse(sessionStorage.getItem('usersAccount'))["id"],
+        'list-items': []
+    }))
 }
 
-import { Load } from "./load_user.js";
-import handleClickProducts from "./clickProduct.js"
-import handleClickCategory from "./clickCategory.js"
-import handleClickType from "./clickType.js";
-
-Load.start();
+Load.start()
+renderCart()
 
 const App = {
     start() {
-        
+
         Promise.all([this.loadArrival(),
         this.loadTop(),
         this.loadBottom(),
@@ -33,11 +42,13 @@ const App = {
             .then(() => {
                 this.handleEvents();
             })
+        
     },
     handleEvents() {
-        handleClickProducts();
-        handleClickCategory();
-        handleClickType();
+        handleClickProducts()
+        handleClickCategory()
+        handleClickType()
+        
     },
     loadArrival() {
         return (
@@ -46,25 +57,25 @@ const App = {
                 .then(products => {
                     var htmls = products.map(product => {
                         return `
-                <div class="col-3">
-                    <a href="./san-pham/product.html" class="text-decoration-none text-dark product-card" data-index=${product.id}>
-                        <div class="card text-center position-relative border-0">
-                            <img class="card-img-top" src="${product.image[0]}" alt="Backbag">
-                            <span class="position-absolute card-sticker">New Arrial</span>
-                            <div class="card-body" style="height:111px;">
-                                <h4 class="text-uppercase">${product.title}</h4>
-                                <h3 class="text-uppercase">${product.name}</h3>
-                                <strong>${product.price}đ</strong>
+                    <div class="col-3">
+                        <a href="./san-pham/product.html" class="text-decoration-none text-dark product-card" data-index=${product.id}>
+                            <div class="card text-center position-relative border-0">
+                                <img class="card-img-top" src="${product.image[0]}" alt="Backbag">
+                                <span class="position-absolute card-sticker">New Arrial</span>
+                                <div class="card-body" style="height:111px;">
+                                    <h4 class="text-uppercase">${product.title}</h4>
+                                    <h3 class="text-uppercase">${product.name}</h3>
+                                    <strong>${product.price}đ</strong>
+                                </div>
                             </div>
+                            <div class="product-card__actions">
+                            <button class="btn-see-more btn-main m-0 btn-detail">CHI TIẾT</button>
                         </div>
-                        <div class="product-card__actions">
-                        <button class="btn-see-more btn-main m-0 btn-detail">CHI TIẾT</button>
-                    </div>
-                    </a>
-                </div>`
+                        </a>
+                    </div>`
+                        })
+                        document.querySelector('.products-arrival').innerHTML = htmls.join('')
                     })
-                    document.querySelector('.products-arrival').innerHTML = htmls.join('')
-                })
         )
     },
     loadTop() {

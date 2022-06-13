@@ -1,5 +1,11 @@
 import { Load } from "../js/load_user.js";
+import renderCart from "../js/renderCart.js"
+import handleClickCategory from "../js/clickCategory.js"
+import handleClickType from "../js/clickType.js"
+
 Load.start()
+renderCart()
+
 var userName = document.querySelector('.user_name')
 
 const App = {
@@ -7,7 +13,7 @@ const App = {
         this.loadUserInfo() 
     },
     loadUserInfo() {
-        var user = JSON.parse(localStorage.getItem('usersAccount'))
+        var user = JSON.parse(sessionStorage.getItem('usersAccount'))
       
             userName.textContent = user.name
         
@@ -17,3 +23,6 @@ const App = {
 }
 
 App.start()
+
+handleClickCategory()
+handleClickType()

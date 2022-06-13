@@ -21,6 +21,7 @@ btnLogin.onclick = function (e) {
                     sessionStorage.setItem('login', JSON.stringify('true'))
                     sessionStorage.setItem('usersAccount', JSON.stringify(
                         {
+                            'id': `${userAcc.id}`,
                             'name': `${userAcc.name}`,
                             'email': `${userAcc.email}`,
                             'phoneNumber': `${userAcc.phoneNumber}`,

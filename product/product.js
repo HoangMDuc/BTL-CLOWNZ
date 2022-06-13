@@ -2,7 +2,9 @@ import { Load } from "../js/load_user.js";
 
 import handleClickCategory from "../js/clickCategory.js";
 import handleClickType from "../js/clickType.js";
-
+import clickBuyBtn from "../js/clickBuyBtn.js"
+import renderCart from "../js/renderCart.js"
+renderCart()
 Load.start()
 
 
@@ -40,12 +42,12 @@ function render() {
                         <span class="col-2">Số lượng: </span>
                         <div class="border" style="width: auto;">
                         <button class="bg-white border-0 minus-btn"><h1>-</h1></button>
-                        <input type="number" class="bg-white text-dark fw-bolder product-quantity" value="1" style="width: 45px;" readonly>
+                        <input type="number" class="bg-white text-dark fw-bolder product-quantity" value="1" style="width: 45px;" readonly min="1" max="${product.quantity}">
                         <button class="bg-white border-0 add-btn"><h1>+</h1></button>    
                         </div>
                     </div>
                     <div class="row px-5">
-                        <button class="my-5 bg-danger border-0" style="height: 38px; width:310px;" onclick="buyBtnClick()">
+                        <button class="my-5 bg-danger border-0 buy-btn" style="height: 38px; width:310px;">
                             <span class="text-white text-center fw-bolder">MUA NGAY</span>
                         </button>    
                     </div>
@@ -78,8 +80,11 @@ function render() {
             })
     )
 }
+
 render()
-    .then((product) => {
+    .then((product ) => {
+        handleClickCategory()
+        handleClickType()
         var sizeElements = document.querySelectorAll('.size-element')
         var minusBtn = document.querySelector('.minus-btn')
         var addBtn = document.querySelector('.add-btn')
@@ -95,7 +100,7 @@ render()
         })
 
         minusBtn.onclick = function (e) {
-            if (numberOfProduct.value == 0) {
+            if (numberOfProduct.value == 1) {
                 return;
             }
             else {
@@ -112,7 +117,12 @@ render()
                 numberOfProduct.value++;
             }
         }
+        clickBuyBtn()
+        renderCart()
 })
 
-handleClickCategory()
-handleClickType()
+
+
+
+
+

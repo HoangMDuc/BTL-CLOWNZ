@@ -1,15 +1,19 @@
 import { Load } from "../js/load_user.js";
 Load.start()
+import handleClickCategory from "../js/clickCategory.js";
+import handleClickType from "../js/clickType.js";
 
 var userNames = document.querySelectorAll('.user_name')
 var user_email = document.querySelector('.user_email')
+import renderCart  from "../js/renderCart.js";
+renderCart()
 
 const App = {
     start() {
         this.loadUserInfo() 
     },
     loadUserInfo() {
-        var user = JSON.parse(localStorage.getItem('usersAccount'))
+        var user = JSON.parse(sessionStorage.getItem('usersAccount'))
         userNames.forEach( userName => {
             userName.textContent = user.name
         })
@@ -18,4 +22,8 @@ const App = {
     }
 }
 
+
+
 App.start()
+handleClickCategory()
+handleClickType()

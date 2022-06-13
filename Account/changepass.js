@@ -1,5 +1,10 @@
 import { Load } from "../js/load_user.js";
-import validates from "../sign-up/validates.js"
+import renderCart from "../js/renderCart.js";
+import validates from "../sign_up/validates.js"
+import handleClickCategory from "../js/clickCategory.js"
+import handleClickType from "../js/clickType.js"
+renderCart()
+
 Load.start()
 var usersApi = "https://62890e4b10e93797c162141e.mockapi.io/clownz/users";
 var userName = document.querySelector('.user_name')
@@ -10,9 +15,11 @@ var resetPwBtn = document.querySelector('.reset-pw')
 const App = {
     start() {
         this.loadUserInfo() 
+        handleClickCategory()
+        handleClickType()
     },
     loadUserInfo() {
-        var user = JSON.parse(localStorage.getItem('usersAccount'))
+        var user = JSON.parse(sessionStorage.getItem('usersAccount'))
       
             userName.textContent = user.name
         

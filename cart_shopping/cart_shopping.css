@@ -143,6 +143,10 @@ input::-webkit-inner-spin-button {
 .active {
     color: #1c1c1c !important;
 }
+.product-card {
+    cursor: pointer;
+}
+
 .img-product-cart   {
     height: 180px;
     width: 180px;

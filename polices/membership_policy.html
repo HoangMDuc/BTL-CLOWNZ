@@ -38,71 +38,32 @@
                     <a href="../index.html"><img src="../img/image-main/logo (1).png" alt=""></a>
                 </div>
                 <div class="header-control col-2 d-flex justify-content-end gap-5">
-                    <div class="cart-shopping hover-text">
-                        <a href="../giohang/giohang.html" class="text-decoration-none text-dark">GIỎ HÀNG</a>
-                        <i class="fa-solid fa-cart-arrow-down position-relative">
+                    <div class="cart-shopping position-relative">
+                        <a href="./cart_shopping/cart_shopping.html"
+                            class="text-decoration-none text-dark cart-link">GIỎ HÀNG</a>
+                        <i class="fa-solid fa-cart-arrow-down position-relative cart-icon">
                             <span class="cart-quantity position-absolute">0</span>
                         </i>
-                        
+
                         <div class="shopping-container position-absolute ">
                             <div class="shopping-body h-100 px-3 py-4">
                                 <ul class="shopping-list ">
-                                    <li class="d-flex shopping-item gap-5 mb-2">
-                                        <img src="./img/top/hoodie/sp1.1.jpg" alt="" class="shopping-item-img">
-                                        <div class="shopping-item-info">
-                                            <h4 class="shopping-item-name mb-2">Clone Good Vibe...</h4>
-                                            <span class="shopping-item-price">379000</span>
-                                            <div class="quantity-select d-flex w-50 mt-3">
-                                                <span class="reduce-quantity border px-3">-</span>
-                                                <span class="shopping-item-quantity border px-4">2</span>
-                                                <span class="raise-quantity border px-3">+</span>
-                                                <i class="fa-solid fa-xmark cart-close px-1 ms-5"></i>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="d-flex shopping-item gap-5 mb-2">
-                                        <img src="./img/top/hoodie/sp1.1.jpg" alt="" class="shopping-item-img">
-                                        <div class="shopping-item-info">
-                                            <h4 class="shopping-item-name mb-2">Clone Good Vibe...</h4>
-                                            <span class="shopping-item-price">379000</span>
-                                            <div class="quantity-select d-flex w-50 mt-3">
-                                                <span class="reduce-quantity border px-3">-</span>
-                                                <span class="shopping-item-quantity border px-4">2</span>
-                                                <span class="raise-quantity border px-3">+</span>
-                                                <i class="fa-solid fa-xmark cart-close px-1 ms-5"></i>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="d-flex shopping-item gap-5 mb-2">
-                                        <img src="./img/top/hoodie/sp1.1.jpg" alt="" class="shopping-item-img">
-                                        <div class="shopping-item-info">
-                                            <h4 class="shopping-item-name mb-2">Clone Good Vibe...</h4>
-                                            <span class="shopping-item-price">379000</span>
-                                            <div class="quantity-select d-flex w-50 mt-3">
-                                                <span class="reduce-quantity border px-3">-</span>
-                                                <span class="shopping-item-quantity border px-4">2</span>
-                                                <span class="raise-quantity border px-3">+</span>
-                                                <i class="fa-solid fa-xmark cart-close px-1 ms-5"></i>
-                                            </div>
-                                        </div>
-                                    </li>
+
                                 </ul>
-                                <div class="d-flex justify-content-between ps-3 pe-4 mt-2 fs-4">
-                                    <p class="total-price-text fw-light text-dark">
-                                        Tổng tiền:
-                                    </p>
-                                    <div class="total-price text-danger">2000000đ</div>
-                                </div>
-                                <div class="row pb-2">
+
+                                <div class="row pb-2 btn-container">
                                     <div class="col-6">
-                                        <button class="btn-pay btn-see-more w-100 m-0">Thanh toán</button>
+                                        <button class="btn-pay btn-see-more w-100 m-0 ">
+                                            <a href="../payment/payment.html" class="text-decoration-none text-light">Thanh toán</a>
+                                        </button>
                                     </div>
                                     <div class="col-6">
-                                        <button class="btn-pay btn-see-more w-100 m-0">Giỏ hàng</button>
+                                        <button class="btn-pay btn-see-more w-100 m-0">
+                                            <a href="../cart_shopping/cart_shopping.html" class="text-decoration-none text-light">Giỏ hàng</a>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
-                            
                         </div>
                     </div>
                     <div class="search-btn hover-text">
@@ -110,9 +71,9 @@
                     </div>
                 </div>
                 <div class="col-2 d-flex justify-content-end gap-4 align-items-center">
-                    <a href="" class="text-decoration-none">ĐĂNG NHẬP</a>
-                    <i class="fa-solid fa-user"></i>
-                    <a href="" style="display:none;">ĐĂNG XUẤT</a>
+                    <a href="../sign_in/sign_in.html" class="text-decoration-none log-in">ĐĂNG NHẬP</a>
+                    <a href="../Account/account.html"><i class="fa-solid fa-user"></i></a>
+                    <a href="../sign_in/sign_in.html" style="display:none;" class="log-out">ĐĂNG XUẤT</a>
                 </div>
             </div>
 
@@ -134,78 +95,78 @@
                         <div class="offcanvas-body">
                             <ul class="navbar-nav justify-content-between gap-4 flex-grow-1 pe-3 ">
                                 <li class="nav-item p-3">
-                                    <a class="nav-link hover-text p-0 text-dark" aria-current="page" href="#">Z-BOT
+                                    <a class="nav-link hover-text p-0 text-dark category-item" data-index="1" aria-current="page" href="#">Z-BOT
                                         CAPSULE</a>
                                 </li>
                                 <li class="nav-item p-3">
-                                    <a class="nav-link hover-text p-0 text-dark" href="#">YOUNG/WILD N' TRIPPY</a>
+                                    <a class="nav-link hover-text p-0 text-dark category-item" data-index="2" href="#">YOUNG/WILD N' TRIPPY</a>
                                 </li>
 
                                 <li class="nav-item p-3 dropdown">
-                                    <a class="nav-link hover-text p-0 dropdown-toggle text-dark" href="#"
+                                    <a class="nav-link hover-text p-0 dropdown-toggle text-dark category-item" data-index="3" href="#"
                                         id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
                                         aria-expanded="false">
                                         TOP
                                     </a>
                                     <ul class="dropdown-menu border-0 header-dropdown-menu"
                                         aria-labelledby="offcanvasNavbarDropdown">
-                                        <li><a class="dropdown-item hover-text" href="#">T-Shirt</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" data-index="1" href="#">T-Shirt</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text" href="#">Shirt</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" data-index="2" href="#">Shirt</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text" href="#">Hoodie</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" data-index="3" href="#">Hoodie</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text" href="#">Jacket</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" data-index="4" href="#">Jacket</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text" href="#">Sweatshirt</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" data-index="5" href="#">Sweatshirt</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item p-3 dropdown">
-                                    <a class="nav-link hover-text p-0 dropdown-toggle text-dark" href="#"
+                                    <a class="nav-link hover-text p-0 dropdown-toggle text-dark category-item" data-index="4" href="#"
                                         id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
                                         aria-expanded="false">
                                         BOTTOM
                                     </a>
                                     <ul class="dropdown-menu border-0 header-dropdown-menu"
                                         aria-labelledby="offcanvasNavbarDropdown">
-                                        <li><a class="dropdown-item hover-text" href="#">Pants</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" data-index="6" href="#">Pants</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text" href="#">Jeans & Denim</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" data-index="7" href="#">Jeans & Denim</a></li>
 
                                     </ul>
                                 </li>
 
                                 <li class="nav-item p-3 dropdown">
-                                    <a class="nav-link hover-text p-0 dropdown-toggle text-dark" href="#"
+                                    <a class="nav-link hover-text p-0 dropdown-toggle text-dark category-item" data-index="5" href="#"
                                         id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
                                         aria-expanded="false">
                                         ACCESSORY
                                     </a>
                                     <ul class="dropdown-menu border-0 header-dropdown-menu"
                                         aria-labelledby="offcanvasNavbarDropdown">
-                                        <li><a class="dropdown-item hover-text" href="#">Bag</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" data-index="8" href="#">Bag</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text" href="#">Hat</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" data-index="9" href="#">Hat</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text" href="#">Backpack</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" data-index="10" href="#">Backpack</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text" href="#">Others</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" data-index="11" href="#">Others</a></li>
 
 
                                     </ul>
@@ -369,6 +330,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
+    <script src="./policies.js" type="module"></script>
 </body>
 
 </html>

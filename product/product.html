@@ -18,6 +18,7 @@
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./product.css">
+    <link rel="stylesheet" href="../css/base.css">
     <title>Document</title>
 </head>
 
@@ -37,71 +38,32 @@
                     <a href="../index.html"><img src="../img/image-main/logo (1).png" alt=""></a>
                 </div>
                 <div class="header-control col-2 d-flex justify-content-end gap-5">
-                    <div class="cart-shopping hover-text">
-                        <a href="../giohang/giohang.html" class="text-decoration-none text-dark">GIỎ HÀNG</a>
-                        <i class="fa-solid fa-cart-arrow-down position-relative">
+                    <div class="cart-shopping position-relative">
+                        <a href="../cart_shopping/cart_shopping.html"
+                            class="text-decoration-none text-dark cart-link">GIỎ HÀNG</a>
+                        <i class="fa-solid fa-cart-arrow-down position-relative cart-icon">
                             <span class="cart-quantity position-absolute">0</span>
                         </i>
 
                         <div class="shopping-container position-absolute ">
                             <div class="shopping-body h-100 px-3 py-4">
-                                <ul class="shopping-list ">
-                                    <li class="d-flex shopping-item gap-5 mb-2">
-                                        <img src="./img/top/hoodie/sp1.1.jpg" alt="" class="shopping-item-img">
-                                        <div class="shopping-item-info">
-                                            <h4 class="shopping-item-name mb-2">Clone Good Vibe...</h4>
-                                            <span class="shopping-item-price">379000</span>
-                                            <div class="quantity-select d-flex w-50 mt-3">
-                                                <span class="reduce-quantity border px-3">-</span>
-                                                <span class="shopping-item-quantity border px-4">2</span>
-                                                <span class="raise-quantity border px-3">+</span>
-                                                <i class="fa-solid fa-xmark cart-close px-1 ms-5"></i>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="d-flex shopping-item gap-5 mb-2">
-                                        <img src="./img/top/hoodie/sp1.1.jpg" alt="" class="shopping-item-img">
-                                        <div class="shopping-item-info">
-                                            <h4 class="shopping-item-name mb-2">Clone Good Vibe...</h4>
-                                            <span class="shopping-item-price">379000</span>
-                                            <div class="quantity-select d-flex w-50 mt-3">
-                                                <span class="reduce-quantity border px-3">-</span>
-                                                <span class="shopping-item-quantity border px-4">2</span>
-                                                <span class="raise-quantity border px-3">+</span>
-                                                <i class="fa-solid fa-xmark cart-close px-1 ms-5"></i>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="d-flex shopping-item gap-5 mb-2">
-                                        <img src="./img/top/hoodie/sp1.1.jpg" alt="" class="shopping-item-img">
-                                        <div class="shopping-item-info">
-                                            <h4 class="shopping-item-name mb-2">Clone Good Vibe...</h4>
-                                            <span class="shopping-item-price">379000</span>
-                                            <div class="quantity-select d-flex w-50 mt-3">
-                                                <span class="reduce-quantity border px-3">-</span>
-                                                <span class="shopping-item-quantity border px-4">2</span>
-                                                <span class="raise-quantity border px-3">+</span>
-                                                <i class="fa-solid fa-xmark cart-close px-1 ms-5"></i>
-                                            </div>
-                                        </div>
-                                    </li>
+                                <ul class="shopping-list p-0">
+
                                 </ul>
-                                <div class="d-flex justify-content-between ps-3 pe-4 mt-2 fs-4">
-                                    <p class="total-price-text fw-light text-dark">
-                                        Tổng tiền:
-                                    </p>
-                                    <div class="total-price text-danger">2000000đ</div>
-                                </div>
-                                <div class="row pb-2">
+
+                                <div class="row pb-2 btn-container">
                                     <div class="col-6">
-                                        <button class="btn-pay btn-see-more w-100 m-0">Thanh toán</button>
+                                        <button class="btn-pay btn-see-more w-100 m-0 ">
+                                            <a href="../payment/payment.html" class="text-decoration-none text-light">Thanh toán</a>
+                                        </button>
                                     </div>
                                     <div class="col-6">
-                                        <button class="btn-pay btn-see-more w-100 m-0">Giỏ hàng</button>
+                                        <button class="btn-pay btn-see-more w-100 m-0">
+                                            <a href="../cart_shopping/cart_shopping.html" class="text-decoration-none text-light">Giỏ hàng</a>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <div class="search-btn hover-text">
@@ -262,39 +224,14 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-lg-6 col-md-6 product-info">
-                <h1 class="pb-3">DIAMOND Z- BOT T-SHIRT</h1>
-                <span class="h2">349.000₫</span>
-                <p>Tình trạng: <span class="text-danger">Còn hàng</span></p>
+                
                 <!-- Chọn màu -->
 
                 <!-- Chọn size -->
-                <div class="row gap-4 py-4 align-items-center">
-                    <span class="col-auto">Size: </span>
-                    <span class="border color-element col-auto">M</span>
-                    <span class="border color-element col-auto">L</span>
-                    <span class="border color-element col-auto">XL</span>
-                    <span class="border color-element col-auto">XXL</span>
-                    <div class="col-auto"></div>
-                </div>
+                
                 <!-- số lượng -->
-                <div class="row py-4">
-                    <span class="col-2">Số lượng: </span>
-                    <div class="border" style="width: auto;">
-                        <button class="bg-white border-0 minus-quantity">
-                            <h1>-</h1>
-                        </button>
-                        <input type="number" class="color-element bg-white text-dark fw-bolder product-quantity"
-                            value="1" style="width: 45px;">
-                        <button class="bg-white border-0 add-quantity">
-                            <h1>+</h1>
-                        </button>
-                    </div>
-                </div>
-                <div class="row px-5">
-                    <button class="my-5 bg-danger border-0" style="height: 38px; width:310px;">
-                        <span class="text-white text-center fw-bolder">MUA NGAY</span>
-                    </button>
-                </div>
+                
+                
                 <div class="row py-5">
                     <img src="../img/top/tshirts/bang-size-t-shirt-a9a35638-f098-43c9-a5e1-5ebd4959af11.webp" alt="">
                 </div>

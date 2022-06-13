@@ -10,14 +10,14 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
-        <link rel="stylesheet" href="../css/base.css">
-
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="./style.css">
     <title>Document</title>
 </head>
 
@@ -38,20 +38,42 @@
 
                 </div>
                 <div class="header-control col-2 d-flex justify-content-end gap-5">
-                    <div class="cart-shopping hover-text">
-                        <span class="">GIỎ HÀNG</span>
-                        <i class="fa-solid fa-cart-arrow-down position-relative">
+                    <div class="cart-shopping position-relative">
+                        <a href="../cart_shopping/cart_shopping.html"
+                            class="text-decoration-none text-dark cart-link">GIỎ HÀNG</a>
+                        <i class="fa-solid fa-cart-arrow-down position-relative cart-icon">
                             <span class="cart-quantity position-absolute">0</span>
                         </i>
+
+                        <div class="shopping-container position-absolute ">
+                            <div class="shopping-body h-100 px-3 py-4">
+                                <ul class="shopping-list ">
+
+                                </ul>
+
+                                <div class="row pb-2">
+                                    <div class="col-6">
+                                        <button class="btn-pay btn-see-more w-100 m-0 ">
+                                            <a href="../payment/payment.html" class="text-decoration-none text-light">Thanh toán</a>
+                                        </button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn-pay btn-see-more w-100 m-0">
+                                            <a href="../cart_shopping/cart_shopping.html" class="text-decoration-none text-light">Giỏ hàng</a>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="search-btn hover-text">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                 </div>
                 <div class="col-2 d-flex justify-content-end gap-4 align-items-center">
-                    <a href="" class="text-decoration-none">ĐĂNG NHẬP</a>
+                    <a href="../sign_in/sign_in.html" class="text-decoration-none">ĐĂNG NHẬP</a>
                     <i class="fa-solid fa-user"></i>
-                    <a href="" style="display:none;">ĐĂNG XUẤT</a>
+                    <a href="../sign_in/sign_in.html" style="display:none;">ĐĂNG XUẤT</a>
                 </div>
             </div>
 
@@ -179,7 +201,7 @@
     <main class="p-2">
         <div class="container">
             <div class="row">
-    
+
                 <div class="col-xs-12 col-sm-12 col-lg-3 col-left-ac">
                     <div class="block-account">
                         <h5 class="title-account margin-top-10">Trang tài khoản</h5>
@@ -216,7 +238,8 @@
                                                 <fieldset class="form-group">
                                                     <label>Họ tên</label>
                                                     <input type="text" placeholder="Họ tên" name="FullName"
-                                                        class="form-control" data-validation-error-msg="Không được để trống"
+                                                        class="form-control"
+                                                        data-validation-error-msg="Không được để trống"
                                                         data-validation="required" value="" autocapitalize="words">
                                                 </fieldset>
                                                 <p class="error-msg"></p>
@@ -226,8 +249,9 @@
                                             <div class="field">
                                                 <fieldset class="form-group">
                                                     <label>Số điện thoại</label>
-                                                    <input type="number" placeholder="Số điện thoại" class="form-control"
-                                                        id="Phone" pattern="\d+" name="Phone" maxlength="12" value="">
+                                                    <input type="number" placeholder="Số điện thoại"
+                                                        class="form-control" id="Phone" pattern="\d+" name="Phone"
+                                                        maxlength="12" value="">
                                                 </fieldset>
                                             </div>
                                         </div>
@@ -257,7 +281,7 @@
                                             <label>Quốc gia</label>
                                             <select name="Country" class="form-control vn-fix add has-content"
                                                 id="mySelect1" data-default="Việt Nam">
-                                                <option value="Armenia">Armenia</option>                                            
+                                                <option value="Armenia">Armenia</option>
                                                 <option value="Vietnam">Vietnam</option>
                                             </select>
                                         </fieldset>
@@ -277,12 +301,12 @@
                                         <fieldset class="form-group select-field not-vn">
                                             <label>Quận huyện</label>
                                             <input type="text" placeholder="Địa chỉ" class="form-control"
-                                                        name="Address1" value="">
+                                                name="Address1" value="">
                                         </fieldset>
                                         <fieldset class="form-group select-field not-vn">
                                             <label>Phường xã</label>
                                             <input type="text" placeholder="Địa chỉ" class="form-control"
-                                                        name="Address1" value="">
+                                                name="Address1" value="">
                                         </fieldset>
                                     </div>
                                     <div class="field">
@@ -294,8 +318,9 @@
                                     </div>
                                 </div>
                                 <div class="checkbox margin-bottom-10">
-                                        <input type="checkbox" id="address_default_address_0" name="IsDefault" value="true" >
-                                        <label style="margin-top: 8px; margin-left: 5px;";">Đặt là địa chỉ mặc định?</label>
+                                    <input type="checkbox" id="address_default_address_0" name="IsDefault" value="true">
+                                    <label style="margin-top: 8px; margin-left: 5px;" ;">Đặt là địa chỉ mặc
+                                        định?</label>
                                 </div>
                                 <div class="btn-row">
                                     <button class="btn btn-lg btn-see-more" id="addnew" type=""><span>Thêm địa
@@ -359,17 +384,17 @@
 
                         <li class="my-3"><a
                                 class="hover-text text-decoration-none text-dark fw-bolder text-uppercase h5"
-                                href="../chinh-sach/chinh-sach-thanh-vien.html" title="Chính sách thành viên"
+                                href="../polices/membership_policy.html" title="Chính sách thành viên"
                                 rel="nofollow">Chính sách thành viên</a></li>
 
                         <li class="my-3"><a
                                 class="hover-text text-decoration-none text-dark fw-bolder text-uppercase h5"
-                                href="../chinh-sach/chinh-sach-doi-tra.html" title="Chính sách đổi trả"
+                                href="../polices/return_policy.html" title="Chính sách đổi trả"
                                 rel="nofollow">Chính sách đổi trả</a></li>
 
                         <li class="my-3"><a
                                 class="hover-text text-decoration-none text-dark fw-bolder text-uppercase h5"
-                                href="../chinh-sach/chinh-sach-van-chuyen.html" title="Chính sách vận chuyển"
+                                href="../polices/shipping_policy.html" title="Chính sách vận chuyển"
                                 rel="nofollow">Chính sách vận chuyển</a></li>
 
                     </ul>

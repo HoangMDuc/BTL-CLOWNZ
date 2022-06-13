@@ -22,7 +22,7 @@
 <body>
     <div class="container mb-4">
         <div class="header__content mb-2">
-            <a href="./">
+            <a href="../index.html">
                 <img src="../img/image-main/logo (1).png" alt="">
             </a>
         </div>
@@ -40,10 +40,16 @@
                             </h2>
                         </div>
                         <div class="title__signin">
-                            <a href="" style="text-decoration: none;">
+                            <a href="../sign_in/sign_in.html" style="text-decoration: none;" class="log-in">
                                 <i class="fa-solid fa-circle-user"></i>
                                 <span>
                                     Đăng nhập
+                                </span>
+                            </a>
+                            <a href="../sign_in/sign_in.html" style="text-decoration: none;" class="log-out">
+                                <i class="fa-solid fa-right-from-bracket"></i>
+                                <span>
+                                    Đăng xuất
                                 </span>
                             </a>
                         </div>
@@ -51,12 +57,12 @@
                     <form action="" class="info__payment">
                         <div class="mb-3">
                             <label for="" class="form-label">Email</label>
-                            <input type="email" class="form-control" name="" id="" aria-describedby="emailHelpId"
-                                placeholder="Email" required="">
+                            <input type="email" class="form-control user_email" name="" id="" aria-describedby="emailHelpId"
+                                placeholder="Email" required="" >
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Họ và tên</label>
-                            <input type="text" name="name" id="" class="form-control" placeholder="Họ và tên"
+                            <input type="text" name="name" id="" class="form-control user_name" placeholder="Họ và tên"
                                 aria-describedby="helpId">
                         </div>
                         <div class="mb-3">
@@ -153,12 +159,12 @@
                     <div class="section__header">
                         <div class="layout-flex">
                             <h2 class="section__title layout-flex__item layout-flex__item--stretch">
-                                <i class="fa fa-truck fa-lg section__title--icon hide-on-desktop"></i>
+                                
                                 Vận chuyển
                             </h2>
                         </div>
                     </div>
-                    <div class="section__content">
+                    <div class="section__content mb-3">
                         <div class="content-box"
                             data-bind-show="!isLoadingShippingMethod &amp;&amp; !isAddressSelecting &amp;&amp; !isLoadingShippingError">
                             <div class="content-box__row">
@@ -166,7 +172,7 @@
                                     <div class="radio__input">
                                         <input type="radio" class="input-radio" name="shippingMethod"
                                             id="shippingMethod-628903_0" value="628903_0,30.000 VND"
-                                            data-bind="shippingMethod">
+                                            data-bind="shippingMethod" checked>
                                     </div>
                                     <label for="shippingMethod-628903_0" class="radio__label">
                                         <span class="radio__label__primary">
@@ -188,7 +194,7 @@
                     <div class="section__header">
                         <div class="layout-flex">
                             <h2 class="section__title layout-flex__item layout-flex__item--stretch">
-                                <i class="fa fa-credit-card fa-lg section__title--icon hide-on-desktop"></i>
+                                
                                 Thanh toán
                             </h2>
                         </div>
@@ -199,7 +205,7 @@
                                 <div class="radio-wrapper">
                                     <div class="radio__input">
                                         <input name="paymentMethod" id="paymentMethod-490238" type="radio"
-                                            class="input-radio" data-bind="paymentMethod" value="490238">
+                                            class="input-radio" data-bind="paymentMethod" value="490238" checked>
                                     </div>
                                     <label for="paymentMethod-490238" class="radio__label">
                                         <span class="radio__label__primary">
@@ -283,6 +289,7 @@
             </div>
         </main>
     </div>
+    <script src="./payment.js" type="module"></script>
 </body>
 
 </html>
