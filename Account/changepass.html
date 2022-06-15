@@ -18,7 +18,9 @@
         rel="stylesheet">
     <link rel="stylesheet" href="../css/base.css">
 
-    <title>Document</title>
+    <link rel="icon" href="//bizweb.dktcdn.net/100/414/728/themes/803486/assets/favicon.png?1654316792671"
+        type="image/x-icon">
+        <title>CLOWNZⓇ STREETWEAR</title>
 </head>
 
 <body>
@@ -217,9 +219,6 @@
                             <li>
                                 <a class="title-info" href="./changepass.html" title="Đổi mật khẩu">Đổi mật khẩu</a>
                             </li>
-                            <li>
-                                <a class="title-info" href="./address.html" title="Sổ địa chỉ">Sổ địa chỉ</a>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -233,27 +232,29 @@
                             <p>
                                 Để đảm bảo tính bảo mật vui lòng đặt mật khẩu với ít nhất 6 kí tự
                             </p>
-                            <div class="form-signup clearfix">
-                                <fieldset class="form-group">
+                            <div class="form-signup clearfix mt-3">
+                                <div class="oldPass mb-3">
                                     <label for="oldPass">Mật khẩu cũ <span class="error">*</span></label>
-                                    <input type="password" placeholder="Mật khẩu cũ" name="OldPassword" id="OldPass"
+                                    <input type="password" placeholder="Mật khẩu cũ" name="OldPassword" id="oldPass"
                                         class="form-control form-control-lg">
                                     <span class="warning-message"></span>
-                                </fieldset>
-                                <fieldset class="form-group">
+                                </div>
+                                <div class="changePass mb-3">
                                     <label for="changePass">Mật khẩu mới <span class="error">*</span></label>
                                     <input type="password" placeholder="Mật khẩu mới" name="Password" id="changePass"
                                          class="form-control form-control-lg">
                                     <span class="warning-message"></span>
-                                </fieldset>
-                                <fieldset class="form-group">
+                                </div> 
+                                <div class="confirmPass mb-3">
                                     <label for="confirmPass">Xác nhận lại mật khẩu <span class="error">*</span></label>
                                     <input type="password" placeholder="Xác nhận lại mật khẩu" name="ConfirmPassword"
                                         id="confirmPass"  class="form-control form-control-lg">
                                     <span class="warning-message"></span>
-                                </fieldset>
-                                <button class="btn-see-more btn-main reset-pw"><i class="hoverButton"></i>Đặt
-                                    lại mật khẩu</button>
+                                </div> 
+                                <div class="btn__changePass mb-3">
+                                    <button class="btn-see-more btn-main reset-pw">ĐẶT LẠI MẬT KHẨU</button>
+                                </div>                             
+                                
                             </div>
                         </form>
                     </div>

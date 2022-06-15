@@ -5,28 +5,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" href="//bizweb.dktcdn.net/100/414/728/themes/803486/assets/favicon.png?1654316792671"
+        type="image/x-icon">
+        <title>CLOWNZⓇ STREETWEAR</title>
     <!-- CSS only -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="./admin.css">
 </head>
 
 <body>
-    <div class="containner ml-5 mr-5">
-        <header>
-            <div class="block__logo">
+    <div style="height: 20px; margin-top: 20px;"></div>
+    <div class="container">
+        <header style="top: 1">
+            <div class="block__logo mb-3">
                 <a href="">
-                    <img src="../img/admin/logo.webp" alt="">
+                    <img class="cangiua" src="../img/admin/logo.webp" alt="">
                 </a>
+            </div>
+            <div class="text-center">
+                <p>
+                    <strong>Xin chào: </strong>
+                    <span class="user_name">Hoàng Minh Đức</span>
+                </p>
             </div>
         </header>
         <main>
-            <div class="block__nav mt-5">
-                <nav class="navbar navbar-expand-lg">
+            <div class="block__nav ml-3 mr-3 mt-3">
+                <nav class="navbar navbar-expand-lg ml-3 mr-3">
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav menu text-center">
-                            <div class="item font-weight-bold">
+                            <div class="item  ">
                                 <a class="nav-item nav-link active" href="./home.html">QL Sản Phẩm</a>
                             </div>
                             <div class="item ">
@@ -51,29 +61,31 @@
                 </nav>
             </div>
             <div class="title text-center mt-2">
-                <h1>Danh sách Loại Sản phẩm</h1>
+                <h1>Danh sách slider</h1>
             </div>
-            <div class="text-start border border-dark mt-5 " style="margin-left: 30px;">
+            <div class="text-start border border-dark mt-3 " style="margin-left: 30px;">
                 <div class="row text-center navbar navbar-light bg-light">
                     <div class="col-6">
                         <nav class="">
                             <div class="container">
                                 <form class="d-flex">
-                                    <input class="form-control me-2" type="search" placeholder=""
+                                    <input class="form-control me-2" type="search" placeholder="Nhập tên slider"
                                         aria-label="">
-                                    <button class="btn btn-outline-success" type="submit">Tìm kiếm</button>
+                                    <button class="btn btn-outline-dark" type="submit">Tìm kiếm</button>
                                 </form>
                             </div>
                         </nav>
                     </div>
                     <div class="col-6 ">
                         <div class="d-flex mt-2 but ">
-                            <div class="">
-                                <a href="./Mng_Sli_add.html" class="btn btn-primary">Thêm</a>
+                            <div class="text-center">
+                                <a href="./Mng_Sli_add.html" class="btn btn-dark btn-see-more">Thêm</a>
                             </div>
-                            
                             <div class="">
-                                <button class="btn btn-danger" type="submit">Xóa</button>
+                                <a href="./Mng_Sli_add.html" class="btn btn-dark btn-see-more">Sửa</a>
+                            </div>
+                            <div class="">
+                                <button class="btn btn-dark btn-see-more" type="submit">Xóa</button>
                             </div>
                         </div>
                     </div>
@@ -90,21 +102,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></th>
+                            <th><label for=""><input type="checkbox" class="radio" value="1" name="fooby[1][]"></label>
                             <td><a href="">01</a></td>
                             <td colspan="3">
                                 <img src="../img/admin/slider_2.webp" alt="">
                             </td>
                         </tr>
                         <tr>
-                            <th><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></th>
+                            <th><label for=""><input type="checkbox" class="radio" value="1" name="fooby[1][]"></label>
                             <td><a href="">02</a></td>
                             <td colspan="3">
                                 <img src="../img/admin/slider_2.webp" alt="">
                             </td>
                         </tr>
                         <tr>
-                            <th><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></th>
+                            <th><label for=""><input type="checkbox" class="radio" value="1" name="fooby[1][]"></label>
                             <td><a href="">03</a></td>
                             <td colspan="3">
                                 <img src="../img/admin/slider_2.webp" alt="">
@@ -121,6 +133,23 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
+        <script>
+            $("input:checkbox").on('click', function () {
+                // in the handler, 'this' refers to the box clicked on
+                var $box = $(this);
+                if ($box.is(":checked")) {
+                    // the name of the box is retrieved using the .attr() method
+                    // as it is assumed and expected to be immutable
+                    var group = "input:checkbox[name='" + $box.attr("name") + "']";
+                    // the checked state of the group/box on the other hand will change
+                    // and the current value is retrieved using .prop() method
+                    $(group).prop("checked", false);
+                    $box.prop("checked", true);
+                } else {
+                    $box.prop("checked", false);
+                }
+            });
+        </script>
 </body>
 
 </html>

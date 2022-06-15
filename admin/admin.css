@@ -12,6 +12,11 @@
     height: 100% !important;
     font-weight: 650;
     overflow: auto;
+    box-shadow: 5px 10px 8px #888888;
+}
+.block__nav{
+    /* background-color: #808080;
+    opacity: 0.3; */
 }
 a{
     text-decoration: none;
@@ -20,7 +25,7 @@ a{
 .item a.active:active,
 .item a.active:focus {
     color: #546edb;
-	/* background: url(../../images/grad2-1.gif) repeat-x top #2B6484; */
+	background-color: rgba(0, 0, 0, 0.1);
 }
 .but{
     margin-top: 20px;
@@ -29,6 +34,9 @@ a{
 table{
     table-layout: fixed;
     width: 100%;
+}
+img.cangiua {display: block; margin-left: auto; margin-right: auto;
+
 }
 img{
     display: block;
@@ -46,3 +54,22 @@ img{
 .list__item{
     justify-content:space-between;
 }
+.btn-see-more {
+    height: 42px;
+    width: 65px;
+    background: black;
+    margin: 20px;
+    margin-left: 0;
+    /* float: left; */
+    border: 0px;
+    color: #fff;
+    box-shadow: 0 0 1px #1c1c1c ;
+    -webkit-transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-in;
+    box-shadow: 0px 0 0 #fff inset;
+ }
+ .btn-see-more:hover{
+    -webkit-box-shadow: -252px 0 0 #fff inset;
+    color: #1c1c1c;
+    border:1px solid #1c1c1c;
+ }
