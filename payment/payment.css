@@ -87,3 +87,60 @@ td, th {
 a{
     text-decoration: none;
 }
+
+.sidebar-container{
+    border-left: 1px solid #ccc;
+    top: 0;
+    width: 400px;
+    right: 0;
+    bottom: 0;
+}
+.sidebar {
+    padding: 20px;
+}
+
+.list-products {
+    max-height: 180px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+.product-item {
+    padding: 10px;
+}
+
+.payment-info {
+    font-size: 14px;
+}
+
+.freeship {
+    font-weight: 700;
+}
+
+.total {
+    font-size: 18px;
+    color: rgb(83, 80, 80);
+}
+
+.total-payment {
+    color: #2a9dcc;
+    font-weight: 600;
+}
+
+.address-selection {
+    width: 100%;
+}
+
+.product-quantity{
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 50%;
+    background-color: #2a9dcc;
+    right: -10px;
+    color: #fff;
+
+}

@@ -33,7 +33,6 @@ export default function clickBuyBtn() {
             cartItems
         ))
        renderCart()
-       console.log('a')
         
     }
 

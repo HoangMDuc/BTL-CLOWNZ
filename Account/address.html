@@ -10,7 +10,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -23,23 +23,22 @@
 
 <body>
     <header id="header">
-        <div class="container">
-            <div class="row py-4 border-bottom align-items-center top-header">
-                <div class="hotline col-4">
+        <div class="container-fluid" style="margin-left: 115px;">
+            <div class="row py-4 border-bottom align-items-center top-header ">
+                <div class="hotline col-3">
                     <span class="hotline-text">
                         HOTLINE ĐẶT HÀNG:
-
                     </span>
                     <a href="tel:058660 8660" class="text-decoration-none text-dark fw-bolder hover-text">058660
                         8660</a>
                 </div>
-                <div class="logo col-4">
-                    <a href="#"><img src="./img/image-main/logo (1).png" alt=""></a>
+                <div class="logo col-3">
+                    <a href="#"><img src="../img/image-main/logo (1).png" alt=""></a>
 
                 </div>
                 <div class="header-control col-2 d-flex justify-content-end gap-5">
                     <div class="cart-shopping position-relative">
-                        <a href="../cart_shopping/cart_shopping.html"
+                        <a href="./cart_shopping/cart_shopping.html"
                             class="text-decoration-none text-dark cart-link">GIỎ HÀNG</a>
                         <i class="fa-solid fa-cart-arrow-down position-relative cart-icon">
                             <span class="cart-quantity position-absolute">0</span>
@@ -51,15 +50,17 @@
 
                                 </ul>
 
-                                <div class="row pb-2">
+                                <div class="row pb-2 btn-container">
                                     <div class="col-6">
                                         <button class="btn-pay btn-see-more w-100 m-0 ">
-                                            <a href="../payment/payment.html" class="text-decoration-none text-light">Thanh toán</a>
+                                            <a href="./payment/payment.html"
+                                                class="text-decoration-none text-light">Thanh toán</a>
                                         </button>
                                     </div>
                                     <div class="col-6">
                                         <button class="btn-pay btn-see-more w-100 m-0">
-                                            <a href="../cart_shopping/cart_shopping.html" class="text-decoration-none text-light">Giỏ hàng</a>
+                                            <a href="./cart_shopping/cart_shopping.html"
+                                                class="text-decoration-none text-light">Giỏ hàng</a>
                                         </button>
                                     </div>
                                 </div>
@@ -70,10 +71,19 @@
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                 </div>
-                <div class="col-2 d-flex justify-content-end gap-4 align-items-center">
-                    <a href="../sign_in/sign_in.html" class="text-decoration-none">ĐĂNG NHẬP</a>
-                    <i class="fa-solid fa-user"></i>
-                    <a href="../sign_in/sign_in.html" style="display:none;">ĐĂNG XUẤT</a>
+                <div class="col-3 d-flex gap-4 align-items-center justify-content-center">
+                    <p class="m-0 text-danger login-message">(Chưa đăng nhập)</p>
+                    <a href="./sign_in/sign_in.html" class="text-decoration-none log-in">ĐĂNG NHẬP</a>
+                    <div class="account position-relative">
+                        <i class="fa-solid fa-user user-icon"></i>
+                        <div class="account-control position-absolute">
+                            <div><a href="./account/account.html">Tài khoản</a></div>
+                            <div><a href="./sign_in/sign_in.html" class="log-out">Đăng xuất</a></div>
+                        </div>
+                        
+                    </div>
+
+
                 </div>
             </div>
 
@@ -95,80 +105,91 @@
                         <div class="offcanvas-body">
                             <ul class="navbar-nav justify-content-between gap-4 flex-grow-1 pe-3 ">
                                 <li class="nav-item p-3">
-                                    <a class="nav-link hover-text p-0 text-dark" aria-current="page" href="#">Z-BOT
+                                    <a class="nav-link hover-text p-0 text-dark category-item" aria-current="page"
+                                        href="./category/category.html" data-index="1">Z-BOT
                                         CAPSULE</a>
                                 </li>
                                 <li class="nav-item p-3">
-                                    <a class="nav-link hover-text p-0 text-dark" href="#">YOUNG/WILD N' TRIPPY</a>
+                                    <a class="nav-link hover-text p-0 text-dark category-item" data-index="2"
+                                        href="#">YOUNG/WILD N' TRIPPY</a>
                                 </li>
 
                                 <li class="nav-item p-3 dropdown">
-                                    <a class="nav-link hover-text p-0 dropdown-toggle text-dark" href="#"
+                                    <a class="nav-link hover-text p-0 dropdown-toggle text-dark category-item" href="#"
                                         id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
+                                        aria-expanded="false" data-index="3">
                                         TOP
                                     </a>
                                     <ul class="dropdown-menu border-0 header-dropdown-menu"
                                         aria-labelledby="offcanvasNavbarDropdown">
-                                        <li><a class="dropdown-item hover-text" href="#">T-Shirt</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#"
+                                                data-index="1">T-Shirt</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text" href="#">Shirt</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#"
+                                                data-index="2">Shirt</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text" href="#">Hoodie</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#"
+                                                data-index="3">Hoodie</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text" href="#">Jacket</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#"
+                                                data-index="4">Jacket</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text" href="#">Sweatshirt</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#"
+                                                data-index="5">Sweatshirt</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item p-3 dropdown">
-                                    <a class="nav-link hover-text p-0 dropdown-toggle text-dark" href="#"
+                                    <a class="nav-link hover-text p-0 dropdown-toggle text-dark category-item" href="#"
                                         id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
+                                        aria-expanded="false" data-index="4">
                                         BOTTOM
                                     </a>
                                     <ul class="dropdown-menu border-0 header-dropdown-menu"
                                         aria-labelledby="offcanvasNavbarDropdown">
-                                        <li><a class="dropdown-item hover-text" href="#">Pants</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#"
+                                                data-index="6">Pants</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text" href="#">Jeans & Denim</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#" data-index="7">Jeans
+                                                & Denim</a></li>
 
                                     </ul>
                                 </li>
 
                                 <li class="nav-item p-3 dropdown">
-                                    <a class="nav-link hover-text p-0 dropdown-toggle text-dark" href="#"
+                                    <a class="nav-link hover-text p-0 dropdown-toggle text-dark category-item" href="#"
                                         id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
+                                        aria-expanded="false" data-index="5">
                                         ACCESSORY
                                     </a>
                                     <ul class="dropdown-menu border-0 header-dropdown-menu"
                                         aria-labelledby="offcanvasNavbarDropdown">
-                                        <li><a class="dropdown-item hover-text" href="#">Bag</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#"
+                                                data-index="8">Bag</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text" href="#">Hat</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#"
+                                                data-index="9">Hat</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text" href="#">Backpack</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#"
+                                                data-index="10">Backpack</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text" href="#">Others</a></li>
-
-
+                                        <li><a class="dropdown-item hover-text type-item" href="#"
+                                                data-index="11">Others</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item p-3 dropdown"></li>
@@ -205,7 +226,7 @@
                 <div class="col-xs-12 col-sm-12 col-lg-3 col-left-ac">
                     <div class="block-account">
                         <h5 class="title-account margin-top-10">Trang tài khoản</h5>
-                        <p>Xin chào, <span>dawd wefw</span>&nbsp;!</p>
+                        <p>Xin chào, <span class="user_name"></span>!</p>
                         <ul>
                             <li>
                                 <a disabled="disabled" class="title-info active" href="./account.html"
@@ -225,121 +246,127 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-lg-9 col-right-ac">
                     <h1 class="title-head margin-top-0">Địa chỉ của bạn</h1>
-                    <div id="add-address">
-                        <form accept-charset="utf-8" action="/account/addresses" id="customer_address" method="post"
-                            class="has-validation-callback">
-                            <input name="FormType" type="hidden" value="customer_address">
-                            <input name="utf8" type="hidden" value="true">
-                            <div class="pop_bottom">
-                                <div class="form_address">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="field">
-                                                <fieldset class="form-group">
-                                                    <label>Họ tên</label>
-                                                    <input type="text" placeholder="Họ tên" name="FullName"
-                                                        class="form-control"
-                                                        data-validation-error-msg="Không được để trống"
-                                                        data-validation="required" value="" autocapitalize="words">
-                                                </fieldset>
-                                                <p class="error-msg"></p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="field">
-                                                <fieldset class="form-group">
-                                                    <label>Số điện thoại</label>
-                                                    <input type="number" placeholder="Số điện thoại"
-                                                        class="form-control" id="Phone" pattern="\d+" name="Phone"
-                                                        maxlength="12" value="">
-                                                </fieldset>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="field">
-                                                <fieldset class="form-group">
-                                                    <label>Công ty</label>
-                                                    <input type="text" placeholder="Công ty" class="form-control"
-                                                        name="Company" value="">
-                                                </fieldset>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="field">
-                                                <fieldset class="form-group">
-                                                    <label>Địa chỉ</label>
-                                                    <input type="text" placeholder="Địa chỉ" class="form-control"
-                                                        name="Address1" value="">
-                                                </fieldset>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="field">
-                                        <fieldset class="form-group select-field">
-                                            <label>Quốc gia</label>
-                                            <select name="Country" class="form-control vn-fix add has-content"
-                                                id="mySelect1" data-default="Việt Nam">
-                                                <option value="Armenia">Armenia</option>
-                                                <option value="Vietnam">Vietnam</option>
-                                            </select>
-                                        </fieldset>
-                                    </div>
-                                    <div class="group-country">
-                                        <fieldset class="form-group select-field not-vn">
-                                            <label>Tỉnh thành</label>
-                                            <select name="Province" value="" class="form-control add" id="mySelect2"
-                                                data-address-type="province" data-address-zone="billing"
-                                                data-select2-id="select2-data-billingProvince">
-                                                <option value="" hidden="">---</option>
-                                                <option value="Hà Nội">Hà Nội</option>
-                                                <option value="Bình Định">Bình Định</option>
-                                                <option value="Nam Định">Nam Định</option>
-                                            </select>
-                                        </fieldset>
-                                        <fieldset class="form-group select-field not-vn">
-                                            <label>Quận huyện</label>
-                                            <input type="text" placeholder="Địa chỉ" class="form-control"
-                                                name="Address1" value="">
-                                        </fieldset>
-                                        <fieldset class="form-group select-field not-vn">
-                                            <label>Phường xã</label>
-                                            <input type="text" placeholder="Địa chỉ" class="form-control"
-                                                name="Address1" value="">
-                                        </fieldset>
-                                    </div>
-                                    <div class="field">
-                                        <fieldset class="form-group">
-                                            <label>Mã Zip</label>
-                                            <input type="text" placeholder="Mã Zip" class="form-control" name="Zip"
-                                                value="">
-                                        </fieldset>
-                                    </div>
-                                </div>
-                                <div class="checkbox margin-bottom-10">
-                                    <input type="checkbox" id="address_default_address_0" name="IsDefault" value="true">
-                                    <label style="margin-top: 8px; margin-left: 5px;" ;">Đặt là địa chỉ mặc
-                                        định?</label>
-                                </div>
-                                <div class="btn-row">
-                                    <button class="btn btn-lg btn-see-more" id="addnew" type=""><span>Thêm địa
-                                            chỉ</span></button>
-                                </div>
-                            </div>
-                        </form>
+
+                    <div class="btn-row">
+                        <button class="btn btn-lg btn-see-more btn-add" id="addnew" type="">Thêm địa
+                            chỉ</button>
+                    </div>
+
+                    <div class="address-list">
+
                     </div>
                 </div>
             </div>
         </div>
     </main>
+    <div class="add-form position-fixed">
+        <div class="form-body">
+            <form id="customer_address" action="" class="has-validation-callback">
+                <input name="FormType" type="hidden" value="customer_address">
+                <input name="utf8" type="hidden" value="true">
+                <i class="fa-solid fa-xmark position-absolute close-form"></i>
+                <div class="pop_bottom">
+                    <div class="form_address">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="field">
+                                    <fieldset class="form-group">
+                                        <label>Họ tên</label>
+                                        <input readonly type="text" placeholder="Họ tên" name="FullName" class="form-control "
+                                            data-validation-error-msg="Không được để trống" data-validation="required"
+                                            value="" autocapitalize="words">
+                                    </fieldset>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="field">
+                                    <fieldset class="form-group">
+                                        <label>Số điện thoại</label>
+                                        <input readonly type="number" placeholder="Số điện thoại" class="form-control" id="Phone"
+                                            pattern="\d+" name="Phone" maxlength="12" value="">
+
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="field">
+                                    <fieldset class="form-group">
+                                        <label>Công ty</label>
+                                        <input type="text" placeholder="Công ty" class="form-control" name="Company"
+                                            value="">
+                                        <span class="warning-message"></span>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="field">
+                                    <fieldset class="form-group">
+                                        <label>Số nhà/Đường</label>
+                                        <input type="text" placeholder="Địa chỉ" class="form-control" name="street"
+                                            value="">
+                                        <span class="warning-message"></span>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <fieldset class="form-group select-field">
+                                <label>Quốc gia</label>
+                                <select name="Country" class="form-control vn-fix add has-content" id="mySelect1"
+                                    data-default="Việt Nam">
+                                    <option value="Vietnam">Vietnam</option>
+                                </select>
+                            </fieldset>
+                        </div>
+                        <div class="group-country">
+                            <fieldset class="form-group select-field not-vn">
+                                <label>Tỉnh thành</label>
+                                <input type="text" placeholder="Địa chỉ" class="form-control" name="city" value="">
+                                <span class="warning-message"></span>
+                            </fieldset>
+                            <fieldset class="form-group select-field not-vn">
+                                <label>Quận huyện</label>
+                                <input type="text" placeholder="Địa chỉ" class="form-control" name="district" value="">
+                                <span class="warning-message"></span>
+                            </fieldset>
+                            <fieldset class="form-group select-field not-vn">
+                                <label>Phường xã</label>
+                                <input type="text" placeholder="Địa chỉ" class="form-control" name="wards" value="">
+                                <span class="warning-message"></span>
+                            </fieldset>
+                        </div>
+
+                    </div>
+                    <div class="checkbox-default-address margin-bottom-10 d-flex align-items-center">
+                        <input type="checkbox" id="address_default_address_0" name="IsDefault" value="true" >
+                        <label class="ms-2" for="address_default_address_0">Đặt là địa chỉ mặc
+                            định?</label>
+                        
+                    </div>
+                    <div class="d-flex align-items-center justify-content-around">
+                        <div>
+                            <button class="btn-see-more me-4 btn-cancel">Hủy</button>
+                        </div>
+                        <div class="btn-row">
+                            <button class="btn btn-lg btn-see-more btn-add-address" type="submit" value="Thêm địa chỉ">Thêm địa chỉ</button>
+                            <button class="btn btn-lg btn-see-more btn-update-address" type="submit" value="Sửa địa chỉ">Sửa địa chỉ </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
     <footer class="bg-light">
         <div class="container pt-5">
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <h3 class="my-3">
                         <a href="">
-                            <img src="img/image-main/logo (1).png" alt="" style="max-width: 100%">
+                            <img src="../img/image-main/logo (1).png" alt="" style="max-width: 100%">
                         </a>
                     </h3>
                     <ul style="list-style-type: none;">
@@ -389,8 +416,8 @@
 
                         <li class="my-3"><a
                                 class="hover-text text-decoration-none text-dark fw-bolder text-uppercase h5"
-                                href="../polices/return_policy.html" title="Chính sách đổi trả"
-                                rel="nofollow">Chính sách đổi trả</a></li>
+                                href="../polices/return_policy.html" title="Chính sách đổi trả" rel="nofollow">Chính
+                                sách đổi trả</a></li>
 
                         <li class="my-3"><a
                                 class="hover-text text-decoration-none text-dark fw-bolder text-uppercase h5"
@@ -432,4 +459,5 @@
                     </div>
                 </div>
     </footer>
+    <script src="./address.js" type="module"></script>
 </body>
