@@ -2,10 +2,12 @@ import renderCart from "../js/renderCart.js";
 import handleClickCategory from "../js/clickCategory.js"
 import handleClickProducts from "../js/clickProduct.js"
 import handleClickType from "../js/clickType.js"
+import { Load } from "../js/load_user.js";
+Load.start()
 var cartItemList = JSON.parse(sessionStorage.getItem('cart-items'))["list-items"]
 
 if(cartItemList.length == 0) {
-    document.querySelector('.total-product').textContent = "(0 sản phẩm)"
+    document.querySelector('.total-product').textContent = "0"
     document.querySelector('.shopping-item-container').classList.add('flex-column', 'align-items-center', 'justify-content-center')
     document.querySelector('.shopping-item-container').innerHTML = `
     <img src="https://cdn.glitch.global/e2574871-198c-4501-b55d-72f80a1b636a/empty-cart.png?v=1654910380833" class="empty-cart"/></img>
@@ -13,6 +15,7 @@ if(cartItemList.length == 0) {
         <a href="../index.html" class="text-decoration-none text-light">TIẾP TỤC MUA HÀNG</a>
     </button>
     `
+    renderCart()
 }else {
     renderShoppingCart()
     .then( () => {
@@ -34,13 +37,13 @@ export default function renderShoppingCart() {
                     })
                     tongTien += cartItem["quantity"] * product.price
                     return `
-                    <div class="col-12 d-flex align-items-center mb-3">
-                    <a class="product-card text-decoration-none text-dark" data-index=${product.id}>
+                    <div class="product-card col-12 mb-3 shopping-item" data-index=${index} >
+                    <a class="text-decoration-none text-dark d-flex align-items-center ">
                         <img class="img-product-cart" src="..${product.image[0]}" alt="">
                             <div>
                                 <div class="p-5">
                                     <p class="hover-text">${product.name} / ${cartItem["size"]}</p>
-                                    <a href="#" class="text-danger cart-delete" data-index=${index}>Xoá</a>
+                                    <span class="text-danger cart-delete" data-index=${index}>Xoá</span>
                                 </div>
                             </div>
                             <div class="p-5">
@@ -64,7 +67,6 @@ export default function renderShoppingCart() {
                     `
                 })
 
-
                 document.querySelector('.total-product').textContent = `${totalProduct}`
                 document.querySelector('.shopping-item-list').innerHTML = htmls.join('')
                 var divbtn = `
@@ -80,8 +82,17 @@ export default function renderShoppingCart() {
                     </div>
                 `
                 document.querySelector('.cart-control').innerHTML = divbtn
-                console.log(products)
+                // console.log(products)
+                // var shoppingItemContainer = document.querySelector('.shopping-item-container')
+                // var deleteBtns = shoppingItemContainer.querySelectorAll('.cart-delete')
+                // console.log(deleteBtns)
+                // deleteBtns.forEach( (deleteBtn) => {
+                //     deleteBtn.onclick = function() {
+                //         alert(1)
+                //     }
+                // })
             })
+            
             
         )
             

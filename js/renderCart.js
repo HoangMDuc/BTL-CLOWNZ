@@ -26,7 +26,7 @@ export default function renderCart() {
                         source = ".." + product.image[0]
                     }
                     return `
-                    <li class="d-flex shopping-item gap-5 mb-2">
+                    <li class="d-flex shopping-item gap-5 mb-2" data-index=${index}>
                             <img src="${source}" alt="" class="shopping-item-img">
                                 <div class="shopping-item-info">
                                     <h4 class="shopping-item-name mb-2">${product.name}</h4>
@@ -35,7 +35,7 @@ export default function renderCart() {
                                         <span class="reduce-quantity border px-3" data-index="${index}" >-</span>
                                         <input type="number" readonly class="color-element border bg-white text-dark fw-bolder shopping-item-quantity" value="${cartItem["quantity"]}" min="1" max= ${product.quantity}" data-index="${index}" style="width:40px;">
                                         <span class="raise-quantity border px-3" data-index="${index}" >+</span>
-                                        <i class="fa-solid fa-xmark cart-delete px-1 ms-5"></i>
+                                        <i class="fa-solid fa-xmark cart-delete px-1 ms-5" data-index="${index}"></i>
                                     </div>
                                 </div>
                         </li>

@@ -25,18 +25,18 @@
 
 <body>
     <header id="header">
-        <div class="container">
-            <div class="row py-4 border-bottom align-items-center top-header">
-                <div class="hotline col-4">
+        <div class="container-fluid" style="margin-left: 115px;">
+            <div class="row py-4 border-bottom align-items-center top-header ">
+                <div class="hotline col-3">
                     <span class="hotline-text">
                         HOTLINE ĐẶT HÀNG:
-
                     </span>
                     <a href="tel:058660 8660" class="text-decoration-none text-dark fw-bolder hover-text">058660
                         8660</a>
                 </div>
-                <div class="logo col-4">
-                    <a href="../index.html"><img src="../img/image-main/logo (1).png" alt=""></a>
+                <div class="logo col-3">
+                    <a href="#"><img src="../img/image-main/logo (1).png" alt=""></a>
+
                 </div>
                 <div class="header-control col-2 d-flex justify-content-end gap-5">
                     <div class="cart-shopping position-relative">
@@ -55,12 +55,14 @@
                                 <div class="row pb-2 btn-container">
                                     <div class="col-6">
                                         <button class="btn-pay btn-see-more w-100 m-0 ">
-                                            <a href="../payment/payment.html" class="text-decoration-none text-light">Thanh toán</a>
+                                            <a href="./payment/payment.html"
+                                                class="text-decoration-none text-light">Thanh toán</a>
                                         </button>
                                     </div>
                                     <div class="col-6">
                                         <button class="btn-pay btn-see-more w-100 m-0">
-                                            <a href="../cart_shopping/cart_shopping.html" class="text-decoration-none text-light">Giỏ hàng</a>
+                                            <a href="./cart_shopping/cart_shopping.html"
+                                                class="text-decoration-none text-light">Giỏ hàng</a>
                                         </button>
                                     </div>
                                 </div>
@@ -71,10 +73,19 @@
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                 </div>
-                <div class="col-2 d-flex justify-content-end gap-4 align-items-center">
-                    <a href="" class="text-decoration-none log-in">ĐĂNG NHẬP</a>
-                    <a href="../Account/account.html"><i class="fa-solid fa-user"></i></a>
-                    <a href="" style="display:none;" class="log-out">ĐĂNG XUẤT</a>
+                <div class="col-3 d-flex gap-4 align-items-center justify-content-center">
+                    <p class="m-0 text-danger login-message">(Chưa đăng nhập)</p>
+                    <a href="./sign_in/sign_in.html" class="text-decoration-none log-in">ĐĂNG NHẬP</a>
+                    <div class="account position-relative">
+                        <i class="fa-solid fa-user user-icon"></i>
+                        <div class="account-control position-absolute">
+                            <div><a href="../account/account.html">Tài khoản</a></div>
+                            <div><a href="../sign_in/sign_in.html" class="log-out">Đăng xuất</a></div>
+                        </div>
+                        
+                    </div>
+
+
                 </div>
             </div>
 
@@ -96,80 +107,91 @@
                         <div class="offcanvas-body">
                             <ul class="navbar-nav justify-content-between gap-4 flex-grow-1 pe-3 ">
                                 <li class="nav-item p-3">
-                                    <a class="nav-link hover-text p-0 text-dark category-item" data-index="1" aria-current="page" href="#">Z-BOT
+                                    <a class="nav-link hover-text p-0 text-dark category-item" aria-current="page"
+                                        href="./category/category.html" data-index="1">Z-BOT
                                         CAPSULE</a>
                                 </li>
                                 <li class="nav-item p-3">
-                                    <a class="nav-link hover-text p-0 text-dark category-item" data-index="2" href="#">YOUNG/WILD N' TRIPPY</a>
+                                    <a class="nav-link hover-text p-0 text-dark category-item" data-index="2"
+                                        href="#">YOUNG/WILD N' TRIPPY</a>
                                 </li>
 
                                 <li class="nav-item p-3 dropdown">
-                                    <a class="nav-link hover-text p-0 dropdown-toggle text-dark category-item" data-index="3" href="#"
+                                    <a class="nav-link hover-text p-0 dropdown-toggle text-dark category-item" href="#"
                                         id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
+                                        aria-expanded="false" data-index="3">
                                         TOP
                                     </a>
                                     <ul class="dropdown-menu border-0 header-dropdown-menu"
                                         aria-labelledby="offcanvasNavbarDropdown">
-                                        <li><a class="dropdown-item hover-text type-item" data-index="1" href="#">T-Shirt</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#"
+                                                data-index="1">T-Shirt</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text type-item" data-index="2" href="#">Shirt</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#"
+                                                data-index="2">Shirt</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text type-item" data-index="3" href="#">Hoodie</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#"
+                                                data-index="3">Hoodie</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text type-item" data-index="4" href="#">Jacket</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#"
+                                                data-index="4">Jacket</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text type-item" data-index="5" href="#">Sweatshirt</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#"
+                                                data-index="5">Sweatshirt</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item p-3 dropdown">
-                                    <a class="nav-link hover-text p-0 dropdown-toggle text-dark category-item" data-index="4" href="#"
+                                    <a class="nav-link hover-text p-0 dropdown-toggle text-dark category-item" href="#"
                                         id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
+                                        aria-expanded="false" data-index="4">
                                         BOTTOM
                                     </a>
                                     <ul class="dropdown-menu border-0 header-dropdown-menu"
                                         aria-labelledby="offcanvasNavbarDropdown">
-                                        <li><a class="dropdown-item hover-text type-item" data-index="6" href="#">Pants</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#"
+                                                data-index="6">Pants</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text type-item" data-index="7" href="#">Jeans & Denim</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#" data-index="7">Jeans
+                                                & Denim</a></li>
 
                                     </ul>
                                 </li>
 
                                 <li class="nav-item p-3 dropdown">
-                                    <a class="nav-link hover-text p-0 dropdown-toggle text-dark category-item" data-index="5" href="#"
+                                    <a class="nav-link hover-text p-0 dropdown-toggle text-dark category-item" href="#"
                                         id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
+                                        aria-expanded="false" data-index="5">
                                         ACCESSORY
                                     </a>
                                     <ul class="dropdown-menu border-0 header-dropdown-menu"
                                         aria-labelledby="offcanvasNavbarDropdown">
-                                        <li><a class="dropdown-item hover-text type-item" data-index="8" href="#">Bag</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#"
+                                                data-index="8">Bag</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text type-item" data-index="9" href="#">Hat</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#"
+                                                data-index="9">Hat</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text type-item" data-index="10" href="#">Backpack</a></li>
+                                        <li><a class="dropdown-item hover-text type-item" href="#"
+                                                data-index="10">Backpack</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item hover-text type-item" data-index="11" href="#">Others</a></li>
-
-
+                                        <li><a class="dropdown-item hover-text type-item" href="#"
+                                                data-index="11">Others</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item p-3 dropdown"></li>

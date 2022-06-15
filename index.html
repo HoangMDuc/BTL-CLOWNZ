@@ -26,16 +26,16 @@
 
 
     <header id="header">
-        <div class="container">
-            <div class="row py-4 border-bottom align-items-center top-header">
-                <div class="hotline col-4">
+        <div class="container-fluid" style="margin-left: 115px;">
+            <div class="row py-4 border-bottom align-items-center top-header ">
+                <div class="hotline col-3">
                     <span class="hotline-text">
                         HOTLINE ĐẶT HÀNG:
                     </span>
                     <a href="tel:058660 8660" class="text-decoration-none text-dark fw-bolder hover-text">058660
                         8660</a>
                 </div>
-                <div class="logo col-4">
+                <div class="logo col-3">
                     <a href="#"><img src="./img/image-main/logo (1).png" alt=""></a>
 
                 </div>
@@ -56,12 +56,14 @@
                                 <div class="row pb-2 btn-container">
                                     <div class="col-6">
                                         <button class="btn-pay btn-see-more w-100 m-0 ">
-                                            <a href="./payment/payment.html" class="text-decoration-none text-light">Thanh toán</a>
+                                            <a href="./payment/payment.html"
+                                                class="text-decoration-none text-light">Thanh toán</a>
                                         </button>
                                     </div>
                                     <div class="col-6">
                                         <button class="btn-pay btn-see-more w-100 m-0">
-                                            <a href="./cart_shopping/cart_shopping.html" class="text-decoration-none text-light">Giỏ hàng</a>
+                                            <a href="./cart_shopping/cart_shopping.html"
+                                                class="text-decoration-none text-light">Giỏ hàng</a>
                                         </button>
                                     </div>
                                 </div>
@@ -72,10 +74,19 @@
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                 </div>
-                <div class="col-2 d-flex justify-content-end gap-4 align-items-center">
+                <div class="col-3 d-flex gap-4 align-items-center justify-content-center">
+                    <p class="m-0 text-danger login-message">(Chưa đăng nhập)</p>
                     <a href="./sign_in/sign_in.html" class="text-decoration-none log-in">ĐĂNG NHẬP</a>
-                    <a href="./Account/account.html"><i class="fa-solid fa-user"></i></a>
-                    <a href="./sign_in/sign_in.html" class="log-out">ĐĂNG XUẤT</a>
+                    <div class="account position-relative">
+                        <i class="fa-solid fa-user user-icon"></i>
+                        <div class="account-control position-absolute">
+                            <div><a href="./account/account.html">Tài khoản</a></div>
+                            <div><a href="./sign_in/sign_in.html" class="log-out">Đăng xuất</a></div>
+                        </div>
+                        
+                    </div>
+
+
                 </div>
             </div>
 

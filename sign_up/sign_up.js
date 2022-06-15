@@ -39,7 +39,6 @@ btnCreateAcc.onclick = function (e) {
                 } else {
                     
                     var formData = {
-
                         name: lastNameInput.value + " " + firstNameInput.value,
                         email: emailInput.value,
                         phoneNumber: phoneInput.value,
