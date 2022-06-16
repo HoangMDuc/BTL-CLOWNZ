@@ -20,10 +20,10 @@ export default function renderCart() {
 
                     if (window.location.href.indexOf("/index.html") != -1) {
 
-                        source = "." + product.image[0]
+                        source = "." + product.image
                     } else {
 
-                        source = ".." + product.image[0]
+                        source = ".." + product.image
                     }
                     return `
                     <li class="d-flex shopping-item gap-5 mb-2" data-index=${index}>

@@ -15,13 +15,13 @@ function render() {
             .then(res => res.json())
             .then(product => {
                 var productImg = document.querySelector('.product-img')
-                productImg.src = `..${product.image[0]}`
+                productImg.src = `..${product.image}`
                 document.querySelector('.product-img-list').innerHTML = `
-                                <div class="col-2_4"><img class="w-100 border" src="..${product.image[0]}" alt=""></div>
-                                <div class="col-2_4"><img class="w-100 border" src="..${product.image[0]}" alt=""></div>
-                                <div class="col-2_4"><img class="w-100 border" src="..${product.image[0]}" alt=""></div>
-                                <div class="col-2_4"><img class="w-100 border" src="..${product.image[0]}" alt=""></div>
-                                <div class="col-2_4"><img class="w-100 border" src="..${product.image[0]}" alt=""></div>
+                                <div class="col-2_4"><img class="w-100 border" src="..${product.image}" alt=""></div>
+                                <div class="col-2_4"><img class="w-100 border" src="..${product.image}" alt=""></div>
+                                <div class="col-2_4"><img class="w-100 border" src="..${product.image}" alt=""></div>
+                                <div class="col-2_4"><img class="w-100 border" src="..${product.image}" alt=""></div>
+                                <div class="col-2_4"><img class="w-100 border" src="..${product.image}" alt=""></div>
                     `
                 document.querySelector('.product-info').innerHTML = `
                     <h1 class="pb-3">${product.name}</h1>
@@ -70,19 +70,19 @@ function render() {
                         </h5>
                     </div>
                     `
-                var htmls = product.description.map((des) => {
-                    return `
-                            <li>desc</li>
-                        `
-                })
-                document.querySelector('.desc').innerHTML = htmls.join('')
+                var htmls = `
+                    <li>desc</li>
+                `
+
+
+                document.querySelector('.desc').innerHTML = htmls
                 return product
             })
     )
 }
 
 render()
-    .then((product ) => {
+    .then((product) => {
         handleClickCategory()
         handleClickType()
         var sizeElements = document.querySelectorAll('.size-element')
@@ -119,7 +119,7 @@ render()
         }
         clickBuyBtn()
         renderCart()
-})
+    })
 
 
 

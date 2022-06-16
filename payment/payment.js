@@ -56,7 +56,7 @@ fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/products")
             return `
             <li class="d-flex product-item gap-3 mb-2">
                 <div class="product-img position-relative " >
-                    <img src="..${product.image[0]}" alt="" class="border p-2 rounded " style="width: 50px">
+                    <img src="..${product.image}" alt="" class="border p-2 rounded " style="width: 50px">
                     <span class="product-quantity position-absolute">${cartItem["quantity"]}</span>
                 </div>
                 <div class="product-info me-5 ms-2" >

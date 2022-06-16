@@ -60,7 +60,7 @@ const App = {
                     <div class="col-3">
                         <a href="./san-pham/product.html" class="text-decoration-none text-dark product-card" data-index=${product.id}>
                             <div class="card text-center position-relative border-0">
-                                <img class="card-img-top" src="${product.image[0]}" alt="Backbag">
+                                <img class="card-img-top" src="${product.image}" alt="Backbag">
                                 <span class="position-absolute card-sticker">New Arrial</span>
                                 <div class="card-body" style="height:111px;">
                                     <h4 class="text-uppercase">${product.title}</h4>
@@ -89,7 +89,7 @@ const App = {
                     <a href="./san-pham/product.html" class="text-decoration-none text-dark product-card" data-index=${product.id}>
                         <div class="card text-center border-0">
                             <img class="card-img-top"
-                                src="${product.image[0]}"
+                                src="${product.image}"
                                 alt="Backbag">
                             <div class="card-body border-0" style="height:111px;">
                                 <h4 class="text-uppercase">${product.title}</h4>
@@ -119,7 +119,7 @@ const App = {
                     <a href="./san-pham/product.html" class="text-dark text-decoration-none product-card" data-index=${product.id}>
                         <div class="card text-center border-0">
                             <img class="card-img-top"
-                                src="./${product.image[0]}"
+                                src="./${product.image}"
                                 alt="Backbag">
                             <div class="card-body" style="height: 111px">
                                 <h4 class="text-uppercase">${product.title}</h4>
@@ -147,7 +147,7 @@ const App = {
                 <a href="./san-pham/product.html" class="text-decoration-none text-dark product-card" data-index=${product.id}>
                     <div class="card text-center border-0">
                         <img class="card-img-top "
-                            src="./${product.image[0]}"
+                            src="./${product.image}"
                             alt="Backbag">
                         <div class="card-body" style="height: 111px">
                             <h4 class="text-uppercase">${product.title}</h4>

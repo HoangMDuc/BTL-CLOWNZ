@@ -36,7 +36,7 @@ function renderCategory() {
                     <a href="#" class="product-card text-decoration-none text-dark" data-index = ${product.id}>
                         <div class="card text-center">
                             <img class="card-img-top"
-                                src="..${product.image[0]}"
+                                src="..${product.image}"
                                 alt="">
                             <div class="card-body">
                                 <h4 class="text-uppercase">${product.title}</h4>
@@ -79,7 +79,7 @@ function renderType() {
                         <a class="product-card text-decoration-none text-dark" data-index = ${product.id} href="#">
                             <div class="card text-center">
                                 <img class="card-img-top"
-                                    src="..${product.image[0]}"
+                                    src="..${product.image}"
                                     alt="">
                                 <div class="card-body">
                                     <h4 class="text-uppercase">${product.title}</h4>
@@ -116,7 +116,7 @@ if (JSON.parse(sessionStorage.getItem('type_id')) != "") {
                                     <a class="product-card text-decoration-none text-dark" data-index = ${product.id} href="#">
                                         <div class="card text-center">
                                             <img class="card-img-top"
-                                                src="..${product.image[0]}"
+                                                src="..${product.image}"
                                                 alt="">
                                             <div class="card-body">
                                                 <h4 class="text-uppercase">${product.title}</h4>
@@ -152,7 +152,7 @@ if (JSON.parse(sessionStorage.getItem('type_id')) != "") {
                                 <a class="product-card text-decoration-none text-dark" data-index = ${product.id} href="#">
                                     <div class="card text-center">
                                         <img class="card-img-top"
-                                            src="..${product.image[0]}"
+                                            src="..${product.image}"
                                             alt="">
                                         <div class="card-body">
                                             <h4 class="text-uppercase">${product.title}</h4>

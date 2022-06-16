@@ -73,3 +73,49 @@ img{
     color: #1c1c1c;
     border:1px solid #1c1c1c;
  }
+.form-add-user,
+.form-add-slider,
+.form-add-category,
+.form-add-product {
+    width: 100%;
+    background-color: #fff;
+    position: fixed;
+    top: 0px;
+    bottom: 0;
+    z-index: 22;
+    display: none;
+}
+.form-add-slider,
+.form-add-user,
+.form-add-category {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.form-add-user .form-add-body{
+    margin-top: 40px;
+}
+
+.form-add-body {
+    width: 60%;
+    margin-top: 80px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #fff;
+    box-shadow: 1px 1px 1px 1px #ccc;
+}
+
+.cancel-btn,.add-btn,.update-btn {
+    width: 150px;
+    border-radius: 0 !important;
+}
+
+.update-btn {
+    display: none;
+}
+
+.isEditing .add-btn {
+    display: none;
+}
+
+.isEditing .update-btn {
+    display: block;
+}

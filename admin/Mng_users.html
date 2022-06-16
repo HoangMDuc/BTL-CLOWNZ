@@ -7,8 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="//bizweb.dktcdn.net/100/414/728/themes/803486/assets/favicon.png?1654316792671"
         type="image/x-icon">
-        <title>CLOWNZⓇ STREETWEAR</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>CLOWNZⓇ STREETWEAR</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -16,7 +18,6 @@
 </head>
 
 <body>
-    <div style="height: 20px; margin-top: 20px;"></div>
     <div class="container">
         <header style="top: 1">
             <div class="block__logo mb-3">
@@ -79,13 +80,13 @@
                     <div class="col-6 ">
                         <div class="d-flex mt-2 but ">
                             <div class="text-center">
-                                <a href="./mng_users_add.html" class="btn btn-dark btn-see-more">Thêm</a>
+                                <a href="./mng_users_add.html" class="btn btn-dark btn-see-more add-user-btn">Thêm</a>
                             </div>
                             <div class="">
-                                <a href="./mng_users_add.html" class="btn btn-dark btn-see-more">Sửa</a>
+                                <a href="./mng_users_add.html" class="btn btn-dark btn-see-more update-user-btn">Sửa</a>
                             </div>
                             <div class="">
-                                <button class="btn btn-dark btn-see-more" type="submit">Xóa</button>
+                                <button class="btn btn-dark btn-see-more delete-user-btn" type="submit">Xóa</button>
                             </div>
                         </div>
                     </div>
@@ -146,29 +147,97 @@
             </div>
         </main>
     </div>
-
+    <div class="form-add-user">
+        <div class="form-add-body">
+            <header>
+                <div class="title text-center pt-2">
+                    <h1>Thêm người dùng</h1>
+                </div>
+            </header>
+            <main>
+                <div class="mx-5">
+                    <div class="main__content  mt-4">
+                        <div class="mx-2">
+                            <div class="mt-2">
+                                <label for="" class="form-label">Mã người dùng</label>
+                                <input type="text" class="form-control" name="" id="" aria-describedby="helpId"
+                                    placeholder="Nhập mã sản phẩm">
+                            </div>
+                            <div class="mt-2">
+                                <label for="" class="form-label">Tên người dùng</label>
+                                <input type="text" class="form-control" name="" id="" aria-describedby="helpId"
+                                    placeholder="Nhập loại sản phẩm">
+                            </div>
+                            <div class="mt-2">
+                                <label for="" class="form-label">Email</label>
+                                <input type="email" class="form-control" name="" id="" aria-describedby="emailHelpId"
+                                    placeholder="Nhập Email">
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-5">
+                                    <div class="">
+                                        <label for="" class="form-label">Số điện thoại</label>
+                                        <input type="text" class="form-control" name="" id="" placeholder="Nhập số lượng">
+                                    </div>
+                                </div>
+                                <div class="col-2"></div>
+                                <div class="col-5">
+                                    <div class="">
+                                        <label for="" class="form-label">Mật khẩu</label>
+                                        <input type="password" class="form-control" name="" id="" placeholder="Nhập mật khẩu">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <label for="" class="form-label">Quyền quản trị</label>
+                                <select class="form-control" name="" id="">
+                                    <option>True</option>
+                                    <option>False</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-add-control d-flex justify-content-around ms-5 pb-4 mt-3">
+                                <div class="">
+                                    <button  class="btn btn-dark cancel-btn">Hủy</button>
+                                </div>
+                                <div class="">
+                                    <button  class="btn btn-dark add-btn">Thêm</button>
+                                </div>
+                                <div class="">
+                                    <button  class="btn btn-dark update-btn">Sửa</button>
+                                </div>
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+        
+            </main>
+        </div>
+    </div>
 
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
-        <script>
-            $("input:checkbox").on('click', function () {
-                // in the handler, 'this' refers to the box clicked on
-                var $box = $(this);
-                if ($box.is(":checked")) {
-                    // the name of the box is retrieved using the .attr() method
-                    // as it is assumed and expected to be immutable
-                    var group = "input:checkbox[name='" + $box.attr("name") + "']";
-                    // the checked state of the group/box on the other hand will change
-                    // and the current value is retrieved using .prop() method
-                    $(group).prop("checked", false);
-                    $box.prop("checked", true);
-                } else {
-                    $box.prop("checked", false);
-                }
-            });
-        </script>
+    <script>
+        $("input:checkbox").on('click', function () {
+            // in the handler, 'this' refers to the box clicked on
+            var $box = $(this);
+            if ($box.is(":checked")) {
+                // the name of the box is retrieved using the .attr() method
+                // as it is assumed and expected to be immutable
+                var group = "input:checkbox[name='" + $box.attr("name") + "']";
+                // the checked state of the group/box on the other hand will change
+                // and the current value is retrieved using .prop() method
+                $(group).prop("checked", false);
+                $box.prop("checked", true);
+            } else {
+                $box.prop("checked", false);
+            }
+        });
+    </script>
+    <script src="./manage_users.js" type="module"></script>
 </body>
 
 </html>

@@ -198,3 +198,10 @@ input[type=number] {
 .account-control div {
     margin-bottom: 10px;
 }
+.warning-message {
+    color: red;
+    display: none;
+}
+.invalid ~ .warning-message {
+    display: block;
+}
