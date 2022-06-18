@@ -73,6 +73,7 @@ img{
     color: #1c1c1c;
     border:1px solid #1c1c1c;
  }
+.form-add-order,
 .form-add-user,
 .form-add-slider,
 .form-add-category,
@@ -85,6 +86,7 @@ img{
     z-index: 22;
     display: none;
 }
+
 .form-add-slider,
 .form-add-user,
 .form-add-category {
@@ -118,4 +120,9 @@ img{
 
 .isEditing .update-btn {
     display: block;
+}
+
+
+.badge {
+    height: 22px;
 }

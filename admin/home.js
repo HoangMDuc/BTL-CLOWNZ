@@ -6,16 +6,17 @@ var addProductBtn = document.querySelector('.add-product-btn')
 var updateProductBtn = document.querySelector('.update-product-btn')
 var deleteProductBtn = document.querySelector('.delete-product-btn')
 var cancelBtn = document.querySelector('.cancel-btn')
+var searchBtn = document.querySelector('.search-btn')
+var searchInput = document.querySelector('.search-input')
 var formAddProduct = document.querySelector('.form-add-product')
-var productNameInput = document.querySelector('.product-name')
-var productIdInput = document.querySelector('.product-id')
-var productQuantityInput = document.querySelector('.product-quantity')
-var productTitleInput = document.querySelector('.product-title')
-var productDescriptionInput = document.querySelector('.product-description')
-var productPriceInput = document.querySelector('.product-price')
-var productCategory = document.querySelector('.product-category-id')
-var productType = document.querySelector('.product-type-id')
-var productImageInput = document.querySelector('.product-img')
+var productNameInput = document.querySelector('.form-control.product-name')
+var productQuantityInput = document.querySelector('.form-control.product-quantity')
+var productTitleInput = document.querySelector('.form-control.product-title')
+var productDescriptionInput = document.querySelector('.form-control.product-description')
+var productPriceInput = document.querySelector('.form-control.product-price')
+var productCategory = document.querySelector('.form-control.product-category-id')
+var productType = document.querySelector('.form-control.product-type-id')
+var productImageInput = document.querySelector('.form-control.product-img')
 
 var formControls = formAddProduct.querySelectorAll('.form-control:not(select)')
 var productApi = "https://62890e4b10e93797c162141e.mockapi.io/clownz/products"
@@ -49,14 +50,13 @@ addProductBtn.onclick = function (e) {
     e.preventDefault()
     formAddProduct.style.display = 'block'
     addBtn.onclick = function () {
-        if (validates.isRequired(productIdInput) && validates.isRequired(productNameInput)
+        if (validates.isRequired(productNameInput)
             && validates.isRequired(productQuantityInput) && validates.isRequired(productPriceInput)
             && validates.isRequired(productTitleInput) && validates.isRequired(productImageInput)
             && validates.isRequired(productDescriptionInput)
         ) {
             var date = new Date()
             var data = {
-                "id": productIdInput.value,
                 "name": productNameInput.value,
                 "category_id": productCategory.value,
                 "quantity": productQuantityInput.value,
@@ -77,6 +77,7 @@ addProductBtn.onclick = function (e) {
                 .then(() => {
                     window.location.reload()
                 })
+            
         }
     }
 
@@ -87,15 +88,29 @@ addProductBtn.onclick = function (e) {
     })
 }
 
+searchInput.oninput = function() { 
+    if(searchInput.value.length > 0) {
+        searchBtn.removeAttribute('disabled')
+    }else {
+        searchBtn.setAttribute('disabled',null)
+    }
+}
+
 
 
 cancelBtn.onclick = function () {
     formAddProduct.classList.remove('isEditing')
     formAddProduct.style.display = 'none'
+    productImageInput.value = ""
+    productDescriptionInput.value = ""
+    productNameInput.value = ""
+    productPriceInput.value = ""
+    productTitleInput.value = ""
+    productQuantityInput.value = ""
 }
 var productsList = document.querySelector('.products-list')
 
-fetch(productApi + "?sortBy=date&orderby=desc")
+fetch(productApi)
     .then(res => res.json())
     .then(products => {
         var htmls = products.map((product) => {
@@ -147,7 +162,7 @@ fetch(productApi + "?sortBy=date&orderby=desc")
             var selectedCheckbox = document.querySelector('input[type="checkbox"]:checked')
             var selectedItem = document.querySelector('.product-item[data-index="' + selectedCheckbox.dataset.index + '"]')
             if (selectedCheckbox.length != 0) {
-                productIdInput.value = selectedItem.querySelector('.product-id').textContent
+                // productIdInput.value = selectedItem.querySelector('.product-id').textContent
                 productPriceInput.value = selectedItem.querySelector('.product-price').textContent
                 productCategory.value = selectedItem.querySelector('.category-item').textContent
                 productType.value = selectedItem.querySelector('.type-item').textContent
@@ -157,14 +172,14 @@ fetch(productApi + "?sortBy=date&orderby=desc")
                 productDescriptionInput.value = selectedItem.querySelector('.product-description').textContent
 
                 updateBtn.onclick = function (e) {
-                    if (validates.isRequired(productIdInput) && validates.isRequired(productNameInput)
+                    if (validates.isRequired(productNameInput)
                         && validates.isRequired(productQuantityInput) && validates.isRequired(productPriceInput)
                         && validates.isRequired(productTitleInput) && validates.isRequired(productImageInput)
                         && validates.isRequired(productDescriptionInput)
                     ) {
                         var date = new Date()
                         var data = {
-                            "id": productIdInput.value,
+
                             "name": productNameInput.value,
                             "category_id": productCategory.value,
                             "quantity": productQuantityInput.value,
@@ -182,7 +197,6 @@ fetch(productApi + "?sortBy=date&orderby=desc")
                             },
                             body: JSON.stringify(data) // body data type must match "Content-Type" header
                         })
-                        selectedItem.querySelector('.product-id').textContent = productIdInput.value
                         selectedItem.querySelector('.product-price').textContent = productPriceInput.value
                         selectedItem.querySelector('.category-item').textContent = productCategory.value
                         selectedItem.querySelector('.type-item').textContent = productType.value
@@ -190,8 +204,14 @@ fetch(productApi + "?sortBy=date&orderby=desc")
                         selectedItem.querySelector('.product-quantity').textContent = productQuantityInput.value
                         selectedItem.querySelector('.product-title').textContent = productTitleInput.value
                         selectedItem.querySelector('.product-description').textContent = productDescriptionInput.value
+                        selectedItem.querySelector('.product-img').src = ".." + productImageInput.value
 
                         productImageInput.value = ""
+                        productDescriptionInput.value = ""
+                        productNameInput.value = ""
+                        productPriceInput.value = ""
+                        productTitleInput.value = ""
+                        productQuantityInput.value = ""
                         selectedCheckbox.checked = false
                         formAddProduct.classList.remove('isEditing')
                         formAddProduct.style.display = 'none'
@@ -224,6 +244,32 @@ fetch(productApi + "?sortBy=date&orderby=desc")
                     document.querySelector('.product-item[data-index="' + selectedCheckbox.dataset.index + '"]').remove()
                 })
             }
+        }
+
+        searchBtn.onclick = function(e) {
+            e.preventDefault()
+            fetch(productApi + "/" + "?search=" + searchInput.value)
+            .then( res => res.json())
+            .then( products => {
+                var htmls = products.map((product) => {
+                    return `
+                    <tr class="product-item" data-index=${product.id}>
+                        <th><input type="checkbox" class="select-checkbox" data-index=${product.id}></th>
+                        <td><a href="" class="product-id" data-index=${product.id}>${product.id}</a></td>
+                        <td><a href="" class="category-item" data-index=${product.category_id} >${product.category_id}</a></td>
+                        <td><a href="" class="type-item" data-index=${product.type_id}>${product.type_id}</a></td>
+                        <td colspan="2" class="product-name">${product.name}</td>
+                        <td><img src="..${product.image}" class="product-img" alt=""></td>
+                        <th class="product-quantity">${product.quantity}</th>
+                        <td class="product-price">${product.price}</td>
+                        <th class="product-title">${product.title}</th>
+                        <th class="product-description">${product.description}</th>
+                    </tr>
+                    `
+        
+                })
+                productsList.innerHTML = htmls.join('')
+            })
         }
     })
 

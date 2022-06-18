@@ -29,13 +29,12 @@ btnCreateAcc.onclick = function (e) {
         document.querySelector(".invalid").focus();
     }
     else {
-
         checkUserCreated()
             .then((user) => {
                 if (user) {
                     emailInput.nextElementSibling.textContent = "Email đã tồn tại"
                     emailInput.classList.add("invalid")
-                    email.focus()
+                    emailInput.focus()
                 } else {
                     
                     var formData = {
@@ -48,7 +47,6 @@ btnCreateAcc.onclick = function (e) {
                     createUsers(formData);
                     formRegister.reset();
                     sessionStorage.setItem('login', JSON.stringify('true'))
-                   
                     window.location.href = "../index.html"
                 }
 
