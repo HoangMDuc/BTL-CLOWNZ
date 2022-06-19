@@ -76,3 +76,5 @@ const validates = {
 }
 
 export default validates
+
+

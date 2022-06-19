@@ -22,6 +22,12 @@ var formControls = formAddUser.querySelectorAll('.form-control:not(select)')
 var usersApi = "https://62890e4b10e93797c162141e.mockapi.io/clownz/users"
 
 
+
+var logoutBtn = document.querySelector('.log-out')
+logoutBtn.onclick = function () {
+    sessionStorage.setItem('login', { 'islogin': false })
+}
+
 document.querySelector('.user_name').textContent = JSON.parse(sessionStorage.getItem('usersAccount'))["name"]
 
 addUserBtn.onclick = function (e) {
@@ -183,6 +189,9 @@ fetch(usersApi)
                                         },
                                         body: JSON.stringify(data) // body data type must match "Content-Type" header
                                     })
+                                    .then( () => {
+                                        window.location.reload()
+                                    })
                                 }
                             })
                         }
@@ -202,24 +211,27 @@ fetch(usersApi)
                                 },
                                 body: JSON.stringify(data) // body data type must match "Content-Type" header
                             })
+                            .then( () => {
+                                window.location.reload()
+                            })
                         }
                        
-                        selectedItem.querySelector('.user-name').textContent = userNameInput.value
-                        selectedItem.querySelector('.user-email').textContent = userEmailInput.value
-                        selectedItem.querySelector('.user-phone').textContent = userPhoneInput.value
-                        selectedItem.querySelector('.user-password').textContent = userPasswordInput.value
-                        selectedItem.querySelector('.user-isAdmin').textContent = userIsAdmin.value
+                        // selectedItem.querySelector('.user-name').textContent = userNameInput.value
+                        // selectedItem.querySelector('.user-email').textContent = userEmailInput.value
+                        // selectedItem.querySelector('.user-phone').textContent = userPhoneInput.value
+                        // selectedItem.querySelector('.user-password').textContent = userPasswordInput.value
+                        // selectedItem.querySelector('.user-isAdmin').textContent = userIsAdmin.value
                         
 
-                        userNameInput.value = ""
-                        userEmailInput.value = ""
-                        userPhoneInput.value = ""
-                        userPasswordInput.value = ""
-                        userIsAdmin.value = "True"
+                        // userNameInput.value = ""
+                        // userEmailInput.value = ""
+                        // userPhoneInput.value = ""
+                        // userPasswordInput.value = ""
+                        // userIsAdmin.value = "True"
                         
-                        selectedCheckbox.checked = false
-                        formAddUser.classList.remove('isEditing')
-                        formAddUser.style.display = 'none'
+                        // selectedCheckbox.checked = false
+                        // formAddUser.classList.remove('isEditing')
+                        // formAddUser.style.display = 'none'
                     }
 
                 }
@@ -246,7 +258,10 @@ fetch(usersApi)
                             // 'Content-Type': 'application/x-www-form-urlencoded',
                         }
                     })
-                    document.querySelector('.user-item[data-index="' + selectedCheckbox.dataset.index + '"]').remove()
+                    .then( () => {
+                        window.location.reload()
+                    })
+                    // document.querySelector('.user-item[data-index="' + selectedCheckbox.dataset.index + '"]').remove()
                 })
             }
         }

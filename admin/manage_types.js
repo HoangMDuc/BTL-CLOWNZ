@@ -1,41 +1,50 @@
 import validates from "../sign_up/validates.js"
 
+
 document.querySelector('.user_name').textContent = JSON.parse(sessionStorage.getItem('usersAccount'))["name"]
-var slidersApi = "https://62890e4b10e93797c162141e.mockapi.io/clownz/slider"
-var addSliderBtn = document.querySelector('.add-slider-btn')
-var updateSliderBtn = document.querySelector('.update-slider-btn')
-var deleteSliderBtn = document.querySelector('.delete-slider-btn')
-var formAddSlider = document.querySelector('.form-add-slider')
+var typesApi = "https://629c5b853798759975d46095.mockapi.io/api/products_type"
+var addTypeBtn = document.querySelector('.add-type-btn')
+var updateTypeBtn = document.querySelector('.update-type-btn')
+var deleteTypeBtn = document.querySelector('.delete-type-btn')
+var formAddType = document.querySelector('.form-add-type')
 var cancelBtn = document.querySelector('.cancel-btn')
 var addBtn = document.querySelector('.add-btn')
 var updateBtn = document.querySelector('.update-btn')
 var searchBtn = document.querySelector('.search-btn')
 var searchInput = document.querySelector('.search-input')
-var sliderImageInput = document.querySelector('.form-control.slider-image')
+var typeNameInput = document.querySelector('.form-control.type-name')
+var typeQuantityInput = document.querySelector('.form-control.type-quantity')
+var typeImageInput = document.querySelector('.form-control.type-image')
+var categoryIdSelect = document.querySelector('.form-control.category-id')
 var formControls = document.querySelectorAll('.form-control')
 
+fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories")
+.then(res => res.json())
+.then(categories => {
+    var htmls = categories.map( category => {
+        return `
+        <option value=${category.id}>${category.id}</option>
+        `
+    })
+    categoryIdSelect.innerHTML = htmls.join('')
+})
 
-
-
-var logoutBtn = document.querySelector('.log-out')
-logoutBtn.onclick = function () {
-    sessionStorage.setItem('login', { 'islogin': false })
-}
-
-
-addSliderBtn.onclick = function (e) {
+addTypeBtn.onclick = function (e) {
     e.preventDefault()
-    formAddSlider.style.display = 'block'
+    formAddType.style.display = 'block'
 
     addBtn.onclick = function () {
-        if (validates.isRequired(sliderImageInput)
+        if (validates.isRequired(typeNameInput)
+            && validates.isRequired(typeImageInput)
         ) {
 
             var data = {
-                "image": sliderImageInput.value
+                "name": typeNameInput.value,
+                "products_quantity": typeQuantityInput.value,
+                "image": typeImageInput.value,
 
             }
-            fetch(slidersApi, {
+            fetch(typesApi, {
                 method: 'POST', // *GET, POST, PUT, DELETE, etc.
                 headers: {
                     'Content-Type': 'application/json'
@@ -58,97 +67,86 @@ addSliderBtn.onclick = function (e) {
         }
     })
 }
-searchInput.oninput = function () {
-    if (searchInput.value.length > 0) {
+searchInput.oninput = function() { 
+    if(searchInput.value.length > 0) {
         searchBtn.removeAttribute('disabled')
-    } else {
-        searchBtn.setAttribute('disabled', null)
+    }else {
+        searchBtn.setAttribute('disabled',null)
     }
 }
 
 cancelBtn.onclick = function () {
-    formAddSlider.style.display = 'none'
-    formAddSlider.classList.remove('isEditing')
-    sliderImageInput.value = ""
+    formAddType.style.display = 'none'
+    formAddType.classList.remove('isEditing')
+    typeImageInput.value = ""
+    typeNameInput.value = ""
+    typeQuantityInput.value = 0
 }
 
-fetch(slidersApi)
+fetch(typesApi)
     .then(res => res.json())
-    .then(sliders => {
-        var htmls = sliders.map(slider => {
+    .then(types => {
+        var htmls = types.map(type => {
             return `
-                <tr class="slider" data-index=${slider.id}>
-                    <th><label for=""><input type="checkbox" class="select-checkbox" data-index=${slider.id}></label>
-                    <td><a href="" class="slider-id" data-index=${slider.id}>${slider.id}</a></td>
-                    <td colspan="3"><img src="..${slider.image}" alt="" class="slider-image"></td>
+                <tr class="type" data-index=${type.id}>
+                    <th><label for=""><input type="checkbox" class="select-checkbox" data-index=${type.id}></label>
+                    <td><a href="" class="type-id type-item" data-index=${type.id}>${type.id}</a></td>
+                    <td colspan="2" class="type-name">${type.name}</td>
+                    <td><img src="..${type.image}" alt="" class="type-img"></td>
+                    <th class="type-product-quantity">${type["products_quantity"]}</th>
                 </tr>
             `
 
         })
 
-        document.querySelector('.sliders-list').innerHTML = htmls.join('')
+        document.querySelector('.types-list').innerHTML = htmls.join('')
     })
     .then(() => {
         var checkboxs = document.querySelectorAll('.select-checkbox')
-        checkboxs.forEach(checkbox => {
-            checkbox.onchange = function () {
+        checkboxs.forEach((checkbox) => {
+            checkbox.onclick = function () {
+                // var checked
                 var checkedItem = document.querySelectorAll('input[type="checkbox"]:checked')
                 if (checkedItem.length == 1) {
-                    updateSliderBtn.removeAttribute('disabled')
-                    deleteSliderBtn.removeAttribute('disabled')
-                    addSliderBtn.setAttribute('disabled', null)
+                    updateTypeBtn.removeAttribute('disabled')
+                    deleteTypeBtn.removeAttribute('disabled')
+                    addTypeBtn.setAttribute('disabled', null)
                 } else if (checkedItem.length > 1) {
-                    updateSliderBtn.setAttribute('disabled', null)
-                    deleteSliderBtn.removeAttribute('disabled')
-                    addSliderBtn.setAttribute('disabled', null)
+                    updateTypeBtn.setAttribute('disabled', null)
+                    deleteTypeBtn.removeAttribute('disabled')
+                    addTypeBtn.setAttribute('disabled', null)
                 } else if (checkedItem.length == 0) {
-                    updateSliderBtn.setAttribute('disabled', null)
-                    deleteSliderBtn.setAttribute('disabled', null)
-                    addSliderBtn.removeAttribute('disabled')
+                    updateTypeBtn.setAttribute('disabled', null)
+                    deleteTypeBtn.setAttribute('disabled', null)
+                    addTypeBtn.removeAttribute('disabled')
                 }
             }
         })
-        // checkboxs.forEach((checkbox) => {
-        //     checkbox.onclick = function () {
-        //         // var checked
-        //         var checkedItem = document.querySelectorAll('input[type="checkbox"]:checked')
-        //         if (checkedItem.length == 1) {
-        //             updateSliderBtn.removeAttribute('disabled')
-        //             deleteSliderBtn.removeAttribute('disabled')
-        //             addSliderBtn.setAttribute('disabled', null)
-        //         } else if (checkedItem.length > 1) {
-        //             updateSliderBtn.setAttribute('disabled', null)
-        //             deleteSliderBtn.removeAttribute('disabled')
-        //             addSliderBtn.setAttribute('disabled', null)
-        //         } else if (checkedItem.length == 0) {
-        //             updateSliderBtn.setAttribute('disabled', null)
-        //             deleteSliderBtn.setAttribute('disabled', null)
-        //             addSliderBtn.removeAttribute('disabled')
-        //         }
-        //     }
-        // })
 
-        updateSliderBtn.onclick = function (e) {
+        updateTypeBtn.onclick = function (e) {
             e.preventDefault()
-            formAddSlider.classList.add('isEditing')
-            formAddSlider.style.display = 'block'
+            formAddType.classList.add('isEditing')
+            formAddType.style.display = 'block'
 
             var selectedCheckbox = document.querySelector('input[type="checkbox"]:checked')
-            var selectedItem = document.querySelector('.slider[data-index="' + selectedCheckbox.dataset.index + '"]')
+            var selectedItem = document.querySelector('.type[data-index="' + selectedCheckbox.dataset.index + '"]')
             if (selectedCheckbox.length != 0) {
-
+                typeNameInput.value = selectedItem.querySelector('.type-name').textContent
+                typeQuantityInput.value = selectedItem.querySelector('.type-product-quantity').textContent
 
                 updateBtn.onclick = function (e) {
-                    if (
-                        validates.isRequired(sliderImageInput)
+                    if (validates.isRequired(typeNameInput)
+
+                        && validates.isRequired(typeImageInput)
                     ) {
                         var data = {
 
-
-                            "image": sliderImageInput.value
+                            "name": typeNameInput.value,
+                            "products_quantity": typeQuantityInput.value,
+                            "image": typeImageInput.value,
 
                         }
-                        fetch(slidersApi + '/' + selectedCheckbox.dataset.index, {
+                        fetch(typesApi + '/' + selectedCheckbox.dataset.index, {
                             method: 'PUT', // *GET, POST, PUT, DELETE, etc.
                             headers: {
                                 'Content-Type': 'application/json'
@@ -156,16 +154,22 @@ fetch(slidersApi)
                             },
                             body: JSON.stringify(data) // body data type must match "Content-Type" header
                         })
-                            .then(() => {
-                                window.location.reload()
-                            })
-                        // selectedItem.querySelector('.slider-image').src = ".." + sliderImageInput.value
+                        .then( () => {
+                            window.location.reload()
+                        })
 
-                        // sliderImageInput.value = ""
-                        // updateSliderBtn.setAttribute('disabled',null)
+
+
+                        // selectedItem.querySelector('.type-name').textContent = typeNameInput.value
+                        // selectedItem.querySelector('.type-product-quantity').textContent = typeQuantityInput.value
+                        // selectedItem.querySelector('.type-img').src = ".." + typeImageInput.value
+
+                        // typeImageInput.value = ""
+                        // typeNameInput.value = ""
+                        // typeQuantityInput.value = 0
                         // selectedCheckbox.checked = false
-                        // formAddSlider.classList.remove('isEditing')
-                        // formAddSlider.style.display = 'none'
+                        // formAddType.classList.remove('isEditing')
+                        // formAddType.style.display = 'none'
                     }
 
                 }
@@ -179,46 +183,47 @@ fetch(slidersApi)
 
         }
 
-        deleteSliderBtn.onclick = function () {
+        deleteTypeBtn.onclick = function () {
             var selectedCheckboxs = document.querySelectorAll('input[type="checkbox"]:checked')
             if (selectedCheckboxs.length == 0) {
                 return;
             } else {
                 selectedCheckboxs.forEach(selectedCheckbox => {
-                    fetch(slidersApi + "/" + selectedCheckbox.dataset.index, {
+                    fetch(typesApi + "/" + selectedCheckbox.dataset.index, {
                         method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
                         headers: {
                             'Content-Type': 'application/json'
                             // 'Content-Type': 'application/x-www-form-urlencoded',
                         }
                     })
-                        .then(() => {
-                            window.location.reload()
-                        })
-                    // deleteSliderBtn.setAttribute('disabled',null)
-                    // document.querySelector('.slider[data-index="' + selectedCheckbox.dataset.index + '"]').remove()
+                    .then( () => {
+                        window.location.reload()
+                    })
+                    // document.querySelector('.type[data-index="' + selectedCheckbox.dataset.index + '"]').remove()
                 })
             }
         }
 
-        searchBtn.onclick = function (e) {
+        searchBtn.onclick = function(e) {
             e.preventDefault()
-            fetch(slidersApi + "/" + "?id=" + searchInput.value)
-                .then(res => res.json())
-                .then(sliders => {
-                    var htmls = sliders.map(slider => {
-                        return `
-                        <tr class="slider" data-index=${slider.id}>
-                            <th><label for=""><input type="checkbox" class="select-checkbox" data-index=${slider.id}></label>
-                            <td><a href="" class="slider-id" data-index=${slider.id}>${slider.id}</a></td>
-                            <td colspan="3"><img src="..${slider.image}" alt="" class="slider-image"></td>
+            fetch(typesApi + "/" + "?name=" + searchInput.value)
+            .then( res => res.json())
+            .then( types => {
+                var htmls = types.map(type => {
+                    return `
+                        <tr class="type" data-index=${type.id}>
+                            <th><label for=""><input type="checkbox" class="select-checkbox" data-index=${type.id}></label>
+                            <td><a href="" class="type-id type-item" data-index=${type.id}>${type.id}</a></td>
+                            <td colspan="2" class="type-name">${type.name}</td>
+                            <td><img src="..${type.image}" alt="" class="type-img"></td>
+                            <th class="type-product-quantity">${type["products_quantity"]}</th>
                         </tr>
                     `
-
-                    })
-
-                    document.querySelector('.sliders-list').innerHTML = htmls.join('')
+        
                 })
+        
+                document.querySelector('.types-list').innerHTML = htmls.join('')
+            })
         }
     })
 

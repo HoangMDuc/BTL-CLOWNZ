@@ -24,6 +24,10 @@ var shipStatus = document.querySelector('.shipStatus')
 var formControls = formAddOrder.querySelectorAll('.form-control:not(select)')
 var ordersApi = "https://629c5b853798759975d46095.mockapi.io/api/orders"
 
+var logoutBtn = document.querySelector('.log-out')
+logoutBtn.onclick = function () {
+    sessionStorage.setItem('login', { 'islogin': false })
+}
 
 document.querySelector('.user_name').textContent = JSON.parse(sessionStorage.getItem('usersAccount'))["name"]
 fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/users")
@@ -356,7 +360,10 @@ fetch(ordersApi)
                             // 'Content-Type': 'application/x-www-form-urlencoded',
                         }
                     })
-                    document.querySelector('.order-item[data-index="' + selectedCheckbox.dataset.index + '"]').remove()
+                    .then( () => {
+                        window.location.reload()
+                    })
+                    // document.querySelector('.order-item[data-index="' + selectedCheckbox.dataset.index + '"]').remove()
                 })
             }
         }

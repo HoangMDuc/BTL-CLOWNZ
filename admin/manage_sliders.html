@@ -29,7 +29,7 @@
             <div class="text-center">
                 <p>
                     <strong>Xin chào: </strong>
-                    <span class="user_name">Hoàng Minh Đức</span>
+                    <span class="user_name"></span>
                 </p>
             </div>
         </header>
@@ -42,22 +42,22 @@
                                 <a class="nav-item nav-link active" href="./home.html">QL Sản Phẩm</a>
                             </div>
                             <div class="item ">
-                                <a class="nav-item nav-link active" href="./mng_catagories.html">QL Danh Mục</a>
+                                <a class="nav-item nav-link active" href="./manage_catagories.html">QL Danh Mục</a>
                             </div>
                             <div class="item ">
-                                <a class="nav-item nav-link active" href="./mng_orders.html">QL Đơn Hàng</a>
+                                <a class="nav-item nav-link active" href="./manage_orders.html">QL Đơn Hàng</a>
                             </div>
                             <div class="item ">
-                                <a class="nav-item nav-link active" href="./mng_users.html">QL Tài khoản</a>
+                                <a class="nav-item nav-link active" href="./manage_users.html">QL Tài khoản</a>
                             </div>
                             <div class="item ">
-                                <a class="nav-item nav-link active" href="./mng_products_type.html">QL Loại Sản Phẩm</a>
+                                <a class="nav-item nav-link active" href="./manage_products_type.html">QL Loại Sản Phẩm</a>
                             </div>
                             <div class="item ">
-                                <a class="nav-item nav-link active" href="./mng_sliders.html">QL Slider</a>
+                                <a class="nav-item nav-link active" href="./manage_sliders.html">QL Slider</a>
                             </div>
                             <div class="item ">
-                                <a class="nav-item nav-link active" href="#">Đăng Xuất</a>
+                                <a class="nav-item nav-link active log-out" href="../sign_in/sign_in.html">Đăng Xuất</a>
                             </div>
                         </div>
                 </nav>
@@ -71,9 +71,9 @@
                         <nav class="">
                             <div class="container">
                                 <form class="d-flex">
-                                    <input class="form-control me-2" type="search" placeholder="Nhập tên slider"
+                                    <input class="form-control me-2 search-input" type="search" placeholder="Nhập tên slider"
                                         aria-label="">
-                                    <button class="btn btn-outline-dark" type="submit">Tìm kiếm</button>
+                                    <button class="btn btn-outline-dark search-btn" disabled type="submit">Tìm kiếm</button>
                                 </form>
                             </div>
                         </nav>
@@ -81,15 +81,15 @@
                     <div class="col-6 ">
                         <div class="d-flex mt-2 but ">
                             <div class="text-center">
-                                <a href="./mng_slider_add.html"
-                                    class="btn btn-dark btn-see-more add-slider-btn">Thêm</a>
+                                <button 
+                                    class="btn btn-dark btn-see-more add-slider-btn">Thêm</button>
                             </div>
                             <div class="">
-                                <a href="./mng_slider_add.html"
-                                    class="btn btn-dark btn-see-more update-slider-btn">Sửa</a>
+                                <button 
+                                    class="btn btn-dark btn-see-more update-slider-btn" disabled>Sửa</button>
                             </div>
                             <div class="">
-                                <button class="btn btn-dark btn-see-more delete-slider-btn" type="submit">Xóa</button>
+                                <button class="btn btn-dark btn-see-more delete-slider-btn" disabled>Xóa</button>
                             </div>
                         </div>
                     </div>
@@ -97,35 +97,13 @@
                 <table class="table table-bordered" style="text-align: start !important;">
                     <thead>
                         <tr>
-                        <tr>
                             <th>#</th>
-                            <th scope="col">STT</th>
+                            <th scope="col">ID</th>
                             <th scope="col" colspan="3">Ảnh</th>
                         </tr>
-                        </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <th><label for=""><input type="checkbox" class="radio" value="1" name="fooby[1][]"></label>
-                            <td><a href="">01</a></td>
-                            <td colspan="3">
-                                <img src="../img/admin/slider_2.webp" alt="">
-                            </td>
-                        </tr>
-                        <tr>
-                            <th><label for=""><input type="checkbox" class="radio" value="1" name="fooby[1][]"></label>
-                            <td><a href="">02</a></td>
-                            <td colspan="3">
-                                <img src="../img/admin/slider_2.webp" alt="">
-                            </td>
-                        </tr>
-                        <tr>
-                            <th><label for=""><input type="checkbox" class="radio" value="1" name="fooby[1][]"></label>
-                            <td><a href="">03</a></td>
-                            <td colspan="3">
-                                <img src="../img/admin/slider_2.webp" alt="">
-                            </td>
-                        </tr>
+                    <tbody class="sliders-list">
+                       
                     </tbody>
                 </table>
             </div>
@@ -146,7 +124,7 @@
 
                             <div class="mb-3">
                                 <label for="" class="form-label">Tải ảnh lên</label>
-                                <input type="file" class="form-control" name="" id="" placeholder=""
+                                <input type="text" class="form-control slider-image" name="" id="" placeholder=""
                                     aria-describedby="fileHelpId" rows="5">
                             </div>
 
@@ -173,23 +151,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
-    <script>
-        $("input:checkbox").on('click', function () {
-            // in the handler, 'this' refers to the box clicked on
-            var $box = $(this);
-            if ($box.is(":checked")) {
-                // the name of the box is retrieved using the .attr() method
-                // as it is assumed and expected to be immutable
-                var group = "input:checkbox[name='" + $box.attr("name") + "']";
-                // the checked state of the group/box on the other hand will change
-                // and the current value is retrieved using .prop() method
-                $(group).prop("checked", false);
-                $box.prop("checked", true);
-            } else {
-                $box.prop("checked", false);
-            }
-        });
-    </script>
+   
     <script src="./manage_sliders.js" type="module"></script>
 </body>
 

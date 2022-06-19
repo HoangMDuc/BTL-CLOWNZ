@@ -17,6 +17,11 @@ var categoryQuantityInput = document.querySelector('.form-control.category-quant
 var categoryImageInput = document.querySelector('.form-control.category-img')
 var formControls = document.querySelectorAll('.form-control')
 
+var logoutBtn = document.querySelector('.log-out')
+logoutBtn.onclick = function () {
+    sessionStorage.setItem('login', { 'islogin': false })
+}
+
 addCategoryBtn.onclick = function (e) {
     e.preventDefault()
     formAddCategory.style.display = 'block'

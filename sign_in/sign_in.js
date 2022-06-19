@@ -16,7 +16,12 @@ btnLogin.onclick = function (e) {
                 })
                 if(!userAcc) {
                     alert("Sai tài khoản")
-                }else if(userAcc.password === inputPw.value) {
+                }else if(userAcc.password !== inputPw.value) {
+                    inputPw.nextElementSibling.textContent = "Sai mật khẩu"
+                    inputPw.classList.add("invalid")
+                    inputPw.focus()
+                }
+                else if(userAcc.password === inputPw.value) {
                     
                     sessionStorage.setItem('login', JSON.stringify('true'))
                     sessionStorage.setItem('usersAccount', JSON.stringify(
