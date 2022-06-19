@@ -3,7 +3,10 @@ var usersApi = "https://62890e4b10e93797c162141e.mockapi.io/clownz/users";
 var retrievalBtn = document.querySelector('.pw-retrieval')
 var inputEmail = document.querySelector('input[name="Email"]')
 import validates from "../sign_up/validates.js";
-
+import handleClickType from "../js/clickType.js"
+import handleClickCategory from "../js/clickCategory.js"
+handleClickCategory()
+handleClickType()
 retrievalBtn.onclick = function (e) {
     e.preventDefault();
     if(validates.isEmail(inputEmail)) {

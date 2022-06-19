@@ -1,8 +1,12 @@
+import handleClickCategory from "../js/clickCategory.js";
+import handleClickType from "../js/clickType.js";
 import validates from "../sign_up/validates.js";
 var inputEmail = document.querySelector('#customer_email')
 var inputPw = document.querySelector('#customer_password')
 var btnLogin = document.querySelector('.btn-login')
 
+handleClickCategory()
+handleClickType()
 
 btnLogin.onclick = function (e) {
     
