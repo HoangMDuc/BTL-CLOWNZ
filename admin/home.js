@@ -67,7 +67,7 @@ addProductBtn.onclick = function (e) {
                 .then(res => res.json())
                 .then(category => {
                     var categoryData = {
-                        "products_quantity": category.quantity + 1
+                        "products_quantity": category["products_quantity"] + 1
                     }
                     fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories/" + productCategory.value, {
                         method: 'PUT', // *GET, POST, PUT, DELETE, etc.
@@ -83,7 +83,7 @@ addProductBtn.onclick = function (e) {
                 .then(res => res.json())
                 .then(type => {
                     var typeData = {
-                        "products_quantity": type.quantity + 1
+                        "products_quantity": type["products_quantity"] + 1
                     }
                     fetch("https://629c5b853798759975d46095.mockapi.io/api/products_type/" + productType.value, {
                         method: 'PUT', // *GET, POST, PUT, DELETE, etc.
@@ -97,6 +97,7 @@ addProductBtn.onclick = function (e) {
 
             var data = {
                 "name": productNameInput.value,
+                "price": productPriceInput.value,
                 "category_id": productCategory.value,
                 "quantity": productQuantityInput.value,
                 "image": productImageInput.value,
@@ -296,6 +297,7 @@ fetch(productApi)
                         var data = {
 
                             "name": productNameInput.value,
+                            "price": productPriceInput.value,
                             "category_id": productCategory.value,
                             "quantity": productQuantityInput.value,
                             "image": productImageInput.value,
@@ -313,7 +315,7 @@ fetch(productApi)
                             body: JSON.stringify(data) // body data type must match "Content-Type" header
                         })
                             .then(() => {
-                                // window.location.reload()
+                                window.location.reload()
                             })
                         // selectedItem.querySelector('.product-price').textContent = productPriceInput.value
                         // selectedItem.querySelector('.category-item').textContent = productCategory.value
