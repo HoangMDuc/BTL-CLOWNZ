@@ -395,6 +395,7 @@ strong {
     top: 0px;
     width: 100%;
     bottom: 0;
+    z-index: 5;
 }
 .form-body {
     

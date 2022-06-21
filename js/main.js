@@ -59,13 +59,13 @@ const App = {
                     if (index == 0) {
                         return `
                         <div class="carousel-item active" data-bs-interval="1500">
-                            <img src=".${slider.image}" class="d-block w-100" alt="..." style="height: 459.44px;">
+                            <img src=".${slider.image}" class="d-block w-100" alt="..." >
                         </div>
                     `
                     } else {
                         return `
                         <div class="carousel-item" data-bs-interval="1500">
-                            <img src=".${slider.image}" class="d-block w-100" alt="..." style="height: 459.44px;">
+                            <img src=".${slider.image}" class="d-block w-100" alt="...">
                         </div>
                     `
                     }

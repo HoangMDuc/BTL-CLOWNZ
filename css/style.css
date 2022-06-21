@@ -155,3 +155,9 @@ input{
     display: flex;
     justify-content: space-between;
 }
+
+@media (min-width: 320px ) and (max-width: 600px) {
+    .carousel-inner {
+        height: 123.36px;
+    }
+}
