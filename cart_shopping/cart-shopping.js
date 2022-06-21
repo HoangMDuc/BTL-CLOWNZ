@@ -38,7 +38,7 @@ export default function renderShoppingCart() {
                     return `
                     <div class="product-card col-12 mb-3 shopping-item" data-index=${index} >
                     <a class="text-decoration-none text-dark d-flex align-items-center ">
-                        <img class="img-product-cart" src="..${product.image[0]}" alt="">
+                        <img class="img-product-cart" src="..${product.image}" alt="">
                             <div>
                                 <div class="p-5">
                                     <p class="hover-text">${product.name} / ${cartItem["size"]}</p>

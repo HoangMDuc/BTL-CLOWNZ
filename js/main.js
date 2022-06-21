@@ -82,7 +82,7 @@ const App = {
                     var htmls = products.map(product => {
                         return `
                     <div class="col-3">
-                        <a href="./san-pham/product.html" class="text-decoration-none text-dark product-card" data-index=${product.id}>
+                        <a href="./product/product.html" class="text-decoration-none text-dark product-card" data-index=${product.id}>
                             <div class="card text-center position-relative border-0">
                                 <img class="card-img-top" src="${product.image}" alt="Backbag">
                                 <span class="position-absolute card-sticker">New Arrial</span>
@@ -144,10 +144,10 @@ const App = {
                             var htmls = products.map(product => {
                                 return `
                                 <div class="col-3">
-                                    <a href="./san-pham/product.html" class="text-decoration-none text-dark product-card" data-index=${product.id}>
+                                    <a href="./product/product.html" class="text-decoration-none text-dark product-card" data-index=${product.id}>
                                         <div class="card text-center border-0">
                                             <img class="card-img-top "
-                                                src="./${product.image}"
+                                                src=".${product.image}"
                                                 alt="Backbag">
                                             <div class="card-body" style="height: 111px">
                                                 <h4 class="text-uppercase">${product.title}</h4>
@@ -209,7 +209,7 @@ const App = {
                             var htmls = products.map(product => {
                                 return `
                                 <div class="col-3">
-                                    <a href="./san-pham/product.html" class="text-decoration-none text-dark product-card" data-index=${product.id}>
+                                    <a href="./product/product.html" class="text-decoration-none text-dark product-card" data-index=${product.id}>
                                         <div class="card text-center border-0">
                                             <img class="card-img-top "
                                                 src="./${product.image}"
@@ -274,7 +274,7 @@ const App = {
                             var htmls = products.map(product => {
                                 return `
                                 <div class="col-3">
-                                    <a href="./san-pham/product.html" class="text-decoration-none text-dark product-card" data-index=${product.id}>
+                                    <a href="./product/product.html" class="text-decoration-none text-dark product-card" data-index=${product.id}>
                                         <div class="card text-center border-0">
                                             <img class="card-img-top "
                                                 src="./${product.image}"

@@ -21,13 +21,34 @@ var userIsAdmin = document.querySelector('.form-control.user-isAdmin')
 var formControls = formAddUser.querySelectorAll('.form-control:not(select)')
 var usersApi = "https://62890e4b10e93797c162141e.mockapi.io/clownz/users"
 
+if(sessionStorage.getItem('usersAccount') != null) {
+    if(JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"] == undefined) {
+        console.log(JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"], JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"] == undefined)
+        alert("Bạn không có quyền truy cập vào đây!")
+        window.location.href = '../index.html'
+    }else {
+        if(JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"] == false) {
+            window.location.href = '../index.html'
+        }else {
+            console.log(JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"],JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"] == false)
+        }
+
+    }
+}else {
+    alert("Bạn không có quyền truy cập vào đây!")
+    window.location.href = '../index.html'
+}
 
 
 var logoutBtn = document.querySelector('.log-out')
 logoutBtn.onclick = function () {
-    sessionStorage.setItem('login', { 'islogin': false })
+    sessionStorage.setItem('login', JSON.stringify('false'))
+    sessionStorage.setItem('usersAccount', JSON.stringify(
+        {
+           
+        }
+    ))
 }
-
 document.querySelector('.user_name').textContent = JSON.parse(sessionStorage.getItem('usersAccount'))["name"]
 
 addUserBtn.onclick = function (e) {

@@ -5,23 +5,28 @@ var loginMessage = document.querySelector('.login-message')
 var user = JSON.parse(sessionStorage.getItem('usersAccount'))
 const Load = {
     start() {
-        if (JSON.parse(sessionStorage.getItem('login')) == 'true') {
-            loginBtn.style.display = "none";
-            account.style.display = "block";
-            var names = user.name.split(' ')
-            loginMessage.textContent = "Xin chào " + names[names.length-1]
+        if (sessionStorage.getItem('login') != null) {
+            if(JSON.parse(sessionStorage.getItem('login'))== 'true') {
+                loginBtn.style.display = "none";
+                account.style.display = "block";
+                var names = user.name.split(' ')
+                loginMessage.textContent = "Xin chào " + names[names.length-1]
+            }
+            
         }
         this.handleEvents()
 
     },
     handleEvents() {
-        logoutBtn.onclick = function () {
-            sessionStorage.setItem('login', { 'islogin': false })
+        logoutBtn.onclick = function (e) {
+            // e.preventDefault()
+            sessionStorage.setItem('login', JSON.stringify('false'))
             sessionStorage.setItem('usersAccount', JSON.stringify(
                 {
                    
                 }
             ))
+            
         }
     }
 }

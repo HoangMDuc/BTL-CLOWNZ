@@ -14,14 +14,34 @@ var searchInput = document.querySelector('.search-input')
 var sliderImageInput = document.querySelector('.form-control.slider-image')
 var formControls = document.querySelectorAll('.form-control')
 
+if(sessionStorage.getItem('usersAccount') != null) {
+    if(JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"] == undefined) {
+        console.log(JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"], JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"] == undefined)
+        alert("Bạn không có quyền truy cập vào đây!")
+        window.location.href = '../index.html'
+    }else {
+        if(JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"] == false) {
+            window.location.href = '../index.html'
+        }else {
+            console.log(JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"],JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"] == false)
+        }
 
+    }
+}else {
+    alert("Bạn không có quyền truy cập vào đây!")
+    window.location.href = '../index.html'
+}
 
 
 var logoutBtn = document.querySelector('.log-out')
 logoutBtn.onclick = function () {
-    sessionStorage.setItem('login', { 'islogin': false })
+    sessionStorage.setItem('login', JSON.stringify('false'))
+    sessionStorage.setItem('usersAccount', JSON.stringify(
+        {
+           
+        }
+    ))
 }
-
 
 addSliderBtn.onclick = function (e) {
     e.preventDefault()

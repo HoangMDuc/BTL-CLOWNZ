@@ -14,16 +14,37 @@ var productTitleInput = document.querySelector('.form-control.product-title')
 var productDescriptionInput = document.querySelector('.form-control.product-description')
 var productPriceInput = document.querySelector('.form-control.product-price')
 var productCategory = document.querySelector('.form-control.product-category-id')
-var productType = document.querySelector('.form-control.product-type-id')
 var productImageInput = document.querySelector('.form-control.product-img')
-
 var formControls = formAddProduct.querySelectorAll('.form-control:not(select)')
 var productApi = "https://62890e4b10e93797c162141e.mockapi.io/clownz/products"
+
+if(sessionStorage.getItem('usersAccount') != null) {
+    if(JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"] == undefined) {
+        console.log(JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"], JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"] == undefined)
+        alert("Bạn không có quyền truy cập vào đây!")
+        window.location.href = '../index.html'
+    }else {
+        if(JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"] == false) {
+            window.location.href = '../index.html'
+        }else {
+            console.log(JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"],JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"] == false)
+        }
+
+    }
+}else {
+    alert("Bạn không có quyền truy cập vào đây!")
+    window.location.href = '../index.html'
+}
 
 
 var logoutBtn = document.querySelector('.log-out')
 logoutBtn.onclick = function () {
-    sessionStorage.setItem('login', { 'islogin': false })
+    sessionStorage.setItem('login', JSON.stringify('false'))
+    sessionStorage.setItem('usersAccount', JSON.stringify(
+        {
+           
+        }
+    ))
 }
 
 
@@ -385,7 +406,7 @@ fetch(productApi)
                             body: JSON.stringify(data) // body data type must match "Content-Type" header
                         })
                             .then(() => {
-                                // window.location.reload()
+                                 window.location.reload()
                             })
                         // selectedItem.querySelector('.product-price').textContent = productPriceInput.value
                         // selectedItem.querySelector('.category-item').textContent = productCategory.value

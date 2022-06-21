@@ -22,20 +22,45 @@ fetch(categoriesApi)
     .then(res => res.json())
     .then(categories => {
 
-
         var htmls = categories.map(category => {
-            return `
-        <option value=${category.id}>${category.id}</option>
-        `
+            if(category.id != 6) {
+                return `
+                    <option value=${category.id}>${category.id}</option>
+                    `
+            }else {
+                return ''
+            }
         })
         categoryParentId.innerHTML = `<option value="undefined">Không</option>` + htmls.join('')
     })
 
+if (sessionStorage.getItem('usersAccount') != null) {
+    if (JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"] == undefined) {
+        console.log(JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"], JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"] == undefined)
+        alert("Bạn không có quyền truy cập vào đây!")
+        window.location.href = '../index.html'
+    } else {
+        if (JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"] == false) {
+            window.location.href = '../index.html'
+        } else {
+            console.log(JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"], JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"] == false)
+        }
+
+    }
+} else {
+    alert("Bạn không có quyền truy cập vào đây!")
+    window.location.href = '../index.html'
+}
 
 
 var logoutBtn = document.querySelector('.log-out')
 logoutBtn.onclick = function () {
-    sessionStorage.setItem('login', { 'islogin': false })
+    sessionStorage.setItem('login', JSON.stringify('false'))
+    sessionStorage.setItem('usersAccount', JSON.stringify(
+        {
+
+        }
+    ))
 }
 
 addCategoryBtn.onclick = function (e) {
@@ -306,7 +331,7 @@ fetch(categoriesApi)
                                 body: JSON.stringify(data) // body data type must match "Content-Type" header
                             })
                                 .then(() => {
-                                    //  window.location.reload()
+                                    window.location.reload()
                                 })
                         }
 
@@ -342,8 +367,8 @@ fetch(categoriesApi)
                     var selectedItem = document.querySelector('.category[data-index="' + selectedCheckbox.dataset.index + '"]')
                     var oldParentCategoryId = selectedItem.querySelector('.parent-category-id').textContent
                     var categoryProductQuantity = selectedItem.querySelector('.category-product-quantity').textContent
-                    
-                    
+
+
                     fetch(categoriesApi)
                         .then(res => res.json())
                         .then(categories => {
@@ -405,7 +430,7 @@ fetch(categoriesApi)
                         }
                     })
                         .then(() => {
-                             window.location.reload()
+                            window.location.reload()
                         })
                 })
             }

@@ -23,9 +23,34 @@ var detailForm = document.querySelector('.detail-form-container')
 var formControls = formAddOrder.querySelectorAll('.form-control:not(select)')
 var ordersApi = "https://629c5b853798759975d46095.mockapi.io/api/orders"
 
+
+
+if(sessionStorage.getItem('usersAccount') != null) {
+    if(JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"] == undefined) {
+        console.log(JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"], JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"] == undefined)
+        alert("Bạn không có quyền truy cập vào đây!")
+        window.location.href = '../index.html'
+    }else {
+        if(JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"] == false) {
+            window.location.href = '../index.html'
+        }else {
+            console.log(JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"],JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"] == false)
+        }
+
+    }
+}else {
+    alert("Bạn không có quyền truy cập vào đây!")
+    window.location.href = '../index.html'
+}
+
 var logoutBtn = document.querySelector('.log-out')
 logoutBtn.onclick = function () {
-    sessionStorage.setItem('login', { 'islogin': false })
+    sessionStorage.setItem('login', JSON.stringify('false'))
+    sessionStorage.setItem('usersAccount', JSON.stringify(
+        {
+           
+        }
+    ))
 }
 
 document.querySelector('.user_name').textContent = JSON.parse(sessionStorage.getItem('usersAccount'))["name"]
