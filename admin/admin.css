@@ -127,3 +127,37 @@ img{
 .badge {
     height: 22px;
 }
+
+.detail-form-container {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 12px;
+    bottom: 0;
+    display: none;
+}
+
+.detail-form-body {
+    background-color: #fff;
+    height: 440px;
+}
+
+.x-close {
+    top: 0;
+    right: 0;
+}
+
+.products-list {
+    height: 200px;
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+.view-order-detail {
+    color: #546edb;
+    text-decoration: underline;
+    cursor: pointer;
+}

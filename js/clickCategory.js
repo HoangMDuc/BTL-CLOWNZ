@@ -6,7 +6,7 @@ export default function handleClickCategory() {
             e.preventDefault();
             sessionStorage.setItem('category_id',JSON.stringify(category.dataset.index))
             
-            sessionStorage.setItem('type_id',JSON.stringify(''))
+            // sessionStorage.setItem('type_id',JSON.stringify(''))
             window.location.href = '../category/category.html'
         }
     })

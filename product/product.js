@@ -1,7 +1,6 @@
 import { Load } from "../js/load_user.js";
 
 import handleClickCategory from "../js/clickCategory.js";
-import handleClickType from "../js/clickType.js";
 import clickBuyBtn from "../js/clickBuyBtn.js"
 import renderCart from "../js/renderCart.js"
 renderCart()
@@ -84,7 +83,6 @@ function render() {
 render()
     .then((product) => {
         handleClickCategory()
-        handleClickType()
         var sizeElements = document.querySelectorAll('.size-element')
         var minusBtn = document.querySelector('.minus-btn')
         var addBtn = document.querySelector('.add-btn')

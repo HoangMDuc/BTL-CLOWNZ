@@ -1,17 +1,15 @@
 import handleClickCategory from "../js/clickCategory.js";
-import handleClickType from "../js/clickType.js";
 import validates from "../sign_up/validates.js";
 var inputEmail = document.querySelector('#customer_email')
 var inputPw = document.querySelector('#customer_password')
 var btnLogin = document.querySelector('.btn-login')
 
 handleClickCategory()
-handleClickType()
 
 btnLogin.onclick = function (e) {
     
     e.preventDefault();
-    if(validates.isEmail(inputEmail) && validates.isPassword(inputPw)) {
+    if(validates.isEmail(inputEmail) && validates.isRequired(inputPw)) {
         fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/users")
             .then(res => res.json())
             .then(users => {
@@ -59,7 +57,7 @@ inputEmail.oninput = function() {
 }
 
 inputPw.onblur = function() {
-    validates.isPassword(inputPw)
+    validates.isRequired(inputPw)
 }
 
 inputEmail.onblur = function() {

@@ -1,6 +1,5 @@
 import handleClickCategory from "./clickCategory.js"
 import handleClickProducts from "./clickProduct.js"
-import handleClickType from "./clickType.js"
 import { Load } from "./load_user.js"
 import renderCart from "./renderCart.js"
 
@@ -14,9 +13,7 @@ if (sessionStorage.getItem('product_id') === null) {
 if (sessionStorage.getItem('category_id') === null) {
     sessionStorage.setItem('category_id', '')
 }
-if (sessionStorage.getItem('type_id') === null) {
-    sessionStorage.setItem('type_id', '')
-}
+
 
 // if(localStorage.getItem('category_id') == undefined) {
 //     localStorage.setItem('category_id','') 
@@ -47,7 +44,6 @@ const App = {
     handleEvents() {
         handleClickProducts()
         handleClickCategory()
-        handleClickType()
         
     },
     loadArrival() {

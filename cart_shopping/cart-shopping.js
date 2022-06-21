@@ -1,7 +1,6 @@
 import renderCart from "../js/renderCart.js";
 import handleClickCategory from "../js/clickCategory.js"
 import handleClickProducts from "../js/clickProduct.js"
-import handleClickType from "../js/clickType.js"
 import { Load } from "../js/load_user.js";
 Load.start()
 var cartItemList = JSON.parse(sessionStorage.getItem('cart-items'))["list-items"]
@@ -105,5 +104,4 @@ export default function renderShoppingCart() {
 
 handleClickProducts()
 handleClickCategory()
-handleClickType()
 

@@ -1,7 +1,6 @@
 import { Load } from "../js/load_user.js";
 import renderCart  from "../js/renderCart.js";
 import handleClickCategory from "../js/clickCategory.js";
-import handleClickType from "../js/clickType.js";
 Load.start()
 var addressApi = "https://629c5b853798759975d46095.mockapi.io/api/user_address"
 var userNames = document.querySelectorAll('.user_name')
@@ -46,4 +45,3 @@ const App = {
 
 App.start()
 handleClickCategory()
-handleClickType()

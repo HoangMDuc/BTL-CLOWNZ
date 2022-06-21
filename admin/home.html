@@ -38,7 +38,7 @@
             <div class="block__nav ml-3 mr-3 mt-3">
                 <nav class="navbar navbar-expand-lg ml-3 mr-3">
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div class="navbar-nav menu text-center">
+                        <div class="navbar-nav justify-content-around menu text-center">
                             <div class="item  ">
                                 <a class="nav-item nav-link active" href="./home.html">QL Sản Phẩm</a>
                             </div>
@@ -51,9 +51,7 @@
                             <div class="item ">
                                 <a class="nav-item nav-link active" href="./manage_users.html">QL Tài khoản</a>
                             </div>
-                            <div class="item ">
-                                <a class="nav-item nav-link active" href="./manage_products_type.html">QL Loại Sản Phẩm</a>
-                            </div>
+                            
                             <div class="item ">
                                 <a class="nav-item nav-link active" href="./manage_sliders.html">QL Slider</a>
                             </div>
@@ -100,7 +98,6 @@
                             <th>#</th>
                             <th scope="col">Mã sản phẩm</th>
                             <th scope="col">Mã danh mục</th>
-                            <th scope="col">Mã loại</th>
                             <th scope="col" colspan="2">Tên sản phẩm</th>
                             <th scope="col">Hình ảnh</th>
                             <th scope="col">Số lượng</th>
@@ -139,22 +136,13 @@
                             </div>
                             <div class="col-2"></div>
                             <div class="col-5">
-                                <div class="">
-                                    <label for="type" class="form-label">Mã loại</label>
-                                    <select class="form-control product-type-id" name="" id="type">
-
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row ">
-                            <div class="col-5">
                                 <label for="" class="form-label">Tên sản phẩm</label>
                                 <input type="text" class="form-control product-name" name="" id=""
                                     aria-describedby="helpId" placeholder="Nhập loại sản phẩm">
                                 <span class="warning-message"></span>
                             </div>
-                            <div class="col-2"></div>
+                        </div>
+                        <div class="row ">
                             <div class="col-5">
                                 <div class="">
                                     <label for="" class="form-label">Số lượng</label>
@@ -162,35 +150,36 @@
                                         placeholder="Nhập số lượng" min="1">
                                     <span class="warning-message"></span>
                                 </div>
-
                             </div>
-                        </div>
-                        <div class="row ">
-
+                            <div class="col-2"></div>
                             <div class="col-5">
+                                
                                 <div class="">
                                     <label for="" class="form-label">Giá</label>
                                     <input type="text" class="form-control product-price" name="" id=""
                                         placeholder="Nhập giá">
                                     <span class="warning-message"></span>
                                 </div>
-
                             </div>
-                            <div class="col-2"></div>
+                        </div>
+                        <div class="row ">
+
                             <div class="col-5">
                                 <label for="" class="form-label">Tải ảnh lên</label>
                                 <input multiple type="text" class="form-control product-img" name="" id="" placeholder=""
                                     aria-describedby="fileHelpId" >
                                 <span class="warning-message"></span>
-                            </div>
-                        </div>
 
-                        <div class="">
-                            <label for="" class="form-label">Tiêu đề</label>
+                            </div>
+                            <div class="col-2"></div>
+                            <div class="col-5">
+                                <label for="" class="form-label">Tiêu đề</label>
                             <input type="text" class="form-control product-title" name="" id=""
                                 aria-describedby="helpId" placeholder="Nhập tiêu đề">
                             <span class="warning-message"></span>
+                            </div>
                         </div>
+
                         <div class="">
                             <label for="" class="form-label">Mô tả sản phẩm</label>
                             <textarea class="form-control product-description" name="" id="" rows="3"></textarea>

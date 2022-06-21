@@ -3,37 +3,41 @@ import renderCart from "./renderCart.js"
 export default function clickBuyBtn() {
     var buyBtn = document.querySelector('.buy-btn')
     buyBtn.onclick = function () {
-        var size = document.querySelector('.size-element.active').textContent
-        var product_quantity = document.querySelector('.product-quantity').value
-        var cartItems = JSON.parse(sessionStorage.getItem('cart-items'))
-        if (!checkItems(cartItems, size)) {
-            cartItems["list-items"].push({
-                "product_id": JSON.parse(sessionStorage.getItem('product_id')),
-
-                "quantity": product_quantity,
-                "size": size
-            })
+        if (JSON.parse(sessionStorage.getItem('login')) == false) {
+            alert("Vui lòng đăng nhập để mua hàng!")
         } else {
-            var vt;
-            cartItems["list-items"].forEach((element, index) => {
-                // console.log(element["product_id"] == JSON.parse(sessionStorage.getItem('product_id')))
-                if (element["product_id"] == JSON.parse(sessionStorage.getItem('product_id')) && element["size"] == size) {
-                    vt = index
+            var size = document.querySelector('.size-element.active').textContent
+            var product_quantity = document.querySelector('.product-quantity').value
+            var cartItems = JSON.parse(sessionStorage.getItem('cart-items'))
+            if (!checkItems(cartItems, size)) {
+                cartItems["list-items"].push({
+                    "product_id": JSON.parse(sessionStorage.getItem('product_id')),
+                    
+                    "quantity": product_quantity,
+                    "size": size
+                })
+            } else {
+                var vt;
+                cartItems["list-items"].forEach((element, index) => {
+                    // console.log(element["product_id"] == JSON.parse(sessionStorage.getItem('product_id')))
+                    if (element["product_id"] == JSON.parse(sessionStorage.getItem('product_id')) && element["size"] == size) {
+                        vt = index
+                    }
+                });
+                cartItems["list-items"][vt] = {
+                    "product_id": JSON.parse(sessionStorage.getItem('product_id')),
+
+                    "quantity": product_quantity,
+                    "size": size
                 }
-            });
-            cartItems["list-items"][vt] = {
-                "product_id": JSON.parse(sessionStorage.getItem('product_id')),
-
-                "quantity": product_quantity,
-                "size": size
             }
-        }
 
-        sessionStorage.setItem('cart-items', JSON.stringify(
-            cartItems
-        ))
-       renderCart()
-        
+            sessionStorage.setItem('cart-items', JSON.stringify(
+                cartItems
+            ))
+            renderCart()
+
+        }
     }
 
     function checkItems(cartItems, size) {

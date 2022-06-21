@@ -1,7 +1,6 @@
 import { Load } from "../js/load_user.js";
 import renderCart from "../js/renderCart.js"
 import handleClickCategory from "../js/clickCategory.js"
-import handleClickType from "../js/clickType.js"
 
 Load.start()
 renderCart()
@@ -25,7 +24,6 @@ const App = {
 App.start()
 
 handleClickCategory()
-handleClickType()
 
 
 fetch("https://629c5b853798759975d46095.mockapi.io/api/orders?user_id=" + user.id)

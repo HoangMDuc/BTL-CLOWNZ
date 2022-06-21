@@ -90,6 +90,7 @@ fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/products")
                     productId : product.id,
                     productQuantity: cartItem["quantity"],
                     productSize: cartItem["size"],
+                    productPrice: product.price
                 }
             })
             var date = new Date()

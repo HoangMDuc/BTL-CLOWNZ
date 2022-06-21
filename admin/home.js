@@ -41,16 +41,6 @@ fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories")
         document.querySelector('#category').innerHTML = htmls.join('')
     })
 
-fetch("https://629c5b853798759975d46095.mockapi.io/api/products_type")
-    .then(res => res.json())
-    .then(types => {
-        var htmls = types.map(type => {
-            return `
-            <option>${type.id}</option>
-            `
-        })
-        document.querySelector('#type').innerHTML = htmls.join('')
-    })
 
 
 addProductBtn.onclick = function (e) {
@@ -63,36 +53,62 @@ addProductBtn.onclick = function (e) {
             && validates.isRequired(productDescriptionInput)
         ) {
             var date = new Date()
-            fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories/" + productCategory.value)
+            var categoryId = productCategory.value
+            fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories")
                 .then(res => res.json())
-                .then(category => {
-                    var categoryData = {
-                        "products_quantity": category["products_quantity"] + 1
-                    }
-                    fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories/" + productCategory.value, {
-                        method: 'PUT', // *GET, POST, PUT, DELETE, etc.
-                        headers: {
-                            'Content-Type': 'application/json'
-                            // 'Content-Type': 'application/x-www-form-urlencoded',
-                        },
-                        body: JSON.stringify(categoryData)
+                .then(categories => {
+                    var categoryItem = categories.find((category) => {
+                        return categoryId == category.id
                     })
-                })
+                    if (categoryItem.parent_category_id != 'undefined') {
+                        var id = Number(categoryId)
+                        var parentCategoryId = [id]
+                        var parentCategoryId = [id]
 
-            fetch("https://629c5b853798759975d46095.mockapi.io/api/products_type/" + productType.value)
-                .then(res => res.json())
-                .then(type => {
-                    var typeData = {
-                        "products_quantity": type["products_quantity"] + 1
+                        while (id != undefined) {
+                            var category = categories.find(category => {
+                                return category.id == id
+                            })
+                            if (category != undefined) {
+                                if (category.parent_category_id != null) {
+                                    parentCategoryId.push(category.parent_category_id)
+                                    id = category.parent_category_id
+                                } else {
+                                    id = undefined
+                                }
+                            } else {
+                                id = undefined
+                            }
+                        }
+                        return parentCategoryId
+                    } else {
+                        return undefined
                     }
-                    fetch("https://629c5b853798759975d46095.mockapi.io/api/products_type/" + productType.value, {
-                        method: 'PUT', // *GET, POST, PUT, DELETE, etc.
-                        headers: {
-                            'Content-Type': 'application/json'
-                            // 'Content-Type': 'application/x-www-form-urlencoded',
-                        },
-                        body: JSON.stringify(typeData)
-                    })
+                })
+                .then(parentCategoryIds => {
+                    console.log(parentCategoryIds)
+                    if (parentCategoryIds != undefined) {
+                        parentCategoryIds.forEach((parentCategoryId) => {
+                            fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories" + "/" + parentCategoryId)
+                                .then(res => res.json())
+                                .then(category => {
+                                    var categoryData = {
+                                        "products_quantity": category.products_quantity + 1
+                                    }
+                                    console.log(categoryData.products_quantity)
+                                    fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories" + "/" + parentCategoryId, {
+                                        method: 'PUT', // *GET, POST, PUT, DELETE, etc.
+                                        headers: {
+                                            'Content-Type': 'application/json'
+                                            // 'Content-Type': 'application/x-www-form-urlencoded',
+                                        },
+                                        body: JSON.stringify(categoryData)
+                                    })
+                                })
+
+                        })
+                    }
+
                 })
 
             var data = {
@@ -101,7 +117,6 @@ addProductBtn.onclick = function (e) {
                 "category_id": productCategory.value,
                 "quantity": productQuantityInput.value,
                 "image": productImageInput.value,
-                "type_id": productType.value,
                 "date": date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear(),
                 "title": productTitleInput.value,
                 "description": productDescriptionInput.value
@@ -160,7 +175,6 @@ fetch(productApi)
                 <th><input type="checkbox" class="select-checkbox" data-index=${product.id}></th>
                 <td><a href="" class="product-id" data-index=${product.id}>${product.id}</a></td>
                 <td><a href="" class="category-item" data-index=${product.category_id} >${product.category_id}</a></td>
-                <td><a href="" class="type-item" data-index=${product.type_id}>${product.type_id}</a></td>
                 <td colspan="2" class="product-name">${product.name}</td>
                 <td><img src="..${product.image}" class="product-img" alt=""></td>
                 <th class="product-quantity">${product.quantity}</th>
@@ -206,13 +220,11 @@ fetch(productApi)
                 // productIdInput.value = selectedItem.querySelector('.product-id').textContent
                 productPriceInput.value = selectedItem.querySelector('.product-price').textContent
                 productCategory.value = selectedItem.querySelector('.category-item').textContent
-                productType.value = selectedItem.querySelector('.type-item').textContent
                 productNameInput.value = selectedItem.querySelector('.product-name').textContent
                 productQuantityInput.value = selectedItem.querySelector('.product-quantity').textContent
                 productTitleInput.value = selectedItem.querySelector('.product-title').textContent
                 productDescriptionInput.value = selectedItem.querySelector('.product-description').textContent
                 var oldCategoryId = selectedItem.querySelector('.category-item').textContent
-                var oldTypeId = selectedItem.querySelector('.type-item').textContent
                 updateBtn.onclick = function (e) {
                     if (validates.isRequired(productNameInput)
                         && validates.isRequired(productQuantityInput) && validates.isRequired(productPriceInput)
@@ -220,78 +232,138 @@ fetch(productApi)
                         && validates.isRequired(productDescriptionInput)
                     ) {
                         if (oldCategoryId != productCategory.value) {
-                            fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories/" + oldCategoryId)
+                            var categoryId = oldCategoryId
+                            fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories")
                                 .then(res => res.json())
-                                .then(category => {
-                                    var categoryData = {
-                                        "products_quantity": category.products_quantity - 1
-                                    }
-                                    fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories/" + oldCategoryId, {
-                                        method: 'PUT', // *GET, POST, PUT, DELETE, etc.
-                                        headers: {
-                                            'Content-Type': 'application/json'
-                                            // 'Content-Type': 'application/x-www-form-urlencoded',
-                                        },
-                                        body: JSON.stringify(categoryData)
+                                .then(categories => {
+                                    var categoryItem = categories.find((category) => {
+                                        return categoryId == category.id
                                     })
+                                    if (categoryItem.parent_category_id != 'undefined') {
+                                        var id = Number(categoryId)
+                                        var parentCategoryId = [id]
+                                        var parentCategoryId = [id]
+
+                                        while (id != undefined) {
+                                            var category = categories.find(category => {
+                                                return category.id == id
+                                            })
+                                            if (category != undefined) {
+                                                if (category.parent_category_id != null) {
+                                                    parentCategoryId.push(category.parent_category_id)
+                                                    id = category.parent_category_id
+                                                } else {
+                                                    id = undefined
+                                                }
+                                            } else {
+                                                id = undefined
+                                            }
+                                        }
+                                        return parentCategoryId
+                                    } else {
+                                        return undefined
+                                    }
+                                })
+                                .then(parentCategoryIds => {
+                                    if (parentCategoryIds != undefined) {
+                                        parentCategoryIds.forEach((parentCategoryId) => {
+                                            fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories" + "/" + parentCategoryId)
+                                                .then(res => res.json())
+                                                .then(category => {
+                                                    var categoryData = {
+                                                        "products_quantity": category.products_quantity - 1
+                                                    }
+                                                    fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories" + "/" + parentCategoryId, {
+                                                        method: 'PUT', // *GET, POST, PUT, DELETE, etc.
+                                                        headers: {
+                                                            'Content-Type': 'application/json'
+                                                            // 'Content-Type': 'application/x-www-form-urlencoded',
+                                                        },
+                                                        body: JSON.stringify(categoryData)
+                                                    })
+                                                })
+
+                                        })
+                                    }
+
                                 })
 
+                            // số lượng + 1 ở category mới
 
-                            fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories/" + productCategory.value)
+                            var newCategoryId = productCategory.value
+                            fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories")
                                 .then(res => res.json())
-                                .then(category => {
-                                    var categoryData = {
-                                        "products_quantity": category.products_quantity + 1
-                                    }
-                                    fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories/" + productCategory.value, {
-                                        method: 'PUT', // *GET, POST, PUT, DELETE, etc.
-                                        headers: {
-                                            'Content-Type': 'application/json'
-                                            // 'Content-Type': 'application/x-www-form-urlencoded',
-                                        },
-                                        body: JSON.stringify(categoryData)
+                                .then(categories => {
+                                    var categoryItem = categories.find((category) => {
+                                        return newCategoryId == category.id
                                     })
+                                    if (categoryItem.parent_category_id != 'undefined') {
+                                        var id = Number(newCategoryId)
+                                        var parentCategoryId = [id]
+                                        var parentCategoryId = [id]
+
+                                        while (id != undefined) {
+                                            var category = categories.find(category => {
+                                                return category.id == id
+                                            })
+                                            if (category != undefined) {
+                                                if (category.parent_category_id != null) {
+                                                    parentCategoryId.push(category.parent_category_id)
+                                                    id = category.parent_category_id
+                                                } else {
+                                                    id = undefined
+                                                }
+                                            } else {
+                                                id = undefined
+                                            }
+                                        }
+                                        return parentCategoryId
+                                    } else {
+                                        return undefined
+                                    }
                                 })
+                                .then(parentCategoryIds => {
+                                    if (parentCategoryIds != undefined) {
+                                        parentCategoryIds.forEach((parentCategoryId) => {
+                                            fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories" + "/" + parentCategoryId)
+                                                .then(res => res.json())
+                                                .then(category => {
+                                                    var categoryData = {
+                                                        "products_quantity": category.products_quantity + 1
+                                                    }
+                                                    fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories" + "/" + parentCategoryId, {
+                                                        method: 'PUT', // *GET, POST, PUT, DELETE, etc.
+                                                        headers: {
+                                                            'Content-Type': 'application/json'
+                                                            // 'Content-Type': 'application/x-www-form-urlencoded',
+                                                        },
+                                                        body: JSON.stringify(categoryData)
+                                                    })
+                                                })
+
+                                        })
+                                    }
+
+                                })
+                            // .then( () => {
+                            //     fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories/" + productCategory.value)
+                            //     .then(res => res.json())
+                            //     .then(category => {
+                            //         var categoryData = {
+                            //             "products_quantity": category.products_quantity + 1
+                            //         }
+                            //         fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories/" + productCategory.value, {
+                            //             method: 'PUT', // *GET, POST, PUT, DELETE, etc.
+                            //             headers: {
+                            //                 'Content-Type': 'application/json'
+                            //                 // 'Content-Type': 'application/x-www-form-urlencoded',
+                            //             },
+                            //             body: JSON.stringify(categoryData)
+                            //         })
+                            //     })
+                            // })
+
                         }
-
-                        if (oldTypeId != productType.value) {
-
-                            fetch("https://629c5b853798759975d46095.mockapi.io/api/products_type/" + oldTypeId)
-                                .then(res => res.json())
-                                .then(type => {
-                                    var typeData = {
-                                        "products_quantity": type.products_quantity - 1
-                                    }
-                                    fetch("https://629c5b853798759975d46095.mockapi.io/api/products_type/" + oldTypeId, {
-                                        method: 'PUT', // *GET, POST, PUT, DELETE, etc.
-                                        headers: {
-                                            'Content-Type': 'application/json'
-                                            // 'Content-Type': 'application/x-www-form-urlencoded',
-                                        },
-                                        body: JSON.stringify(typeData)
-                                    })
-                                })
-
-
-                            fetch("https://629c5b853798759975d46095.mockapi.io/api/products_type/" + productType.value)
-                                .then(res => res.json())
-                                .then(type => {
-                                    var typeData = {
-                                        "products_quantity": type.products_quantity + 1
-                                    }
-                                    fetch("https://629c5b853798759975d46095.mockapi.io/api/products_type/" + productType.value, {
-                                        method: 'PUT', // *GET, POST, PUT, DELETE, etc.
-                                        headers: {
-                                            'Content-Type': 'application/json'
-                                            // 'Content-Type': 'application/x-www-form-urlencoded',
-                                        },
-                                        body: JSON.stringify(typeData)
-                                    })
-                                })
-                        }
-
-
-
 
                         var date = new Date()
                         var data = {
@@ -301,7 +373,6 @@ fetch(productApi)
                             "category_id": productCategory.value,
                             "quantity": productQuantityInput.value,
                             "image": productImageInput.value,
-                            "type_id": productType.value,
                             "date": date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear(),
                             "title": productTitleInput.value,
                             "description": productDescriptionInput.value
@@ -315,7 +386,7 @@ fetch(productApi)
                             body: JSON.stringify(data) // body data type must match "Content-Type" header
                         })
                             .then(() => {
-                                window.location.reload()
+                                // window.location.reload()
                             })
                         // selectedItem.querySelector('.product-price').textContent = productPriceInput.value
                         // selectedItem.querySelector('.category-item').textContent = productCategory.value
@@ -355,40 +426,63 @@ fetch(productApi)
             } else {
                 selectedCheckboxs.forEach(selectedCheckbox => {
                     var selectedItem = document.querySelector('.product-item[data-index="' + selectedCheckbox.dataset.index + '"]')
-
-                    var productTypeId = selectedItem.querySelector('.type-item').textContent
                     var productCategoryId = selectedItem.querySelector('.category-item').textContent
-                    fetch("https://629c5b853798759975d46095.mockapi.io/api/products_type/" + productTypeId)
+                    var categoryId = productCategoryId
+                    fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories")
                         .then(res => res.json())
-                        .then(type => {
-                            var typeData = {
-                                "products_quantity": type.products_quantity - 1
-                            }
-                            fetch("https://629c5b853798759975d46095.mockapi.io/api/products_type/" + productTypeId, {
-                                method: 'PUT', // *GET, POST, PUT, DELETE, etc.
-                                headers: {
-                                    'Content-Type': 'application/json'
-                                    // 'Content-Type': 'application/x-www-form-urlencoded',
-                                },
-                                body: JSON.stringify(typeData)
+                        .then(categories => {
+                            var categoryItem = categories.find((category) => {
+                                return categoryId == category.id
                             })
+                            if (categoryItem.parent_category_id != 'undefined') {
+                                var id = Number(categoryId)
+                                var parentCategoryId = [id]
+                                var parentCategoryId = [id]
+
+                                while (id != undefined) {
+                                    var category = categories.find(category => {
+                                        return category.id == id
+                                    })
+                                    if (category != undefined) {
+                                        if (category.parent_category_id != null) {
+                                            parentCategoryId.push(category.parent_category_id)
+                                            id = category.parent_category_id
+                                        } else {
+                                            id = undefined
+                                        }
+                                    } else {
+                                        id = undefined
+                                    }
+                                }
+                                return parentCategoryId
+                            } else {
+                                return undefined
+                            }
+                        })
+                        .then(parentCategoryIds => {
+                            if (parentCategoryIds != undefined) {
+                                parentCategoryIds.forEach((parentCategoryId) => {
+                                    fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories" + "/" + parentCategoryId)
+                                        .then(res => res.json())
+                                        .then(category => {
+                                            var categoryData = {
+                                                "products_quantity": category.products_quantity - 1
+                                            }
+                                            fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories" + "/" + parentCategoryId, {
+                                                method: 'PUT', // *GET, POST, PUT, DELETE, etc.
+                                                headers: {
+                                                    'Content-Type': 'application/json'
+                                                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                                                },
+                                                body: JSON.stringify(categoryData)
+                                            })
+                                        })
+
+                                })
+                            }
+
                         })
 
-                    fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories/" + productCategoryId)
-                        .then(res => res.json())
-                        .then(category => {
-                            var categoryData = {
-                                "products_quantity": category.products_quantity - 1
-                            }
-                            fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories/" + productCategoryId, {
-                                method: 'PUT', // *GET, POST, PUT, DELETE, etc.
-                                headers: {
-                                    'Content-Type': 'application/json'
-                                    // 'Content-Type': 'application/x-www-form-urlencoded',
-                                },
-                                body: JSON.stringify(categoryData)
-                            })
-                        })
 
                     fetch(productApi + "/" + selectedCheckbox.dataset.index, {
                         method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
@@ -416,7 +510,6 @@ fetch(productApi)
                         <th><input type="checkbox" class="select-checkbox" data-index=${product.id}></th>
                         <td><a href="" class="product-id" data-index=${product.id}>${product.id}</a></td>
                         <td><a href="" class="category-item" data-index=${product.category_id} >${product.category_id}</a></td>
-                        <td><a href="" class="type-item" data-index=${product.type_id}>${product.type_id}</a></td>
                         <td colspan="2" class="product-name">${product.name}</td>
                         <td><img src="..${product.image}" class="product-img" alt=""></td>
                         <th class="product-quantity">${product.quantity}</th>

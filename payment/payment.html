@@ -18,8 +18,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="./payment.css">
-    <link rel="stylesheet" href="../css/base.css">
 </head>
 
 <body>
@@ -44,17 +44,20 @@
                         </div>
                         <div class="title__signin">
                             <a href="../sign_in/sign_in.html" style="text-decoration: none;" class="log-in">
+                                <p class="m-0 text-danger login-message d-none"></p>
                                 <i class="fa-solid fa-circle-user"></i>
                                 <span>
                                     Đăng nhập
                                 </span>
                             </a>
-                            <a href="../sign_in/sign_in.html" style="text-decoration: none;" class="log-out">
-                                <i class="fa-solid fa-right-from-bracket"></i>
-                                <span>
-                                    Đăng xuất
-                                </span>
-                            </a>
+                            <div class="account position-relative">
+                                <i class="fa-solid fa-user user-icon"></i>
+                                <div class="account-control position-absolute">
+                                    <div><a href="./account/account.html">Tài khoản</a></div>
+                                    <div><a href="./sign_in/sign_in.html" class="log-out">Đăng xuất</a></div>
+                                </div>
+                                
+                            </div>
                         </div>
                     </div>
                     <form action="" class="info__payment">

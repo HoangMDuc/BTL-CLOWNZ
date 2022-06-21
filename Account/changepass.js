@@ -2,7 +2,6 @@ import { Load } from "../js/load_user.js";
 import renderCart from "../js/renderCart.js";
 import validates from "../sign_up/validates.js"
 import handleClickCategory from "../js/clickCategory.js"
-import handleClickType from "../js/clickType.js"
 renderCart()
 
 Load.start()
@@ -16,7 +15,6 @@ const App = {
     start() {
         this.loadUserInfo() 
         handleClickCategory()
-        handleClickType()
     },
     loadUserInfo() {
         var user = JSON.parse(sessionStorage.getItem('usersAccount'))

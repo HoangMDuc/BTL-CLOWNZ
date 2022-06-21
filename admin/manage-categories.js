@@ -15,7 +15,23 @@ var searchInput = document.querySelector('.search-input')
 var categoryNameInput = document.querySelector('.form-control.category-name')
 var categoryQuantityInput = document.querySelector('.form-control.category-quantity')
 var categoryImageInput = document.querySelector('.form-control.category-img')
+var categoryParentId = document.querySelector('.form-control.parent-category-id')
 var formControls = document.querySelectorAll('.form-control')
+
+fetch(categoriesApi)
+    .then(res => res.json())
+    .then(categories => {
+
+
+        var htmls = categories.map(category => {
+            return `
+        <option value=${category.id}>${category.id}</option>
+        `
+        })
+        categoryParentId.innerHTML = `<option value="undefined">Không</option>` + htmls.join('')
+    })
+
+
 
 var logoutBtn = document.querySelector('.log-out')
 logoutBtn.onclick = function () {
@@ -33,9 +49,9 @@ addCategoryBtn.onclick = function (e) {
 
             var data = {
                 "name": categoryNameInput.value,
-                "quantity": categoryQuantityInput.value,
+                "products_quantity": 0,
                 "image": categoryImageInput.value,
-
+                "parent_category_id": categoryParentId.value
             }
             fetch(categoriesApi, {
                 method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -48,6 +64,10 @@ addCategoryBtn.onclick = function (e) {
                 .then(() => {
                     window.location.reload()
                 })
+
+
+
+
             // categoryImageInput.value = ""
             // categoryNameInput.value = ""
             // categoryQuantityInput.value = 0
@@ -60,11 +80,11 @@ addCategoryBtn.onclick = function (e) {
         }
     })
 }
-searchInput.oninput = function() { 
-    if(searchInput.value.length > 0) {
+searchInput.oninput = function () {
+    if (searchInput.value.length > 0) {
         searchBtn.removeAttribute('disabled')
-    }else {
-        searchBtn.setAttribute('disabled',null)
+    } else {
+        searchBtn.setAttribute('disabled', null)
     }
 }
 
@@ -86,6 +106,7 @@ fetch(categoriesApi)
                     <td><a href="" class="category-id category-item" data-index=${category.id}>${category.id}</a></td>
                     <td colspan="2" class="category-name">${category.name}</td>
                     <td><img src="..${category.image}" alt="" class="category-img"></td>
+                    <td class="parent-category-id">${category["parent_category_id"]}</td>
                     <th class="category-product-quantity">${category["products_quantity"]}</th>
                 </tr>
             `
@@ -122,34 +143,172 @@ fetch(categoriesApi)
             formAddCategory.style.display = 'block'
 
             var selectedCheckbox = document.querySelector('input[type="checkbox"]:checked')
-            var selectedItem = document.querySelector('.category-item[data-index="' + selectedCheckbox.dataset.index + '"]')
+            var selectedItem = document.querySelector('.category[data-index="' + selectedCheckbox.dataset.index + '"]')
+
             if (selectedCheckbox.length != 0) {
                 categoryNameInput.value = selectedItem.querySelector('.category-name').textContent
                 categoryQuantityInput.value = selectedItem.querySelector('.category-product-quantity').textContent
-
+                var oldParentCategoryId = selectedItem.querySelector('.parent-category-id').textContent
+                var categoryProductQuantity = selectedItem.querySelector('.category-product-quantity').textContent
                 updateBtn.onclick = function (e) {
                     if (validates.isRequired(categoryNameInput)
-
                         && validates.isRequired(categoryImageInput)
                     ) {
                         var data = {
-
                             "name": categoryNameInput.value,
-                            "quantity": categoryQuantityInput.value,
+                            "products_quantity": categoryQuantityInput.value,
                             "image": categoryImageInput.value,
+                            "parent_category_id": categoryParentId.value
 
                         }
-                        fetch(categoriesApi + '/' + selectedCheckbox.dataset.index, {
-                            method: 'PUT', // *GET, POST, PUT, DELETE, etc.
-                            headers: {
-                                'Content-Type': 'application/json'
-                                // 'Content-Type': 'application/x-www-form-urlencoded',
-                            },
-                            body: JSON.stringify(data) // body data type must match "Content-Type" header
-                        })
+
+                        if (oldParentCategoryId != categoryParentId.value) {
+                            if (categoryProductQuantity != 0) {
+
+                                fetch(categoriesApi)
+                                    .then(res => res.json())
+                                    .then(categories => {
+                                        if (oldParentCategoryId != 'undefined') {
+                                            var id = Number(oldParentCategoryId)
+                                            var parentCategoryId = [id]
+
+                                            while (id != undefined) {
+                                                var category = categories.find(category => {
+                                                    return category.id == id
+                                                })
+                                                if (category != undefined) {
+                                                    if (category.parent_category_id != 'undefined') {
+                                                        console.log(category.parent_category_id, category.parent_category_id != 'undefined')
+                                                        parentCategoryId.push(category.parent_category_id)
+                                                        id = category.parent_category_id
+                                                    } else {
+                                                        id = undefined
+                                                    }
+                                                } else {
+                                                    id = undefined
+                                                }
+                                            }
+                                            return parentCategoryId
+                                        } else {
+                                            return undefined
+                                        }
+                                    })
+                                    .then(parentCategoryIds => {
+                                        console.log(parentCategoryIds)
+                                        if (parentCategoryIds != undefined) {
+                                            parentCategoryIds.forEach((parentCategoryId) => {
+                                                fetch(categoriesApi + "/" + parentCategoryId)
+                                                    .then(res => res.json())
+                                                    .then(category => {
+                                                        var categoryData = {
+                                                            "products_quantity": category.products_quantity - Number(categoryProductQuantity)
+                                                        }
+                                                        fetch(categoriesApi + "/" + parentCategoryId, {
+                                                            method: 'PUT', // *GET, POST, PUT, DELETE, etc.
+                                                            headers: {
+                                                                'Content-Type': 'application/json'
+                                                                // 'Content-Type': 'application/x-www-form-urlencoded',
+                                                            },
+                                                            body: JSON.stringify(categoryData)
+                                                        })
+                                                    })
+
+                                            })
+                                        }
+
+                                    })
+
+                                fetch(categoriesApi)
+                                    .then(res => res.json())
+                                    .then(categories => {
+                                        if (categoryParentId.value != 'undefined') {
+                                            var id = Number(categoryParentId.value)
+                                            var parentCategoryId = [id]
+
+                                            while (id != undefined) {
+                                                var category = categories.find(category => {
+                                                    return category.id == id
+                                                })
+                                                if (category != undefined) {
+                                                    if (category.parent_category_id != 'undefined') {
+                                                        parentCategoryId.push(category.parent_category_id)
+                                                        id = category.parent_category_id
+                                                    } else {
+                                                        id = undefined
+                                                    }
+                                                } else {
+                                                    id = undefined
+                                                }
+                                            }
+                                            return parentCategoryId
+                                        } else {
+                                            return undefined
+                                        }
+                                    })
+                                    .then(parentCategoryIds => {
+                                        console.log(parentCategoryIds)
+                                        if (parentCategoryIds != undefined) {
+                                            parentCategoryIds.forEach((parentCategoryId) => {
+                                                fetch(categoriesApi + "/" + parentCategoryId)
+                                                    .then(res => res.json())
+                                                    .then(category => {
+                                                        var categoryData = {
+                                                            "products_quantity": category.products_quantity + Number(categoryProductQuantity)
+                                                        }
+                                                        fetch(categoriesApi + "/" + parentCategoryId, {
+                                                            method: 'PUT', // *GET, POST, PUT, DELETE, etc.
+                                                            headers: {
+                                                                'Content-Type': 'application/json'
+                                                                // 'Content-Type': 'application/x-www-form-urlencoded',
+                                                            },
+                                                            body: JSON.stringify(categoryData)
+                                                        })
+                                                    })
+
+                                            })
+                                        }
+
+                                    })
+                                fetch(categoriesApi + '/' + selectedCheckbox.dataset.index, {
+                                    method: 'PUT', // *GET, POST, PUT, DELETE, etc.
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                        // 'Content-Type': 'application/x-www-form-urlencoded',
+                                    },
+                                    body: JSON.stringify(data) // body data type must match "Content-Type" header
+                                })
+                                    .then(() => {
+                                        window.location.reload()
+                                    })
+                            } else {
+                                console.log(123)
+                                fetch(categoriesApi + '/' + selectedCheckbox.dataset.index, {
+                                    method: 'PUT', // *GET, POST, PUT, DELETE, etc.
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                        // 'Content-Type': 'application/x-www-form-urlencoded',
+                                    },
+                                    body: JSON.stringify(data) // body data type must match "Content-Type" header
+                                })
+                                    .then(() => {
+                                        window.location.reload()
+                                    })
+                            }
 
 
-
+                        } else {
+                            fetch(categoriesApi + '/' + selectedCheckbox.dataset.index, {
+                                method: 'PUT', // *GET, POST, PUT, DELETE, etc.
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                                },
+                                body: JSON.stringify(data) // body data type must match "Content-Type" header
+                            })
+                                .then(() => {
+                                    //  window.location.reload()
+                                })
+                        }
 
                         selectedItem.querySelector('.category-name').textContent = categoryNameInput.value
                         selectedItem.querySelector('.category-product-quantity').textContent = categoryQuantityInput.value
@@ -180,6 +339,64 @@ fetch(categoriesApi)
                 return;
             } else {
                 selectedCheckboxs.forEach(selectedCheckbox => {
+                    var selectedItem = document.querySelector('.category[data-index="' + selectedCheckbox.dataset.index + '"]')
+                    var oldParentCategoryId = selectedItem.querySelector('.parent-category-id').textContent
+                    var categoryProductQuantity = selectedItem.querySelector('.category-product-quantity').textContent
+                    
+                    
+                    fetch(categoriesApi)
+                        .then(res => res.json())
+                        .then(categories => {
+                            if (oldParentCategoryId != 'undefined') {
+                                var id = Number(oldParentCategoryId)
+                                var parentCategoryId = [id]
+
+                                while (id != undefined) {
+                                    var category = categories.find(category => {
+                                        return category.id == id
+                                    })
+                                    if (category != undefined) {
+                                        if (category.parent_category_id != 'undefined') {
+                                            console.log(category.parent_category_id, category.parent_category_id != 'undefined')
+                                            parentCategoryId.push(category.parent_category_id)
+                                            id = category.parent_category_id
+                                        } else {
+                                            id = undefined
+                                        }
+                                    } else {
+                                        id = undefined
+                                    }
+                                }
+                                return parentCategoryId
+                            } else {
+                                return undefined
+                            }
+                        })
+                        .then(parentCategoryIds => {
+                            console.log(parentCategoryIds)
+                            if (parentCategoryIds != undefined) {
+                                parentCategoryIds.forEach((parentCategoryId) => {
+                                    fetch(categoriesApi + "/" + parentCategoryId)
+                                        .then(res => res.json())
+                                        .then(category => {
+                                            var categoryData = {
+                                                "products_quantity": category.products_quantity - Number(categoryProductQuantity)
+                                            }
+                                            fetch(categoriesApi + "/" + parentCategoryId, {
+                                                method: 'PUT', // *GET, POST, PUT, DELETE, etc.
+                                                headers: {
+                                                    'Content-Type': 'application/json'
+                                                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                                                },
+                                                body: JSON.stringify(categoryData)
+                                            })
+                                        })
+
+                                })
+                            }
+
+                        })
+
                     fetch(categoriesApi + "/" + selectedCheckbox.dataset.index, {
                         method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
                         headers: {
@@ -187,18 +404,20 @@ fetch(categoriesApi)
                             // 'Content-Type': 'application/x-www-form-urlencoded',
                         }
                     })
-                    document.querySelector('.category[data-index="' + selectedCheckbox.dataset.index + '"]').remove()
+                        .then(() => {
+                             window.location.reload()
+                        })
                 })
             }
         }
 
-        searchBtn.onclick = function(e) {
+        searchBtn.onclick = function (e) {
             e.preventDefault()
             fetch(categoriesApi + "/" + "?search=" + searchInput.value)
-            .then( res => res.json())
-            .then( categories => {
-                var htmls = categories.map(category => {
-                    return `
+                .then(res => res.json())
+                .then(categories => {
+                    var htmls = categories.map(category => {
+                        return `
                         <tr class="category" data-index=${category.id}>
                             <th><label for=""><input type="checkbox" class="select-checkbox" data-index=${category.id}></label>
                             <td><a href="" class="category-id category-item" data-index=${category.id}>${category.id}</a></td>
@@ -207,10 +426,10 @@ fetch(categoriesApi)
                             <th class="category-product-quantity">${category["products_quantity"]}</th>
                         </tr>
                     `
-        
+
+                    })
+
+                    document.querySelector('.categories-list').innerHTML = htmls.join('')
                 })
-        
-                document.querySelector('.categories-list').innerHTML = htmls.join('')
-            })
         }
     })
