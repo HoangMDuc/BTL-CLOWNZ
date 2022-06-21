@@ -413,7 +413,7 @@ fetch(categoriesApi)
 
         searchBtn.onclick = function (e) {
             e.preventDefault()
-            fetch(categoriesApi + "/" + "?search=" + searchInput.value)
+            fetch(categoriesApi + "/" + "?name=" + searchInput.value)
                 .then(res => res.json())
                 .then(categories => {
                     var htmls = categories.map(category => {

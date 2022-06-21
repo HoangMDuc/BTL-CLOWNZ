@@ -4,7 +4,12 @@ var retrievalBtn = document.querySelector('.pw-retrieval')
 var inputEmail = document.querySelector('input[name="Email"]')
 import validates from "../sign_up/validates.js";
 import handleClickCategory from "../js/clickCategory.js"
-handleClickCategory()
+import renderMenu from "../js/renderMenu.js";
+renderMenu()
+.then( () => {
+    handleClickCategory()
+
+})
 retrievalBtn.onclick = function (e) {
     e.preventDefault();
     if(validates.isEmail(inputEmail)) {

@@ -364,7 +364,7 @@ fetch(ordersApi)
 
         searchBtn.onclick = function (e) {
             e.preventDefault()
-            fetch(ordersApi + "/" + "?search=" + searchInput.value)
+            fetch(ordersApi + "/" + "?user_id=" + searchInput.value)
                 .then(res => res.json())
                 .then(orders => {
                     var htmls = orders.map((order) => {

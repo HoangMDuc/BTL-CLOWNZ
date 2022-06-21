@@ -17,7 +17,11 @@ const Load = {
     handleEvents() {
         logoutBtn.onclick = function () {
             sessionStorage.setItem('login', { 'islogin': false })
-            loginMessage.textContent = "Chưa đăng nhập"
+            sessionStorage.setItem('usersAccount', JSON.stringify(
+                {
+                   
+                }
+            ))
         }
     }
 }

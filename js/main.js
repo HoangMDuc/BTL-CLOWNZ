@@ -2,6 +2,7 @@ import handleClickCategory from "./clickCategory.js"
 import handleClickProducts from "./clickProduct.js"
 import { Load } from "./load_user.js"
 import renderCart from "./renderCart.js"
+import renderMenu from "./renderMenu.js"
 
 if (sessionStorage.getItem('login') === null) {
     sessionStorage.setItem('login', false)
@@ -27,11 +28,11 @@ if (sessionStorage.getItem('cart-items') == null) {
 }
 
 Load.start()
+
 renderCart()
 
 const App = {
     start() {
-
         Promise.all([this.loadArrival(),
         this.loadTop(),
         this.loadBottom(),
@@ -39,12 +40,39 @@ const App = {
             .then(() => {
                 this.handleEvents();
             })
-        
+        this.loadSlider()
+        renderMenu()
+        .then( () => {
+            handleClickCategory()
+        })
     },
     handleEvents() {
         handleClickProducts()
-        handleClickCategory()
         
+
+    },
+    loadSlider() {
+        fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/slider")
+            .then(res => res.json())
+            .then(sliders => {
+                var htmls = sliders.map((slider, index) => {
+                    if (index == 0) {
+                        return `
+                        <div class="carousel-item active" data-bs-interval="1500">
+                            <img src=".${slider.image}" class="d-block w-100" alt="..." style="height: 459.44px;">
+                        </div>
+                    `
+                    } else {
+                        return `
+                        <div class="carousel-item" data-bs-interval="1500">
+                            <img src=".${slider.image}" class="d-block w-100" alt="..." style="height: 459.44px;">
+                        </div>
+                    `
+                    }
+
+                })
+                document.querySelector('.carousel-inner').innerHTML = htmls.join('') + document.querySelector('.carousel-inner').innerHTML
+            })
     },
     loadArrival() {
         return (
@@ -69,99 +97,209 @@ const App = {
                         </div>
                         </a>
                     </div>`
-                        })
-                        document.querySelector('.products-arrival').innerHTML = htmls.join('')
                     })
+                    document.querySelector('.products-arrival').innerHTML = htmls.join('')
+                })
         )
     },
     loadTop() {
+
         return (
-            fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz" + "/products?category_id=3&sortBy=date&order=desc&p=1&l=4")
+
+
+            fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories")
                 .then(res => res.json())
-                .then(products => {
-                    var htmls = products.map(product => {
-                        return `
-                    <div class="col-3">
-                    <a href="./san-pham/product.html" class="text-decoration-none text-dark product-card" data-index=${product.id}>
-                        <div class="card text-center border-0">
-                            <img class="card-img-top"
-                                src="${product.image}"
-                                alt="Backbag">
-                            <div class="card-body border-0" style="height:111px;">
-                                <h4 class="text-uppercase">${product.title}</h4>
-                                <h3 class="text-uppercase">${product.name}</h3>
-                                <strong>${product.price}đ</strong>
-                            </div>
-                        </div>
-                        <div class="product-card__actions">
-                        <button class="btn-see-more btn-main m-0 btn-detail">CHI TIẾT</button>
-                    </div>
-                    </a>
-                    </div>
-                `
-                    })
-                    document.querySelector('.products-top').innerHTML = htmls.join('')
+                .then(categories => {
+                    var parentCategoryId = [3]
+
+                    var tempCateogyId = [3]
+                    while (tempCateogyId.length != 0) {
+                        var ids = []
+                        categories.forEach((category) => {
+                            if (tempCateogyId.includes(category.parent_category_id)) {
+                                ids.push(Number(category.id))
+                            }
+                        })
+                        if (ids.length != 0) {
+                            parentCategoryId = parentCategoryId.concat(ids)
+                            tempCateogyId = ids
+                        } else {
+                            tempCateogyId = []
+                        }
+                    }
+                    return parentCategoryId
+                })
+                .then(parentCategoryId => {
+                    console.log(parentCategoryId)
+                    fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/products")
+                        .then(res => res.json())
+                        .then(productsList => {
+                            var products = productsList.filter((product) => {
+                                return parentCategoryId.includes(product.category_id)
+                            })
+                            if (products.length > 4) {
+                                var products = products.splice(0, 4)
+                            }
+                            console.log(products)
+                            var htmls = products.map(product => {
+                                return `
+                                <div class="col-3">
+                                    <a href="./san-pham/product.html" class="text-decoration-none text-dark product-card" data-index=${product.id}>
+                                        <div class="card text-center border-0">
+                                            <img class="card-img-top "
+                                                src="./${product.image}"
+                                                alt="Backbag">
+                                            <div class="card-body" style="height: 111px">
+                                                <h4 class="text-uppercase">${product.title}</h4>
+                                                <h3 class="text-uppercase">${product.name}</h3>
+                                                <strong>${product.price}</strong>
+                                            </div>
+                                        </div>
+                                        <div class="product-card__actions">
+                                            <button class="btn-see-more btn-main m-0 btn-detail">CHI TIẾT</button>
+                                        </div>
+
+                                    </a>
+                                </div>`
+
+                            })
+                            document.querySelector('.products-top').innerHTML = htmls.join('')
+
+                        })
                 })
         )
     },
     loadBottom() {
         return (
-            fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz" + "/products?sortBy=date&order=desc&p=1&l=4&category_id=4")
+
+            fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories")
                 .then(res => res.json())
-                .then(products => {
-                    var htmls = products.map(product => {
-                        return `
-                <div class="col-3">
-                    <a href="./san-pham/product.html" class="text-dark text-decoration-none product-card" data-index=${product.id}>
-                        <div class="card text-center border-0">
-                            <img class="card-img-top"
-                                src="./${product.image}"
-                                alt="Backbag">
-                            <div class="card-body" style="height: 111px">
-                                <h4 class="text-uppercase">${product.title}</h4>
-                                <h3 class="text-uppercase">${product.name}</h3>
-                                <strong>${product.price}đ</strong>
-                            </div>
-                        </div>
-                        <div class="product-card__actions">
-                        <button class="btn-see-more btn-main m-0 btn-detail">CHI TIẾT</button>
-                    </div>
-                    </a>
-                </div>`
-                    })
-                    document.querySelector('.products-bottom').innerHTML = htmls.join('')
+                .then(categories => {
+                    var parentCategoryId = [4]
+
+                    var tempCateogyId = [4]
+                    while (tempCateogyId.length != 0) {
+                        var ids = []
+                        categories.forEach((category) => {
+                            if (tempCateogyId.includes(category.parent_category_id)) {
+                                ids.push(Number(category.id))
+                            }
+                        })
+                        if (ids.length != 0) {
+                            parentCategoryId = parentCategoryId.concat(ids)
+                            tempCateogyId = ids
+                        } else {
+                            tempCateogyId = []
+                        }
+                    }
+                    return parentCategoryId
+                })
+                .then(parentCategoryId => {
+                    console.log(parentCategoryId)
+                    fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/products")
+                        .then(res => res.json())
+                        .then(productsList => {
+                            var products = productsList.filter((product) => {
+
+                                return parentCategoryId.includes(product.category_id)
+                            })
+                            if (products.length > 4) {
+                                var products = products.splice(0, 4)
+                            }
+                            var htmls = products.map(product => {
+                                return `
+                                <div class="col-3">
+                                    <a href="./san-pham/product.html" class="text-decoration-none text-dark product-card" data-index=${product.id}>
+                                        <div class="card text-center border-0">
+                                            <img class="card-img-top "
+                                                src="./${product.image}"
+                                                alt="Backbag">
+                                            <div class="card-body" style="height: 111px">
+                                                <h4 class="text-uppercase">${product.title}</h4>
+                                                <h3 class="text-uppercase">${product.name}</h3>
+                                                <strong>${product.price}</strong>
+                                            </div>
+                                        </div>
+                                        <div class="product-card__actions">
+                                            <button class="btn-see-more btn-main m-0 btn-detail">CHI TIẾT</button>
+                                        </div>
+
+                                    </a>
+                                </div>`
+
+                            })
+                            document.querySelector('.products-bottom').innerHTML = htmls.join('')
+
+                        })
                 })
         )
     },
     loadAccessory() {
         return (
-            fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz" + "/products?sortBy=date&order=desc&p=1&l=4&category_id=5")
+
+            fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories")
                 .then(res => res.json())
-                .then(products => {
-                    var htmls = products.map(product => {
-                        return `<div class="col-3">
-                <a href="./san-pham/product.html" class="text-decoration-none text-dark product-card" data-index=${product.id}>
-                    <div class="card text-center border-0">
-                        <img class="card-img-top "
-                            src="./${product.image}"
-                            alt="Backbag">
-                        <div class="card-body" style="height: 111px">
-                            <h4 class="text-uppercase">${product.title}</h4>
-                            <h3 class="text-uppercase">${product.name}</h3>
-                            <strong>${product.price}</strong>
-                        </div>
-                    </div>
-                    <div class="product-card__actions">
-                        <button class="btn-see-more btn-main m-0 btn-detail">CHI TIẾT</button>
-                    </div>
-                    
-                </a>
-                </div>`
-                    })
-                    document.querySelector('.products-accessory').innerHTML = htmls.join('')
+                .then(categories => {
+                    var parentCategoryId = [5]
+
+                    var tempCateogyId = [5]
+                    while (tempCateogyId.length != 0) {
+                        var ids = []
+                        categories.forEach((category) => {
+                            if (tempCateogyId.includes(category.parent_category_id)) {
+                                ids.push(Number(category.id))
+                            }
+                        })
+                        if (ids.length != 0) {
+                            parentCategoryId = parentCategoryId.concat(ids)
+                            tempCateogyId = ids
+                        } else {
+                            tempCateogyId = []
+                        }
+                    }
+                    return parentCategoryId
+                })
+                .then(parentCategoryId => {
+                    console.log(parentCategoryId)
+                    fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/products")
+                        .then(res => res.json())
+                        .then(productsList => {
+                            var products = productsList.filter((product) => {
+
+                                return parentCategoryId.includes(product.category_id)
+                            })
+                            if (products.length > 4) {
+                                var products = products.splice(0, 4)
+                            }
+                            var htmls = products.map(product => {
+                                return `
+                                <div class="col-3">
+                                    <a href="./san-pham/product.html" class="text-decoration-none text-dark product-card" data-index=${product.id}>
+                                        <div class="card text-center border-0">
+                                            <img class="card-img-top "
+                                                src="./${product.image}"
+                                                alt="Backbag">
+                                            <div class="card-body" style="height: 111px">
+                                                <h4 class="text-uppercase">${product.title}</h4>
+                                                <h3 class="text-uppercase">${product.name}</h3>
+                                                <strong>${product.price}</strong>
+                                            </div>
+                                        </div>
+                                        <div class="product-card__actions">
+                                            <button class="btn-see-more btn-main m-0 btn-detail">CHI TIẾT</button>
+                                        </div>
+
+                                    </a>
+                                </div>`
+
+                            })
+                            document.querySelector('.products-accessory').innerHTML = htmls.join('')
+
+                        })
                 })
         )
-    }
+    },
+    
 }
 
 App.start();

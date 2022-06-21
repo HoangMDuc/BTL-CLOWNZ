@@ -8,9 +8,15 @@ let phoneInput = document.querySelector('#phone')
 let emailInput = document.querySelector('#email')
 let password = document.querySelector("#password")
 import handleClickCategory from "../js/clickCategory.js";
+import renderMenu from "../js/renderMenu.js";
 import validates  from "./validates.js";
 
-handleClickCategory()
+renderMenu()
+.then( () => {
+    handleClickCategory()
+
+})
+
 
 var usersApi = "https://62890e4b10e93797c162141e.mockapi.io/clownz/users";
 

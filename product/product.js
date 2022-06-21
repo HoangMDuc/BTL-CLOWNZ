@@ -3,8 +3,14 @@ import { Load } from "../js/load_user.js";
 import handleClickCategory from "../js/clickCategory.js";
 import clickBuyBtn from "../js/clickBuyBtn.js"
 import renderCart from "../js/renderCart.js"
+import renderMenu from "../js/renderMenu.js";
 renderCart()
 Load.start()
+
+renderMenu()
+.then( () => {
+    handleClickCategory()
+})
 
 
 function render() {
@@ -82,7 +88,6 @@ function render() {
 
 render()
     .then((product) => {
-        handleClickCategory()
         var sizeElements = document.querySelectorAll('.size-element')
         var minusBtn = document.querySelector('.minus-btn')
         var addBtn = document.querySelector('.add-btn')

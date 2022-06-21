@@ -1,5 +1,4 @@
 import validates from "../sign_up/validates.js"
-
 var addBtn = document.querySelector('.add-btn')
 var updateBtn = document.querySelector('.update-btn')
 var addProductBtn = document.querySelector('.add-product-btn')
@@ -172,15 +171,15 @@ fetch(productApi)
         var htmls = products.map((product) => {
             return `
             <tr class="product-item" data-index=${product.id}>
-                <th><input type="checkbox" class="select-checkbox" data-index=${product.id}></th>
+                <td><input type="checkbox" class="select-checkbox" data-index=${product.id}></td>
                 <td><a href="" class="product-id" data-index=${product.id}>${product.id}</a></td>
                 <td><a href="" class="category-item" data-index=${product.category_id} >${product.category_id}</a></td>
                 <td colspan="2" class="product-name">${product.name}</td>
                 <td><img src="..${product.image}" class="product-img" alt=""></td>
-                <th class="product-quantity">${product.quantity}</th>
+                <td class="product-quantity">${product.quantity}</td>
                 <td class="product-price">${product.price}</td>
-                <th class="product-title">${product.title}</th>
-                <th class="product-description">${product.description}</th>
+                <td class="product-title">${product.title}</td>
+                <td class="product-description">${product.description}</td>
             </tr>
             `
 
@@ -501,21 +500,21 @@ fetch(productApi)
 
         searchBtn.onclick = function (e) {
             e.preventDefault()
-            fetch(productApi + "/" + "?search=" + searchInput.value)
+            fetch(productApi + "/" + "?name=" + searchInput.value)
                 .then(res => res.json())
                 .then(products => {
                     var htmls = products.map((product) => {
                         return `
                     <tr class="product-item" data-index=${product.id}>
-                        <th><input type="checkbox" class="select-checkbox" data-index=${product.id}></th>
+                        <td><input type="checkbox" class="select-checkbox" data-index=${product.id}></td>
                         <td><a href="" class="product-id" data-index=${product.id}>${product.id}</a></td>
                         <td><a href="" class="category-item" data-index=${product.category_id} >${product.category_id}</a></td>
                         <td colspan="2" class="product-name">${product.name}</td>
                         <td><img src="..${product.image}" class="product-img" alt=""></td>
-                        <th class="product-quantity">${product.quantity}</th>
+                        <td class="product-quantity">${product.quantity}</td>
                         <td class="product-price">${product.price}</td>
-                        <th class="product-title">${product.title}</th>
-                        <th class="product-description">${product.description}</th>
+                        <td class="product-title">${product.title}</td>
+                        <td class="product-description">${product.description}</td>
                     </tr>
                     `
 

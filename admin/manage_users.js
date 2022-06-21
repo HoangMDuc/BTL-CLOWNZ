@@ -268,7 +268,7 @@ fetch(usersApi)
 
         searchBtn.onclick = function (e) {
             e.preventDefault()
-            fetch(usersApi + "/" + "?search=" + searchInput.value)
+            fetch(usersApi + "/" + "?name=" + searchInput.value)
                 .then(res => res.json())
                 .then(users => {
                     var htmls = users.map((user) => {

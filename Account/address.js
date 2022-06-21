@@ -1,9 +1,13 @@
 import handleClickCategory from "../js/clickCategory.js"
 import { Load } from "../js/load_user.js"
+import renderMenu from "../js/renderMenu.js"
 import validates from "../sign_up/validates.js"
 Load.start()
-handleClickCategory()
-
+renderMenu()
+.then( () => {
+    handleClickCategory()
+    
+})
 
 var addressApi = "https://629c5b853798759975d46095.mockapi.io/api/user_address"
 var userName = document.querySelector('.user_name')

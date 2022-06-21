@@ -30,28 +30,6 @@ body {
     padding-top: 135px;
 }
 
-.header-dropdown-menu {
-    width: 200px;
-    margin: 0;
-    padding: 0;
-    top: 100% !important;
-    border-radius: 0;
-    left: -20px !important; 
-    box-shadow: 0 0 10px 0 rgb(0 0 0 / 15%);
-    position: relative;
-}
-
-.dropdown-item {
-    font-size: 1.4rem;
-    padding: 6px 10px;
-}
-.header-dropdown-menu li:last-child {
-    padding-bottom: 5px;
-}
-
-.dropdown:hover .header-dropdown-menu {
-    display: block;
-}
 
 
 
@@ -101,6 +79,9 @@ body {
 .card-body {
     margin-top: 1rem;
 }
+.carousel-inner {
+    height: 459.44px;
+}
 
 .form-style {
     /* ??? */
@@ -113,6 +94,8 @@ body {
     -webkit-transition-duration: 0.45s;
     letter-spacing: 0.25px;
 }
+
+
 
 ul {
     padding: 0;

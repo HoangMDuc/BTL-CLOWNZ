@@ -1,10 +1,15 @@
 import { Load } from "../js/load_user.js";
 import renderCart from "../js/renderCart.js"
 import handleClickCategory from "../js/clickCategory.js"
+import renderMenu from "../js/renderMenu.js";
 
 Load.start()
 renderCart()
+renderMenu()
+.then( () => {
+    handleClickCategory()
 
+})
 var userName = document.querySelector('.user_name')
 var user = JSON.parse(sessionStorage.getItem('usersAccount'))
 const App = {
@@ -23,7 +28,6 @@ const App = {
 
 App.start()
 
-handleClickCategory()
 
 
 fetch("https://629c5b853798759975d46095.mockapi.io/api/orders?user_id=" + user.id)

@@ -2,7 +2,12 @@ import { Load } from "../js/load_user.js";
 import renderCart from "../js/renderCart.js";
 import validates from "../sign_up/validates.js"
 import handleClickCategory from "../js/clickCategory.js"
+import renderMenu from "../js/renderMenu.js";
 renderCart()
+renderMenu()
+.then( () => {
+    handleClickCategory()
+})
 
 Load.start()
 var usersApi = "https://62890e4b10e93797c162141e.mockapi.io/clownz/users";
@@ -14,7 +19,6 @@ var resetPwBtn = document.querySelector('.reset-pw')
 const App = {
     start() {
         this.loadUserInfo() 
-        handleClickCategory()
     },
     loadUserInfo() {
         var user = JSON.parse(sessionStorage.getItem('usersAccount'))
