@@ -3,14 +3,14 @@ import handleClickCategory from "../js/clickCategory.js"
 import handleClickProducts from "../js/clickProduct.js"
 import renderCart from "../js/renderCart.js";
 import renderMenu from "../js/renderMenu.js";
+var sortRadios = document.querySelectorAll('.form-check-input')
 
 Load.start()
 renderCart()
 renderMenu()
-.then( () => {
-    handleClickCategory()
-
-})
+    .then(() => {
+        handleClickCategory()
+    })
 
 function renderCategory() {
     var category_id = JSON.parse(sessionStorage.getItem('category_id'))
@@ -76,7 +76,7 @@ function renderCategory() {
             })
             .then(parentCategoryId => {
 
-                fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/products")
+                fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/products?sortby=name&orderby=asc")
                     .then(res => res.json())
                     .then(productsList => {
                         var products = productsList.filter((product) => {
@@ -111,9 +111,55 @@ function renderCategory() {
                                 `
                         })
                         document.querySelector('.product-list').innerHTML = htmls.join('')
-                        handleClickCategory()
+
                         handleClickProducts()
                     })
+                return parentCategoryId
+            })
+            .then((parentCategoryId) => {
+                sortRadios.forEach(sortRadio => {
+                    sortRadio.onclick = function () {
+                        console.log("https://62890e4b10e93797c162141e.mockapi.io/clownz/products?" + sortRadio.value)
+                        fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/products?" + sortRadio.value)
+                            .then(res => res.json())
+                            .then(productsList => {
+                                var products = productsList.filter((product) => {
+
+                                    return parentCategoryId.includes(product.category_id)
+                                })
+                                fetch("https://62890e4b10e93797c162141e.mockapi.io/categories/" + category_id)
+                                    .then(res => res.json())
+                                    .then((data) => {
+
+                                        document.querySelector('.card-background').style.backgroundImage = `url('..${data.image}')`
+                                        document.querySelector('.category-name').textContent = data.name
+                                    })
+
+                                var htmls = products.map(product => {
+                                    return `
+                                <div class="col-4">
+                                    <a href="#" class="product-card text-decoration-none text-dark" data-index = ${product.id}>
+                                        <div class="card text-center">
+                                            <img class="card-img-top"
+                                                src="..${product.image}"
+                                                alt="">
+                                            <div class="card-body">
+                                                <h4 class="text-uppercase">${product.title}</h4>
+                                                <h3 class="text-uppercase">${product.name}</h3>
+                                                <strong>${product.price}đ</strong>
+
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                `
+                                })
+                                document.querySelector('.product-list').innerHTML = htmls.join('')
+
+                                handleClickProducts()
+                            })
+                    }
+                })
             })
     }
 

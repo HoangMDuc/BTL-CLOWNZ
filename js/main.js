@@ -92,7 +92,7 @@ const App = {
                                     <strong>${product.price}đ</strong>
                                 </div>
                             </div>
-                            <div class="product-card__actions">
+                            <div class="product-card__actions text-center">
                             <button class="btn-see-more btn-main m-0 btn-detail">CHI TIẾT</button>
                         </div>
                         </a>
@@ -155,7 +155,7 @@ const App = {
                                                 <strong>${product.price}</strong>
                                             </div>
                                         </div>
-                                        <div class="product-card__actions">
+                                        <div class="product-card__actions text-center">
                                             <button class="btn-see-more btn-main m-0 btn-detail">CHI TIẾT</button>
                                         </div>
 
@@ -220,7 +220,7 @@ const App = {
                                                 <strong>${product.price}</strong>
                                             </div>
                                         </div>
-                                        <div class="product-card__actions">
+                                        <div class="product-card__actions text-center">
                                             <button class="btn-see-more btn-main m-0 btn-detail">CHI TIẾT</button>
                                         </div>
 
@@ -285,7 +285,7 @@ const App = {
                                                 <strong>${product.price}</strong>
                                             </div>
                                         </div>
-                                        <div class="product-card__actions">
+                                        <div class="product-card__actions text-center">
                                             <button class="btn-see-more btn-main m-0 btn-detail">CHI TIẾT</button>
                                         </div>
 

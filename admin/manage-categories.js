@@ -76,7 +76,7 @@ addCategoryBtn.onclick = function (e) {
                 "name": categoryNameInput.value,
                 "products_quantity": 0,
                 "image": categoryImageInput.value,
-                "parent_category_id": categoryParentId.value
+                "parent_category_id": Number(categoryParentId.value)
             }
             fetch(categoriesApi, {
                 method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -119,6 +119,7 @@ cancelBtn.onclick = function () {
     categoryImageInput.value = ""
     categoryNameInput.value = ""
     categoryQuantityInput.value = 0
+    categoryParentId.querySelector('option[disabled="null"').removeAttribute('disabled')
 }
 
 fetch(categoriesApi)
@@ -167,9 +168,11 @@ fetch(categoriesApi)
             formAddCategory.classList.add('isEditing')
             formAddCategory.style.display = 'block'
 
+            
+
             var selectedCheckbox = document.querySelector('input[type="checkbox"]:checked')
             var selectedItem = document.querySelector('.category[data-index="' + selectedCheckbox.dataset.index + '"]')
-
+            categoryParentId.querySelector('option[value="' + selectedCheckbox.dataset.index +'"]').setAttribute('disabled',null)
             if (selectedCheckbox.length != 0) {
                 categoryNameInput.value = selectedItem.querySelector('.category-name').textContent
                 categoryQuantityInput.value = selectedItem.querySelector('.category-product-quantity').textContent
@@ -183,7 +186,7 @@ fetch(categoriesApi)
                             "name": categoryNameInput.value,
                             "products_quantity": categoryQuantityInput.value,
                             "image": categoryImageInput.value,
-                            "parent_category_id": categoryParentId.value
+                            "parent_category_id": Number(categoryParentId.value)
 
                         }
 
