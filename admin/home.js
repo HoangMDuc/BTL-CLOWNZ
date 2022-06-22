@@ -18,20 +18,20 @@ var productImageInput = document.querySelector('.form-control.product-img')
 var formControls = formAddProduct.querySelectorAll('.form-control:not(select)')
 var productApi = "https://62890e4b10e93797c162141e.mockapi.io/clownz/products"
 
-if(sessionStorage.getItem('usersAccount') != null) {
-    if(JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"] == undefined) {
+if (sessionStorage.getItem('usersAccount') != null) {
+    if (JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"] == undefined) {
         console.log(JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"], JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"] == undefined)
         alert("Bạn không có quyền truy cập vào đây!")
         window.location.href = '../index.html'
-    }else {
-        if(JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"] == false) {
+    } else {
+        if (JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"] == false) {
             window.location.href = '../index.html'
-        }else {
-            console.log(JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"],JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"] == false)
+        } else {
+            console.log(JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"], JSON.parse(sessionStorage.getItem('usersAccount'))["isAdmin"] == false)
         }
 
     }
-}else {
+} else {
     alert("Bạn không có quyền truy cập vào đây!")
     window.location.href = '../index.html'
 }
@@ -42,7 +42,7 @@ logoutBtn.onclick = function () {
     sessionStorage.setItem('login', JSON.stringify('false'))
     sessionStorage.setItem('usersAccount', JSON.stringify(
         {
-           
+
         }
     ))
 }
@@ -80,6 +80,7 @@ addProductBtn.onclick = function (e) {
                     var categoryItem = categories.find((category) => {
                         return categoryId == category.id
                     })
+                    console.log(categoryItem)
                     if (categoryItem.parent_category_id != 'undefined') {
                         var id = Number(categoryId)
                         var parentCategoryId = [id]
@@ -102,6 +103,23 @@ addProductBtn.onclick = function (e) {
                         }
                         return parentCategoryId
                     } else {
+                        console.log(categoryId)
+                        fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories" + "/" + categoryId)
+                            .then(res => res.json())
+                            .then(category => {
+                                var categoryData = {
+                                    "products_quantity": category.products_quantity + 1
+                                }
+                                console.log(categoryData.products_quantity)
+                                fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories" + "/" + categoryId, {
+                                    method: 'PUT', // *GET, POST, PUT, DELETE, etc.
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                        // 'Content-Type': 'application/x-www-form-urlencoded',
+                                    },
+                                    body: JSON.stringify(categoryData)
+                                })
+                            })
                         return undefined
                     }
                 })
@@ -134,7 +152,7 @@ addProductBtn.onclick = function (e) {
             var data = {
                 "name": productNameInput.value,
                 "price": productPriceInput.value,
-                "category_id": productCategory.value,
+                "category_id": Number(productCategory.value),
                 "quantity": productQuantityInput.value,
                 "image": productImageInput.value,
                 "date": date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear(),
@@ -281,6 +299,21 @@ fetch(productApi)
                                         }
                                         return parentCategoryId
                                     } else {
+                                        fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories" + "/" + categoryId)
+                                            .then(res => res.json())
+                                            .then(category => {
+                                                var categoryData = {
+                                                    "products_quantity": category.products_quantity - 1
+                                                }
+                                                fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories" + "/" + categoryId, {
+                                                    method: 'PUT', // *GET, POST, PUT, DELETE, etc.
+                                                    headers: {
+                                                        'Content-Type': 'application/json'
+                                                        // 'Content-Type': 'application/x-www-form-urlencoded',
+                                                    },
+                                                    body: JSON.stringify(categoryData)
+                                                })
+                                            })
                                         return undefined
                                     }
                                 })
@@ -390,7 +423,7 @@ fetch(productApi)
 
                             "name": productNameInput.value,
                             "price": productPriceInput.value,
-                            "category_id": productCategory.value,
+                            "category_id": Number(productCategory.value),
                             "quantity": productQuantityInput.value,
                             "image": productImageInput.value,
                             "date": date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear(),
@@ -406,7 +439,7 @@ fetch(productApi)
                             body: JSON.stringify(data) // body data type must match "Content-Type" header
                         })
                             .then(() => {
-                                 window.location.reload()
+                                window.location.reload()
                             })
                         // selectedItem.querySelector('.product-price').textContent = productPriceInput.value
                         // selectedItem.querySelector('.category-item').textContent = productCategory.value
@@ -476,6 +509,22 @@ fetch(productApi)
                                 }
                                 return parentCategoryId
                             } else {
+                                fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories" + "/" + categoryId)
+                                    .then(res => res.json())
+                                    .then(category => {
+                                        var categoryData = {
+                                            "products_quantity": category.products_quantity - 1
+                                        }
+                                        fetch("https://62890e4b10e93797c162141e.mockapi.io/clownz/categories" + "/" + categoryId, {
+                                            method: 'PUT', // *GET, POST, PUT, DELETE, etc.
+                                            headers: {
+                                                'Content-Type': 'application/json'
+                                                // 'Content-Type': 'application/x-www-form-urlencoded',
+                                            },
+                                            body: JSON.stringify(categoryData)
+                                        })
+                                    })
+
                                 return undefined
                             }
                         })

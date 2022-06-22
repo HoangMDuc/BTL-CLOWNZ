@@ -23,11 +23,11 @@ fetch(categoriesApi)
     .then(categories => {
 
         var htmls = categories.map(category => {
-            if(category.id != 6) {
+            if (category.id != 6) {
                 return `
                     <option value=${category.id}>${category.id}</option>
                     `
-            }else {
+            } else {
                 return ''
             }
         })
@@ -71,13 +71,19 @@ addCategoryBtn.onclick = function (e) {
         if (validates.isRequired(categoryNameInput)
             && validates.isRequired(categoryImageInput)
         ) {
-
+            var parentId
+            if (categoryParentId.value == 'undefined') {
+                parentId = 'undefined'
+            } else {
+                parentId = Number(categoryParentId.value)
+            }
             var data = {
                 "name": categoryNameInput.value,
                 "products_quantity": 0,
                 "image": categoryImageInput.value,
-                "parent_category_id": Number(categoryParentId.value)
+                "parent_category_id": parentId
             }
+            console.log(data)
             fetch(categoriesApi, {
                 method: 'POST', // *GET, POST, PUT, DELETE, etc.
                 headers: {
@@ -168,11 +174,11 @@ fetch(categoriesApi)
             formAddCategory.classList.add('isEditing')
             formAddCategory.style.display = 'block'
 
-            
+
 
             var selectedCheckbox = document.querySelector('input[type="checkbox"]:checked')
             var selectedItem = document.querySelector('.category[data-index="' + selectedCheckbox.dataset.index + '"]')
-            categoryParentId.querySelector('option[value="' + selectedCheckbox.dataset.index +'"]').setAttribute('disabled',null)
+            categoryParentId.querySelector('option[value="' + selectedCheckbox.dataset.index + '"]').setAttribute('disabled', null)
             if (selectedCheckbox.length != 0) {
                 categoryNameInput.value = selectedItem.querySelector('.category-name').textContent
                 categoryQuantityInput.value = selectedItem.querySelector('.category-product-quantity').textContent
@@ -182,14 +188,20 @@ fetch(categoriesApi)
                     if (validates.isRequired(categoryNameInput)
                         && validates.isRequired(categoryImageInput)
                     ) {
+                        var parentId
+                        if (categoryParentId.value == 'undefined') {
+                            parentId = 'undefined'
+                        } else {
+                            parentId = Number(categoryParentId.value)
+                        }
+
                         var data = {
                             "name": categoryNameInput.value,
                             "products_quantity": categoryQuantityInput.value,
                             "image": categoryImageInput.value,
-                            "parent_category_id": Number(categoryParentId.value)
-
+                            "parent_category_id": parentId
                         }
-
+                        console.log(data)
                         if (oldParentCategoryId != categoryParentId.value) {
                             if (categoryProductQuantity != 0) {
 
@@ -370,7 +382,6 @@ fetch(categoriesApi)
                     var selectedItem = document.querySelector('.category[data-index="' + selectedCheckbox.dataset.index + '"]')
                     var oldParentCategoryId = selectedItem.querySelector('.parent-category-id').textContent
                     var categoryProductQuantity = selectedItem.querySelector('.category-product-quantity').textContent
-
 
                     fetch(categoriesApi)
                         .then(res => res.json())
