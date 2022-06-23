@@ -52,10 +52,12 @@ btnCreateAcc.onclick = function (e) {
                         password: password.value,
                         isAdmin: false
                     }
-                    createUsers(formData);
-                    formRegister.reset();
-                    sessionStorage.setItem('login', JSON.stringify('true'))
-                    window.location.href = "../index.html"
+                    createUsers(formData)
+                    .then( () => {
+                        formRegister.reset();
+                        sessionStorage.setItem('login', JSON.stringify('true'))
+                        window.location.href = "../index.html"
+                    })
                 }
 
             })
@@ -89,27 +91,29 @@ password.onblur = function (e) {
 
 
 function createUsers(user) {
-    fetch(usersApi, {
-        method: 'POST', // or 'PUT'
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(user),
-    })
-    .then(res => res.json())
-    .then(user => {
-        sessionStorage.setItem('usersAccount', JSON.stringify(
-            {
-                'id': `${user.id}`,
-                'name': `${user.name}`,
-                'email': `${user.email}`,
-                'phoneNumber': `${user.phoneNumber}`,
-                'password': `${user.password}`,
-                'isAdmin': false
-            }
-        ))
-    })
-
+    return (
+        fetch(usersApi, {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(user),
+        })
+        .then(res => res.json())
+        .then(user => {
+            sessionStorage.setItem('usersAccount', JSON.stringify(
+                {
+                    'id': `${user.id}`,
+                    'name': `${user.name}`,
+                    'email': `${user.email}`,
+                    'phoneNumber': `${user.phoneNumber}`,
+                    'password': `${user.password}`,
+                    'isAdmin': false
+                }
+            ))
+        })
+    
+    )
 }
 
 
